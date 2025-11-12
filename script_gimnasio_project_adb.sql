@@ -24,7 +24,7 @@ CREATE TABLE Clase(
 	Id INT PRIMARY KEY NOT NULL IDENTITY (1,1),
     Id_Entrenador INT,
     Nombre NVARCHAR(50) NOT NULL,
-    Descripcion TEXT,
+    Descripcion NVARCHAR(200),
     Capacidad INT DEFAULT(20),
     Hora_Inicio TIME,
     Hora_Fin TIME,
@@ -51,7 +51,7 @@ CREATE TABLE Reserva (
     Id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
     id_socio INT NOT NULL,
     id_grupo_de_clase INT NOT NULL,
-    Fecha_Reserva DATETIME DEFAULT NOW(),
+    Fecha_Reserva DATETIME DEFAULT GETDATE(),
     Estado_Reserva NVARCHAR(10) NOT NULL CONSTRAINT chk_estado_reserva 
     CHECK(Estado_Reserva IN ('Activa','Cancelada','Completada')) DEFAULT 'Activa'
 );
@@ -65,45 +65,39 @@ CREATE TABLE Pago (
     Tipo_Pago NVARCHAR(10) NOT NULL CONSTRAINT chk_tipo_pago 
     CHECK (Tipo_Pago IN ('Mensual','Clase')),
     Metodo_Pago NVARCHAR(20) NOT NULL CONSTRAINT chk_metodo_pago 
-    CHECK (Metodo_Pago IN ('Efectivo','Tarjeta','Transferencia'))     
+    CHECK (Metodo_Pago IN ('Efectivo','Tarjeta','Transferencia')),     
+    Monto DECIMAL(10,2) NOT NULL DEFAULT 0
 );
 GO
 
 --Llaves foraneas
-ALTER TABLE RESERVA
-ADD CONSTRAINT FK_RESERVA_SOCIO
-FOREIGN KEY (id_socio)
-REFERENCES SOCIO(id);
+ALTER TABLE Reserva
+ADD CONSTRAINT FK_Reserva_Socio
+FOREIGN KEY (id_socio) REFERENCES Socio(Id);
 
-ALTER TABLE RESERVA
-ADD CONSTRAINT FK_RESERVA_GRUPODECLASE
-FOREIGN KEY (id_grupo_de_clase)
-REFERENCES GRUPO_DE_CLASE(id);
+ALTER TABLE Reserva
+ADD CONSTRAINT FK_Reserva_GrupoDeClase
+FOREIGN KEY (id_grupo_de_clase) REFERENCES Grupo_de_Clase(Id);
 
-ALTER TABLE PAGO
-ADD CONSTRAINT FK_PAGO_GRUPODECLASE
-FOREIGN KEY (id_grupo_de_clase)
-REFERENCES GRUPO_DE_CLASE (id);
+ALTER TABLE Pago
+ADD CONSTRAINT FK_Pago_GrupoDeClase
+FOREIGN KEY (id_grupo_de_clase) REFERENCES Grupo_de_Clase(Id);
 
-ALTER TABLE PAGO
-ADD CONSTRAINT FK_PAGO_ENTRENADOR
-FOREIGN KEY (id_entrenador)
-REFERENCES ENTRENADOR(id);
+ALTER TABLE Pago
+ADD CONSTRAINT FK_Pago_Entrenador
+FOREIGN KEY (id_entrenador) REFERENCES Entrenador(Id);
 
-ALTER TABLE PAGO
-ADD CONSTRAINT FK_PAGO_SOCIO
-FOREIGN KEY (id_socio)
-REFERENCES SOCIO(id)
+ALTER TABLE Pago
+ADD CONSTRAINT FK_Pago_Socio
+FOREIGN KEY (id_socio) REFERENCES Socio(Id);
 
-ALTER TABLE CLASE
-ADD CONSTRAINT FK_CLASE_ENTRENADOR
-FOREIGN KEY (id_entrenador)
-REFERENCES ENTRENADOR(id);
+ALTER TABLE Clase
+ADD CONSTRAINT FK_Clase_Entrenador
+FOREIGN KEY (Id_Entrenador) REFERENCES Entrenador(Id);
 
-ALTER TABLE GRUPO_DE_CLASE
-ADD CONSTRAINT FK_GRUPODECLASE_CLASE
-FOREIGN KEY (id_clase)
-REFERENCES CLASE(id)
+ALTER TABLE Grupo_de_Clase
+ADD CONSTRAINT FK_GrupoDeClase_Clase
+FOREIGN KEY (id_clase) REFERENCES Clase(Id);
 
 --Datos quemados:
 INSERT INTO Socio (Nombre, Apellido, Fecha_nacimiento, Telefono, Email, Estado) VALUES
