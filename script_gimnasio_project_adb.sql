@@ -1,59 +1,75 @@
 USE master;
-sp_configure 'contained database authentication',1;
+
+EXEC sp_configure 'contained database authentication',1;
+RECONFIGURE;
+GO
 
 CREATE DATABASE GIMNASIO_DB containment = partial;
 
 USE GIMNASIO_DB;
 
-CREATE TABLE SOCIO (
-	id INT IDENTITY (1,1) PRIMARY KEY,
-	nombre NVARCHAR(100) NOT NULL,
-	telefono NVARCHAR (20),
-	correo NVARCHAR(100) UNIQUE CHECK (
-		correo LIKE '_%@_%._%'
-	)
+CREATE TABLE Socio (
+    Id INT PRIMARY KEY NOT NULL IDENTITY (1,1),
+    Nombre NVARCHAR(50) NOT NULL,
+    Apellido NVARCHAR(50) NOT NULL,
+    Fecha_nacimiento DATE,
+    Telefono NVARCHAR (15) UNIQUE,
+    Email NVARCHAR(100) UNIQUE,
+    Fecha_registro DATETIME DEFAULT GETDATE(),
+    Estado NVARCHAR(10) DEFAULT 'Activo'
+    CONSTRAINT chk_Estado CHECK (Estado IN ('Activo', 'Inactivo'))
 );
 
-CREATE TABLE CLASE(
-	id INT IDENTITY(1,1) PRIMARY KEY,
-	id_entrenador INT NOT NULL,
-	valor_de_clase DECIMAL(10,2),
-	mensualidad DECIMAL(10,2)
+CREATE TABLE Clase(
+	Id INT PRIMARY KEY NOT NULL IDENTITY (1,1),
+    Id_Entrenador INT,
+    Nombre NVARCHAR(50) NOT NULL,
+    Descripcion TEXT,
+    Capacidad INT DEFAULT(20),
+    Hora_Inicio TIME,
+    Hora_Fin TIME,
+    Dia_Semana NVARCHAR(10) NOT NULL CONSTRAINT chk_dia_semana CHECK (Dia_Semana IN 
+    ('Lunes', 'Martes','Miercoles','Jueves','Viernes','Sabado','Domingo'))
 );
 
-CREATE TABLE ENTRENADOR (
-    id INT IDENTITY(1,1) PRIMARY KEY,
-    nombre NVARCHAR(100) NOT NULL,
-    correo NVARCHAR(100),
-    especialidad NVARCHAR(100),
-    sueldo DECIMAL(10,2)  
+CREATE TABLE Entrenador (
+    Id INT PRIMARY KEY NOT NULL IDENTITY (1,1),
+    Nombre NVARCHAR(100) NOT NULL,
+    Correo NVARCHAR(100) UNIQUE,
+    Especialidad NVARCHAR(100),
+    sueldo DECIMAL(8,2)  
 );
 
-CREATE TABLE GRUPO_DE_CLASE (
-    id INT IDENTITY(1,1) PRIMARY KEY,
+CREATE TABLE Grupo_de_Clase (
+    Id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
     horario NVARCHAR(100),
     capacidad INT,
 	id_clase INT
 );
 
-CREATE TABLE RESERVA (
-  id INT IDENTITY(1,1) PRIMARY KEY,
-  id_socio INT NOT NULL,
-  id_grupo_de_clase INT NOT NULL
+CREATE TABLE Reserva (
+    Id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
+    id_socio INT NOT NULL,
+    id_grupo_de_clase INT NOT NULL,
+    Fecha_Reserva DATETIME DEFAULT NOW(),
+    Estado_Reserva NVARCHAR(10) NOT NULL CONSTRAINT chk_estado_reserva 
+    CHECK(Estado_Reserva IN ('Activa','Cancelada','Completada')) DEFAULT 'Activa'
 );
 
-CREATE TABLE PAGO (
-    id INT IDENTITY(1,1) PRIMARY KEY,
+CREATE TABLE Pago (
+    id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
     id_socio INT NOT NULL,
     id_grupo_de_clase INT NULL,        
-    id_entrenador INT NULL,     
-    monto DECIMAL(10,2) NOT NULL,
-    metodo_pago NVARCHAR(50) NULL,
-    fecha_y_hora DATETIME DEFAULT GETDATE()
+    id_entrenador INT NULL,
+    Fecha_Pago DATETIME DEFAULT GETDATE(),
+    Tipo_Pago NVARCHAR(10) NOT NULL CONSTRAINT chk_tipo_pago 
+    CHECK (Tipo_Pago IN ('Mensual','Clase')),
+    Metodo_Pago NVARCHAR(20) NOT NULL CONSTRAINT chk_metodo_pago 
+    CHECK (Metodo_Pago IN ('Efectivo','Tarjeta','Transferencia'))     
 );
 GO
 
-
+--Llaves foraneas
 ALTER TABLE RESERVA
 ADD CONSTRAINT FK_RESERVA_SOCIO
 FOREIGN KEY (id_socio)
@@ -79,7 +95,6 @@ ADD CONSTRAINT FK_PAGO_SOCIO
 FOREIGN KEY (id_socio)
 REFERENCES SOCIO(id)
 
-
 ALTER TABLE CLASE
 ADD CONSTRAINT FK_CLASE_ENTRENADOR
 FOREIGN KEY (id_entrenador)
@@ -91,116 +106,167 @@ FOREIGN KEY (id_clase)
 REFERENCES CLASE(id)
 
 --Datos quemados:
-INSERT INTO SOCIO (nombre, telefono, correo) VALUES
-('Ana García López', '555-1001', 'ana.garcia@email.com'),
-('Carlos Rodríguez Santos', '555-1002', 'carlos.rodriguez@email.com'),
-('María Hernández Díaz', '555-1003', 'maria.hernandez@email.com'),
-('Javier Martínez Ruiz', '555-1004', 'javier.martinez@email.com'),
-('Laura González Pérez', '555-1005', 'laura.gonzalez@email.com'),
-('Miguel Sánchez Castro', '555-1006', 'miguel.sanchez@email.com'),
-('Isabel Torres Mendoza', '555-1007', 'isabel.torres@email.com'),
-('Roberto Vargas Rojas', '555-1008', 'roberto.vargas@email.com'),
-('Carmen Silva Ortega', '555-1009', 'carmen.silva@email.com'),
-('David Morales Herrera', '555-1010', 'david.morales@email.com'),
-('Sofia Navarro Jiménez', '555-1011', 'sofia.navarro@email.com'),
-('Alejandro Romero Flores', '555-1012', 'alejandro.romero@email.com'),
-('Patricia Cruz Vega', '555-1013', 'patricia.cruz@email.com'),
-('Fernando Reyes Paredes', '555-1014', 'fernando.reyes@email.com'),
-('Elena Medina Soto', '555-1015', 'elena.medina@email.com'),
-('José Luis Guerrero Campos', '555-1016', 'josel.guerrero@email.com'),
-('Adriana Ríos Delgado', '555-1017', 'adriana.rios@email.com'),
-('Ricardo Peña Mora', '555-1018', 'ricardo.pena@email.com'),
-('Gabriela Cortés Núñez', '555-1019', 'gabriela.cortes@email.com'),
-('Manuel Aguilar Salazar', '555-1020', 'manuel.aguilar@email.com'),
-('Daniela Ponce León', '555-1021', 'daniela.ponce@email.com'),
-('Sergio Montes Cervantes', '555-1022', 'sergio.montes@email.com'),
-('Lucía Valencia Cordero', '555-1023', 'lucia.valencia@email.com'),
-('Arturo Meza Guzmán', '555-1024', 'arturo.meza@email.com'),
-('Verónica Ortiz Ramírez', '555-1025', 'veronica.ortiz@email.com');
+INSERT INTO Socio (Nombre, Apellido, Fecha_nacimiento, Telefono, Email, Estado) VALUES
+('Juan', 'PÃ©rez', '1990-05-15', '555-1234', 'juan.perez@email.com', 'Activo'),
+('MarÃ­a', 'GÃ³mez', '1985-08-22', '555-5678', 'maria.gomez@email.com', 'Activo'),
+('Carlos', 'LÃ³pez', '1992-03-10', '555-9012', 'carlos.lopez@email.com', 'Activo'),
+('Ana', 'MartÃ­nez', '1988-11-30', '555-3456', 'ana.martinez@email.com', 'Inactivo'),
+('Luis', 'RodrÃ­guez', '1995-07-18', '555-7890', 'luis.rodriguez@email.com', 'Activo'),
+('SofÃ­a', 'HernÃ¡ndez', '1991-12-05', '555-2345', 'sofia.hernandez@email.com', 'Activo'),
+('Pedro', 'DÃ­az', '1987-04-25', '555-6789', 'pedro.diaz@email.com', 'Activo'),
+('Laura', 'Torres', '1993-09-12', '555-0123', 'laura.torres@email.com', 'Inactivo'),
+('Miguel', 'SÃ¡nchez', '1989-06-08', '555-4567', 'miguel.sanchez@email.com', 'Activo'),
+('Elena', 'RamÃ­rez', '1994-01-20', '555-8901', 'elena.ramirez@email.com', 'Activo'),
+('Jorge', 'Flores', '1986-02-14', '555-1357', 'jorge.flores@email.com', 'Activo'),
+('Carmen', 'Vargas', '1990-10-03', '555-2468', 'carmen.vargas@email.com', 'Inactivo'),
+('Fernando', 'Castro', '1984-07-29', '555-3579', 'fernando.castro@email.com', 'Activo'),
+('Isabel', 'Reyes', '1992-08-17', '555-4680', 'isabel.reyes@email.com', 'Activo'),
+('Ricardo', 'Morales', '1988-05-11', '555-5791', 'ricardo.morales@email.com', 'Activo'),
+('Patricia', 'Ortega', '1991-11-23', '555-6802', 'patricia.ortega@email.com', 'Inactivo'),
+('Roberto', 'Guerrero', '1987-03-07', '555-7913', 'roberto.guerrero@email.com', 'Activo'),
+('Diana', 'Mendoza', '1993-12-15', '555-8024', 'diana.mendoza@email.com', 'Activo'),
+('Antonio', 'Silva', '1985-09-28', '555-9135', 'antonio.silva@email.com', 'Activo'),
+('Gabriela', 'Rojas', '1994-04-02', '555-0246', 'gabriela.rojas@email.com', 'Inactivo'),
+('Francisco', 'Navarro', '1989-01-19', '555-1358', 'francisco.navarro@email.com', 'Activo'),
+('VerÃ³nica', 'Cruz', '1990-06-24', '555-2469', 'veronica.cruz@email.com', 'Activo'),
+('JosÃ©', 'MejÃ­a', '1986-08-13', '555-3570', 'jose.mejia@email.com', 'Activo'),
+('Teresa', 'Acosta', '1992-02-09', '555-4681', 'teresa.acosta@email.com', 'Inactivo'),
+('Alejandro', 'Miranda', '1988-10-31', '555-5792', 'alejandro.miranda@email.com', 'Activo');
 
-INSERT INTO ENTRENADOR (nombre, correo, especialidad, sueldo) VALUES
-('Carlos Mendoza', 'carlos.mendoza@gimnasio.com', 'CrossFit', 25000.00),
-('Sofia Rojas', 'sofia.rojas@gimnasio.com', 'Yoga', 22000.00),
-('Andrés Castillo', 'andres.castillo@gimnasio.com', 'Boxeo', 28000.00),
-('Valeria Paredes', 'valeria.paredes@gimnasio.com', 'Pilates', 23000.00),
-('Roberto Núñez', 'roberto.nunez@gimnasio.com', 'Spinning', 24000.00),
-('Daniela Mejía', 'daniela.mejia@gimnasio.com', 'Zumba', 21000.00),
-('Luis Fernández', 'luis.fernandez@gimnasio.com', 'Musculación', 26000.00),
-('Camila Ortega', 'camila.ortez@gimnasio.com', 'Aeróbicos', 22500.00),
-('Jorge Medina', 'jorge.medina@gimnasio.com', 'Artes Marciales', 27000.00),
-('Natalia Vega', 'natalia.vega@gimnasio.com', 'TRX', 24500.00),
-('Raúl Soto', 'raul.soto@gimnasio.com', 'Funcional', 25500.00),
-('Andrea Cruz', 'andrea.cruz@gimnasio.com', 'Danza', 21500.00),
-('Mario León', 'mario.leon@gimnasio.com', 'Calistenia', 26500.00),
-('Gabriela Mora', 'gabriela.mora@gimnasio.com', 'Yoga Avanzado', 23500.00),
-('Héctor Reyes', 'hector.reyes@gimnasio.com', 'Powerlifting', 29000.00),
-('Paola Cervantes', 'paola.cervantes@gimnasio.com', 'Pilates Reformer', 24000.00),
-('Sergio Guzmán', 'sergio.guzman@gimnasio.com', 'CrossFit Avanzado', 27500.00),
-('Elena Montes', 'elena.montes@gimnasio.com', 'Yoga Terapéutico', 22800.00),
-('Alberto Ríos', 'alberto.rios@gimnasio.com', 'Boxeo Olímpico', 28500.00),
-('Verónica Salas', 'veronica.salas@gimnasio.com', 'Spinning Interválico', 25000.00),
-('Óscar Delgado', 'oscar.delgado@gimnasio.com', 'Musculación Avanzada', 30000.00),
-('Diana Ponce', 'diana.ponce@gimnasio.com', 'Zumba Gold', 21800.00),
-('Felipe Cordero', 'felipe.cordero@gimnasio.com', 'Funcional Intenso', 26000.00),
-('Jimena Valencia', 'jimena.valencia@gimnasio.com', 'Pilates Mat', 23200.00),
-('Ricardo Peña', 'ricardo.pena@gimnasio.com', 'TRX Suspension', 24800.00);
 
-INSERT INTO CLASE (id_entrenador, valor_de_clase, mensualidad) VALUES
-(1, 350.00, 1200.00), (2, 300.00, 1000.00), (3, 400.00, 1500.00), (4, 320.00, 1100.00),
-(5, 380.00, 1300.00), (6, 280.00, 900.00), (7, 450.00, 1600.00), (8, 310.00, 1050.00),
-(9, 420.00, 1450.00), (10, 370.00, 1250.00), (11, 390.00, 1350.00), (12, 290.00, 950.00),
-(13, 430.00, 1550.00), (14, 340.00, 1150.00), (15, 470.00, 1700.00), (16, 330.00, 1080.00),
-(17, 410.00, 1400.00), (18, 360.00, 1200.00), (19, 440.00, 1580.00), (20, 375.00, 1280.00),
-(21, 460.00, 1650.00), (22, 305.00, 980.00), (23, 385.00, 1320.00), (24, 325.00, 1020.00),
-(25, 395.00, 1380.00);
+INSERT INTO Entrenador (Nombre, Correo, Especialidad, sueldo) VALUES
+('Carlos Rivera', 'carlos.rivera@gimnasio.com', 'CrossFit', 2500.00),
+('Ana GarcÃ­a', 'ana.garcia@gimnasio.com', 'Yoga', 2200.00),
+('Miguel Torres', 'miguel.torres@gimnasio.com', 'Spinning', 2300.00),
+('Laura Mendoza', 'laura.mendoza@gimnasio.com', 'Pilates', 2100.00),
+('Roberto SÃ¡nchez', 'roberto.sanchez@gimnasio.com', 'Boxeo', 2400.00),
+('Sofia Castro', 'sofia.castro@gimnasio.com', 'Zumba', 2000.00),
+('Javier LÃ³pez', 'javier.lopez@gimnasio.com', 'MusculaciÃ³n', 2600.00),
+('Elena Ruiz', 'elena.ruiz@gimnasio.com', 'TRX', 2350.00),
+('Diego Herrera', 'diego.herrera@gimnasio.com', 'NataciÃ³n', 2450.00),
+('Patricia Vargas', 'patricia.vargas@gimnasio.com', 'AerÃ³bicos', 2150.00),
+('AndrÃ©s Morales', 'andres.morales@gimnasio.com', 'Artes Marciales', 2550.00),
+('LucÃ­a Ortega', 'lucia.ortega@gimnasio.com', 'Danza', 2050.00),
+('RaÃºl JimÃ©nez', 'raul.jimenez@gimnasio.com', 'Funcional', 2420.00),
+('Carmen DÃ­az', 'carmen.diaz@gimnasio.com', 'Stretching', 2080.00),
+('Oscar Flores', 'oscar.flores@gimnasio.com', 'Calistenia', 2380.00),
+('MÃ³nica Reyes', 'monica.reyes@gimnasio.com', 'HIIT', 2320.00),
+('HÃ©ctor Silva', 'hector.silva@gimnasio.com', 'Powerlifting', 2650.00),
+('Adriana Cruz', 'adriana.cruz@gimnasio.com', 'Cardio', 2120.00),
+('Sergio Navarro', 'sergio.navarro@gimnasio.com', 'Cross Training', 2480.00),
+('Daniela Rojas', 'daniela.rojas@gimnasio.com', 'Pilates Reformer', 2250.00),
+('Jorge MejÃ­a', 'jorge.mejia@gimnasio.com', 'Boxeo Fitness', 2370.00),
+('Rosa Acosta', 'rosa.acosta@gimnasio.com', 'Yoga AÃ©reo', 2180.00),
+('Felipe Miranda', 'felipe.miranda@gimnasio.com', 'Spinning Avanzado', 2410.00),
+('Natalia GuzmÃ¡n', 'natalia.guzman@gimnasio.com', 'Zumba Toning', 2070.00),
+('Alberto NÃºÃ±ez', 'alberto.nunez@gimnasio.com', 'Entrenamiento Funcional', 2430.00);
 
-INSERT INTO GRUPO_DE_CLASE (horario, capacidad, id_clase) VALUES
-('Lunes y Miércoles 08:00-09:00', 20, 1), ('Martes y Jueves 10:00-11:00', 15, 2),
-('Lunes y Viernes 18:00-19:00', 25, 3), ('Martes y Sábado 07:00-08:00', 18, 4),
-('Miércoles y Viernes 16:00-17:00', 20, 5), ('Lunes y Jueves 12:00-13:00', 22, 6),
-('Martes y Viernes 19:00-20:00', 16, 7), ('Miércoles y Sábado 09:00-10:00', 24, 8),
-('Jueves y Sábado 17:00-18:00', 19, 9), ('Lunes y Miércoles 14:00-15:00', 21, 10),
-('Martes y Jueves 20:00-21:00', 17, 11), ('Viernes y Sábado 11:00-12:00', 23, 12),
-('Lunes y Viernes 06:00-07:00', 20, 13), ('Martes y Sábado 15:00-16:00', 18, 14),
-('Miércoles y Viernes 13:00-14:00', 25, 15), ('Lunes y Jueves 19:00-20:00', 15, 16),
-('Martes y Viernes 08:00-09:00', 22, 17), ('Miércoles y Sábado 16:00-17:00', 19, 18),
-('Jueves y Sábado 10:00-11:00', 16, 19), ('Lunes y Miércoles 17:00-18:00', 24, 20),
-('Martes y Jueves 09:00-10:00', 21, 21), ('Viernes y Sábado 14:00-15:00', 17, 22),
-('Lunes y Viernes 20:00-21:00', 23, 23), ('Martes y Sábado 12:00-13:00', 20, 24),
-('Miércoles y Viernes 07:00-08:00', 18, 25);
+INSERT INTO Clase (Id_Entrenador, Nombre, Descripcion, Capacidad, Hora_Inicio, Hora_Fin, Dia_Semana) VALUES
+(1, 'CrossFit Intenso', 'Entrenamiento funcional de alta intensidad', 15, '07:00', '08:00', 'Lunes'),
+(2, 'Yoga Matutino', 'Yoga para empezar el dÃ­a con energÃ­a', 20, '08:00', '09:00', 'Lunes'),
+(3, 'Spinning Cardio', 'Clase de spinning para quemar calorÃ­as', 25, '09:00', '10:00', 'Lunes'),
+(4, 'Pilates BÃ¡sico', 'Pilates para principiantes', 18, '10:00', '11:00', 'Lunes'),
+(5, 'Boxeo Fitness', 'Boxeo para acondicionamiento fÃ­sico', 12, '17:00', '18:00', 'Lunes'),
+(6, 'Zumba Party', 'Baile y diversiÃ³n para quemar grasa', 30, '18:00', '19:00', 'Lunes'),
+(1, 'CrossFit Avanzado', 'Para alumnos con experiencia', 12, '07:00', '08:00', 'Martes'),
+(2, 'Yoga Restaurativo', 'Yoga para relajaciÃ³n y flexibilidad', 20, '08:00', '09:00', 'Martes'),
+(7, 'MusculaciÃ³n Guiada', 'TÃ©cnica correcta en ejercicios con peso', 15, '09:00', '10:00', 'Martes'),
+(8, 'TRX Total', 'Entrenamiento en suspensiÃ³n', 16, '17:00', '18:00', 'Martes'),
+(9, 'NataciÃ³n Adultos', 'Clase de nataciÃ³n para adultos', 10, '18:00', '19:00', 'Martes'),
+(10, 'AerÃ³bicos Activos', 'Ejercicios aerÃ³bicos variados', 25, '19:00', '20:00', 'Martes'),
+(3, 'Spinning Intermedio', 'Nivel intermedio de spinning', 20, '07:00', '08:00', 'Miercoles'),
+(4, 'Pilates Intermedio', 'Pilates para nivel intermedio', 18, '08:00', '09:00', 'Miercoles'),
+(11, 'Kickboxing', 'Artes marciales mixtas para fitness', 14, '09:00', '10:00', 'Miercoles'),
+(12, 'Danza ContemporÃ¡nea', 'Baile contemporÃ¡neo para ejercicio', 22, '17:00', '18:00', 'Miercoles'),
+(13, 'Funcional Completo', 'Entrenamiento funcional completo', 16, '18:00', '19:00', 'Miercoles'),
+(14, 'Stretching Profundo', 'Estiramientos profundos', 20, '19:00', '20:00', 'Miercoles'),
+(5, 'Boxeo TÃ©cnico', 'Enfoque en tÃ©cnica de boxeo', 12, '07:00', '08:00', 'Jueves'),
+(6, 'Zumba Gold', 'Zumba para adultos mayores', 25, '08:00', '09:00', 'Jueves'),
+(15, 'Calistenia BÃ¡sica', 'Ejercicios con peso corporal', 18, '09:00', '10:00', 'Jueves'),
+(16, 'HIIT Quema Grasa', 'High Intensity Interval Training', 20, '17:00', '18:00', 'Jueves'),
+(17, 'Powerlifting', 'Levantamiento de potencia', 8, '18:00', '19:00', 'Jueves'),
+(18, 'Cardio Blast', 'SesiÃ³n intensa de cardio', 25, '19:00', '20:00', 'Jueves'),
+(1, 'CrossFit Open', 'Clase abierta de CrossFit', 15, '07:00', '08:00', 'Viernes');
 
-INSERT INTO RESERVA (id_socio, id_grupo_de_clase) VALUES
-(1, 1), (2, 2), (3, 3), (4, 4), (5, 5),
-(6, 6), (7, 7), (8, 8), (9, 9), (10, 10),
-(11, 11), (12, 12), (13, 13), (14, 14), (15, 15),
-(16, 16), (17, 17), (18, 18), (19, 19), (20, 20),
-(21, 21), (22, 22), (23, 23), (24, 24), (25, 25);
+INSERT INTO Grupo_de_Clase (horario, capacidad, id_clase) VALUES
+('Lunes 07:00-08:00', 15, 1),
+('Lunes 08:00-09:00', 20, 2),
+('Lunes 09:00-10:00', 25, 3),
+('Lunes 10:00-11:00', 18, 4),
+('Lunes 17:00-18:00', 12, 5),
+('Lunes 18:00-19:00', 30, 6),
+('Martes 07:00-08:00', 12, 7),
+('Martes 08:00-09:00', 20, 8),
+('Martes 09:00-10:00', 15, 9),
+('Martes 17:00-18:00', 16, 10),
+('Martes 18:00-19:00', 10, 11),
+('Martes 19:00-20:00', 25, 12),
+('Miercoles 07:00-08:00', 20, 13),
+('Miercoles 08:00-09:00', 18, 14),
+('Miercoles 09:00-10:00', 14, 15),
+('Miercoles 17:00-18:00', 22, 16),
+('Miercoles 18:00-19:00', 16, 17),
+('Miercoles 19:00-20:00', 20, 18),
+('Jueves 07:00-08:00', 12, 19),
+('Jueves 08:00-09:00', 25, 20),
+('Jueves 09:00-10:00', 18, 21),
+('Jueves 17:00-18:00', 20, 22),
+('Jueves 18:00-19:00', 8, 23),
+('Jueves 19:00-20:00', 25, 24),
+('Viernes 07:00-08:00', 15, 25);
 
-INSERT INTO PAGO (id_socio, id_grupo_de_clase, id_entrenador, monto, metodo_pago, fecha_y_hora) VALUES
-(1, 1, 1, 1200.00, 'Tarjeta Crédito', '2024-01-05 08:30:00'),
-(2, 2, 2, 1000.00, 'Efectivo', '2024-01-05 09:15:00'),
-(3, 3, 3, 1500.00, 'Transferencia', '2024-01-05 10:00:00'),
-(4, 4, 4, 1100.00, 'Tarjeta Débito', '2024-01-05 11:30:00'),
-(5, 5, 5, 1300.00, 'Tarjeta Crédito', '2024-01-05 12:45:00'),
-(6, 6, 6, 900.00, 'Efectivo', '2024-01-06 08:00:00'),
-(7, 7, 7, 1600.00, 'Transferencia', '2024-01-06 09:30:00'),
-(8, 8, 8, 1050.00, 'Tarjeta Débito', '2024-01-06 10:45:00'),
-(9, 9, 9, 1450.00, 'Tarjeta Crédito', '2024-01-06 12:00:00'),
-(10, 10, 10, 1250.00, 'Efectivo', '2024-01-06 13:15:00'),
-(11, 11, 11, 1350.00, 'Transferencia', '2024-01-07 08:20:00'),
-(12, 12, 12, 950.00, 'Tarjeta Débito', '2024-01-07 09:40:00'),
-(13, 13, 13, 1550.00, 'Tarjeta Crédito', '2024-01-07 11:00:00'),
-(14, 14, 14, 1150.00, 'Efectivo', '2024-01-07 12:20:00'),
-(15, 15, 15, 1700.00, 'Transferencia', '2024-01-08 08:10:00'),
-(16, 16, 16, 1080.00, 'Tarjeta Débito', '2024-01-08 09:50:00'),
-(17, 17, 17, 1400.00, 'Tarjeta Crédito', '2024-01-08 11:15:00'),
-(18, 18, 18, 1200.00, 'Efectivo', '2024-01-08 12:30:00'),
-(19, 19, 19, 1580.00, 'Transferencia', '2024-01-09 08:40:00'),
-(20, 20, 20, 1280.00, 'Tarjeta Débito', '2024-01-09 10:00:00'),
-(21, 21, 21, 1650.00, 'Tarjeta Crédito', '2024-01-09 11:20:00'),
-(22, 22, 22, 980.00, 'Efectivo', '2024-01-09 12:40:00'),
-(23, 23, 23, 1320.00, 'Transferencia', '2024-01-10 08:25:00'),
-(24, 24, 24, 1020.00, 'Tarjeta Débito', '2024-01-10 09:35:00'),
-(25, 25, 25, 1380.00, 'Tarjeta Crédito', '2024-01-10 10:50:00');
+INSERT INTO Reserva (id_socio, id_grupo_de_clase, Estado_Reserva) VALUES
+(1, 1, 'Activa'),
+(2, 1, 'Activa'),
+(3, 2, 'Activa'),
+(4, 3, 'Cancelada'),
+(5, 4, 'Activa'),
+(6, 5, 'Completada'),
+(7, 6, 'Activa'),
+(8, 7, 'Activa'),
+(9, 8, 'Cancelada'),
+(10, 9, 'Activa'),
+(11, 10, 'Activa'),
+(12, 11, 'Completada'),
+(13, 12, 'Activa'),
+(14, 13, 'Activa'),
+(15, 14, 'Cancelada'),
+(16, 15, 'Activa'),
+(17, 16, 'Activa'),
+(18, 17, 'Completada'),
+(19, 18, 'Activa'),
+(20, 19, 'Activa'),
+(21, 20, 'Cancelada'),
+(22, 21, 'Activa'),
+(23, 22, 'Activa'),
+(24, 23, 'Completada'),
+(25, 24, 'Activa');
+
+INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Tipo_Pago, Metodo_Pago) VALUES
+(1, 1, NULL, 'Mensual', 'Tarjeta'),
+(2, NULL, 1, 'Clase', 'Efectivo'),
+(3, 2, NULL, 'Mensual', 'Transferencia'),
+(4, NULL, 2, 'Clase', 'Tarjeta'),
+(5, 3, NULL, 'Mensual', 'Efectivo'),
+(6, NULL, 3, 'Clase', 'Transferencia'),
+(7, 4, NULL, 'Mensual', 'Tarjeta'),
+(8, NULL, 4, 'Clase', 'Efectivo'),
+(9, 5, NULL, 'Mensual', 'Transferencia'),
+(10, NULL, 5, 'Clase', 'Tarjeta'),
+(11, 6, NULL, 'Mensual', 'Efectivo'),
+(12, NULL, 6, 'Clase', 'Transferencia'),
+(13, 7, NULL, 'Mensual', 'Tarjeta'),
+(14, NULL, 7, 'Clase', 'Efectivo'),
+(15, 8, NULL, 'Mensual', 'Transferencia'),
+(16, NULL, 8, 'Clase', 'Tarjeta'),
+(17, 9, NULL, 'Mensual', 'Efectivo'),
+(18, NULL, 9, 'Clase', 'Transferencia'),
+(19, 10, NULL, 'Mensual', 'Tarjeta'),
+(20, NULL, 10, 'Clase', 'Efectivo'),
+(21, 11, NULL, 'Mensual', 'Transferencia'),
+(22, NULL, 11, 'Clase', 'Tarjeta'),
+(23, 12, NULL, 'Mensual', 'Efectivo'),
+(24, NULL, 12, 'Clase', 'Transferencia'),
+(25, 13, NULL, 'Mensual', 'Tarjeta');
 
 
