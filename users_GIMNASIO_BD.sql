@@ -1,5 +1,9 @@
 USE GIMNASIO_DB;
-
+/*
+    Nota: añadir la denegacion de las vistas ventana cuando ya se tengan listas
+    y funcionales al igual de añadir la denegacion de algun procedimiento almacenado
+    que se quiera añadir
+*/
 --Creacion de usuarios de la base autocontenida:
 CREATE USER U_BackupOperator WITH PASSWORD = 'Backup1234@';
 CREATE USER U_ClassManager WITH PASSWORD = 'ClassM1234@';
