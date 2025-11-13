@@ -1,15 +1,16 @@
 /*indices para busquedas comunes (WHERE)*/
+/*Buscar socios activos*/
 SELECT * FROM Socio WHERE Estado = 'Activo';
 CREATE NONCLUSTERED INDEX IX_Socio_estado_activos ON Socio(Estado);
 
 
-SELECT * FROM Pago WHERE Fecha_pago BETWEEN '2025-01-01' AND '2025-01-31';
+SELECT * FROM Pago WHERE Fecha_pago BETWEEN '2025-01-01' AND '2025-12-31';
 CREATE NONCLUSTERED INDEX IX_pago_fechapago ON Pago(Fecha_Pago);
 
 
 SELECT *
 FROM Socio
-WHERE Email = 'juan@example.com';
+WHERE Email = 'laura.torres@email.com';
 CREATE UNIQUE INDEX idx_socio_email ON Socio(Email);
 
 
