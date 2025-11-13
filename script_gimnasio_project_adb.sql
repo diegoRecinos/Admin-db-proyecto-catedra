@@ -5,6 +5,7 @@ RECONFIGURE;
 GO
 
 CREATE DATABASE GIMNASIO_DB containment = partial;
+GO
 
 USE GIMNASIO_DB;
 
