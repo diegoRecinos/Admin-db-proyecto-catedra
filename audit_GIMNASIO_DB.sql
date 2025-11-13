@@ -43,5 +43,15 @@ SELECT *
 FROM sys.database_audit_specification_details;
 
 --ver la audit file
-SELECT * 
-FROM sys.fn_get_audit_file('C:\audits_GIMNASIO_DB\*.sqlaudit', DEFAULT, DEFAULT);
+SELECT 
+event_time,
+action_id,
+succeeded,
+server_principal_name,
+database_name,
+schema_name, 
+object_name,
+statement,
+additional_information
+FROM sys.fn_get_audit_file('C:\audits_GIMNASIO_DB\*.sqlaudit', DEFAULT, DEFAULT)
+ORDER BY event_time DESC;
