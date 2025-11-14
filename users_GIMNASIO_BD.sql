@@ -61,30 +61,30 @@ GRANT SELECT ON dbo.Entrenador TO Rol_PagosManager;
 GRANT SELECT ON dbo.Socio TO Rol_PagosManager;
 GRANT SELECT ON dbo.Clase TO Rol_PagosManager;
 GRANT SELECT ON dbo.Reserva TO Rol_PagosManager;
-GRANT SELECT ON dbo.Grupos_de_Clase TO Rol_PagosManager;
+GRANT SELECT ON dbo.Grupo_de_Clase TO Rol_PagosManager;
 
 DENY UPDATE, INSERT, DELETE ON dbo.Entrenador TO Rol_PagosManager;
 DENY UPDATE, INSERT, DELETE ON dbo.Socio TO Rol_PagosManager;
 DENY UPDATE, INSERT, DELETE ON dbo.Clase TO Rol_PagosManager;
-DENY UPDATE, INSERT, DELETE ON dbo.Grupos_de_Clase TO Rol_PagosManager;
+DENY UPDATE, INSERT, DELETE ON dbo.Grupo_de_Clase TO Rol_PagosManager;
 
 --Rol Recepcionista
 GRANT INSERT, SELECT ON dbo.Socio TO Rol_Recepcionista;
 GRANT INSERT, SELECT ON dbo.Reserva TO Rol_Recepcionista;
-GRANT SELECT ON dbo.Grupos_de_Clase TO Rol_Recepcionista;
+GRANT SELECT ON dbo.Grupo_de_Clase TO Rol_Recepcionista;
 
 DENY DELETE, UPDATE ON dbo.Socio TO Rol_Recepcionista;
 DENY DELETE, UPDATE ON dbo.Reserva TO Rol_Recepcionista;
-DENY INSERT, DELETE, UPDATE ON dbo.Grupos_de_Clase TO Rol_Recepcionista;
+DENY INSERT, DELETE, UPDATE ON dbo.Grupo_de_Clase TO Rol_Recepcionista;
 
 --Rol Entrenador
 GRANT SELECT ON dbo.Clase TO Rol_Entrenador;
-GRANT SELECT, UPDATE ON dbo.Grupos_de_Clase TO Rol_Entrenador;
+GRANT SELECT, UPDATE ON dbo.Grupo_de_Clase TO Rol_Entrenador;
 GRANT SELECT ON dbo.Socio TO Rol_Entrenador;
 GRANT SELECT ON dbo.Reserva TO Rol_Entrenador;
 
 DENY INSERT, UPDATE, DELETE ON dbo.Clase TO Rol_Entrenador;
-DENY INSERT, UPDATE, DELETE ON dbo.Grupos_de_Clase TO Rol_Entrenador;
+DENY INSERT, UPDATE, DELETE ON dbo.Grupo_de_Clase TO Rol_Entrenador;
 DENY INSERT, UPDATE, DELETE ON dbo.Socio TO Rol_Entrenador;
 DENY INSERT, UPDATE, DELETE ON dbo.Reserva TO Rol_Entrenador;
 DENY SELECT, INSERT, UPDATE, DELETE ON dbo.Entrenador TO Rol_Entrenador;
@@ -93,7 +93,7 @@ DENY SELECT, INSERT, UPDATE, DELETE ON dbo.Pago TO Rol_Entrenador;
 --Rol gerente
 GRANT SELECT, INSERT, UPDATE ON dbo.Socio TO Rol_Gerente;
 GRANT SELECT, INSERT, UPDATE ON dbo.Entrenador TO Rol_Gerente;
-GRANT SELECT, INSERT, UPDATE ON dbo.Grupos_de_Clase TO Rol_Gerente;
+GRANT SELECT, INSERT, UPDATE ON dbo.Grupo_de_Clase TO Rol_Gerente;
 GRANT SELECT, INSERT, UPDATE ON dbo.Clase TO Rol_Gerente;
 GRANT SELECT ON dbo.Reserva TO Rol_Gerente;
 GRANT SELECT ON dbo.Pago TO Rol_Gerente;
@@ -103,4 +103,4 @@ DENY DELETE ON dbo.Reserva TO Rol_Gerente;
 DENY DELETE ON dbo.Socio TO Rol_Gerente;
 DENY DELETE ON dbo.Entrenador TO Rol_Gerente;
 DENY DELETE ON dbo.Clase TO Rol_Gerente;
-DENY DELETE ON dbo.Grupos_de_Clase TO Rol_Gerente;
+DENY DELETE ON dbo.Grupo_de_Clase TO Rol_Gerente;
