@@ -139,3 +139,5 @@ ORDER BY
         WHEN 'Sabado' THEN 6
         WHEN 'Domingo' THEN 7
     END;
+
+    
