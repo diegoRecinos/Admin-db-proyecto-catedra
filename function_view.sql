@@ -59,3 +59,83 @@ FROM Socio s
 INNER JOIN Pago p ON s.Id = p.id_socio
 WHERE s.Estado = 'Activo'
 ORDER BY s.Id, p.Fecha_Pago DESC;
+
+--Calculo de pago y de clientes con mora:
+SELECT 
+    s.Id,
+    s.Nombre + ' ' + s.Apellido AS Socio,
+    p.Fecha_Pago,
+    p.Monto,
+    p.Tipo_Pago,
+    LAG(p.Fecha_Pago) OVER (PARTITION BY s.Id ORDER BY p.Fecha_Pago) AS Ultimo_Pago_Anterior,
+    DATEDIFF(DAY, LAG(p.Fecha_Pago) OVER (PARTITION BY s.Id ORDER BY p.Fecha_Pago), p.Fecha_Pago) AS Dias_Entre_Pagos,
+    AVG(p.Monto) OVER (PARTITION BY s.Id) AS Promedio_Pago_Socio,
+    COUNT(p.id) OVER (PARTITION BY s.Id) AS Total_Pagos_Socio,
+    ROW_NUMBER() OVER (PARTITION BY s.Id ORDER BY p.Fecha_Pago DESC) AS Numero_Pago_Reciente
+FROM Socio s
+INNER JOIN Pago p ON s.Id = p.id_socio
+WHERE s.Estado = 'Activo'
+ORDER BY s.Id, p.Fecha_Pago DESC;
+
+WITH UltimoPago AS (
+    SELECT 
+        s.Id,
+        s.Nombre + ' ' + s.Apellido AS Socio,
+        s.Estado,
+        MAX(p.Fecha_Pago) AS Ultima_Fecha_Pago,
+        DATEDIFF(DAY, MAX(p.Fecha_Pago), GETDATE()) AS Dias_Sin_Pagar
+    FROM Socio s
+    LEFT JOIN Pago p ON s.Id = p.id_socio
+    WHERE s.Estado = 'Activo'
+    GROUP BY s.Id, s.Nombre, s.Apellido, s.Estado
+)
+SELECT 
+    *,
+    AVG(Dias_Sin_Pagar) OVER() AS Promedio_Dias_Sin_Pagar_General,
+    CASE 
+        WHEN Dias_Sin_Pagar > AVG(Dias_Sin_Pagar) OVER() THEN 'ARRIBA DEL PROMEDIO'
+        WHEN Dias_Sin_Pagar < AVG(Dias_Sin_Pagar) OVER() THEN 'DEBAJO DEL PROMEDIO'
+        ELSE 'EN EL PROMEDIO'
+    END AS Comparacion_Promedio,
+    PERCENT_RANK() OVER (ORDER BY Dias_Sin_Pagar) AS Percentil_Morosidad,
+    NTILE(4) OVER (ORDER BY Dias_Sin_Pagar) AS Cuartil_Morosidad
+FROM UltimoPago
+ORDER BY Dias_Sin_Pagar DESC;
+
+--Calcular la asistencia por semana:
+SELECT 
+    Dia_Semana,
+    COUNT(*) AS Total_Clases,
+    SUM(Asistentes) AS Total_Asistentes,
+    AVG(Asistentes) AS Promedio_Asistentes,
+    SUM(Asistentes) - LAG(SUM(Asistentes)) OVER (ORDER BY 
+        CASE Dia_Semana
+            WHEN 'Lunes' THEN 1
+            WHEN 'Martes' THEN 2
+            WHEN 'Miercoles' THEN 3
+            WHEN 'Jueves' THEN 4
+            WHEN 'Viernes' THEN 5
+            WHEN 'Sabado' THEN 6
+            WHEN 'Domingo' THEN 7
+        END) AS Diferencia_Dia_Anterior,
+    CAST(SUM(Asistentes) * 100.0 / SUM(SUM(Asistentes)) OVER() AS DECIMAL(5,2)) AS Porcentaje_Semanal
+FROM (
+    SELECT 
+        c.Dia_Semana,
+        COUNT(CASE WHEN r.Estado_Reserva IN ('Activa', 'Completada') THEN 1 END) AS Asistentes
+    FROM Clase c
+    INNER JOIN Grupo_de_Clase gc ON c.Id = gc.id_clase
+    LEFT JOIN Reserva r ON gc.Id = r.id_grupo_de_clase
+    GROUP BY c.Id, c.Dia_Semana
+) AS ClasesDia
+GROUP BY Dia_Semana
+ORDER BY 
+    CASE Dia_Semana
+        WHEN 'Lunes' THEN 1
+        WHEN 'Martes' THEN 2
+        WHEN 'Miercoles' THEN 3
+        WHEN 'Jueves' THEN 4
+        WHEN 'Viernes' THEN 5
+        WHEN 'Sabado' THEN 6
+        WHEN 'Domingo' THEN 7
+    END;
