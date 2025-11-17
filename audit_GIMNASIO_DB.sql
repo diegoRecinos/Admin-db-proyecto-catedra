@@ -29,7 +29,7 @@ ADD (INSERT ON dbo.Socio BY Rol_Recepcionista),
 ADD (UPDATE ON dbo.Socio BY Rol_PagosManager),
 
 --Lecturas o consultas sensibles por parte del auditor
-ADD (SELECT ON SCHEMA::dbo BY Rol_Auditor),
+ADD (SELECT ON SCHEMA::dbo BY PUBLIC),
 
 --Operaciones críticas borrado de datos
 ADD (DELETE ON SCHEMA::dbo BY PUBLIC)
