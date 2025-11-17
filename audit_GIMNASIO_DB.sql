@@ -57,7 +57,7 @@ ADD (INSERT ON dbo.Socio BY Rol_Recepcionista),
 ADD (UPDATE ON dbo.Socio BY Rol_PagosManager),
 
 --Lecturas o consultas sensibles por parte del auditor
-ADD (SELECT ON SCHEMA::dbo BY PUBLIC),
+ADD (SELECT ON SCHEMA::dbo BY Rol_Auditor),
 
 --Operaciones críticas borrado de datos
 ADD (DELETE ON SCHEMA::dbo BY PUBLIC)
@@ -100,18 +100,11 @@ WHERE Entrenador.Id = 1;
 REVERT;
 
 /*SELECTS para auditor*/
-USE GIMNASIO_DB;
-GO
-
 EXECUTE AS USER = 'U_Auditor';
 SELECT * FROM dbo.Socio;
 REVERT;
 
 /*INSERT en SOCIO*/
-
-USE GIMNASIO_DB;
-GO
-
 EXECUTE AS USER = 'U_Recepcion';
 
 INSERT INTO dbo.Socio (Nombre, Apellido, Email, Estado)
@@ -120,9 +113,6 @@ VALUES ('Prueba', 'Audit', 'audit@test.com', 'Activo');
 REVERT;
 
 /*UPDATE en en PAGO */
-
-USE GIMNASIO_DB;
-GO
 EXECUTE AS USER = 'U_PagosManager';
 
 UPDATE dbo.Pago
@@ -133,7 +123,6 @@ REVERT;
 
 /*DELETE en la db*/
 USE GIMNASIO_DB;
-GO
 
 EXECUTE AS USER = 'U_Recepcion';
 
