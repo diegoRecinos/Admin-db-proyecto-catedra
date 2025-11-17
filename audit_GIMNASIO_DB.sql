@@ -84,3 +84,61 @@ statement,
 additional_information
 FROM sys.fn_get_audit_file('C:\audits_GIMNASIO_DB\*.sqlaudit', DEFAULT, DEFAULT)
 ORDER BY event_time DESC;
+
+/*EJEMPLO ACCIONES CON AUDITORIA */
+
+/*Asignación de sueldos a entrenadores UPDATE en Entrenador por Rol_Gerente*/
+USE GIMNASIO_DB;
+GO
+
+EXECUTE AS USER = 'U_Gerente';
+
+UPDATE dbo.Entrenador
+SET sueldo = sueldo + 100
+WHERE Entrenador.Id = 1;
+
+REVERT;
+
+/*SELECTS para auditor*/
+USE GIMNASIO_DB;
+GO
+
+EXECUTE AS USER = 'U_Auditor';
+SELECT * FROM dbo.Socio;
+REVERT;
+
+/*INSERT en SOCIO*/
+
+USE GIMNASIO_DB;
+GO
+
+EXECUTE AS USER = 'U_Recepcion';
+
+INSERT INTO dbo.Socio (Nombre, Apellido, Email, Estado)
+VALUES ('Prueba', 'Audit', 'audit@test.com', 'Activo');
+
+REVERT;
+
+/*UPDATE en en PAGO */
+
+USE GIMNASIO_DB;
+GO
+EXECUTE AS USER = 'U_PagosManager';
+
+UPDATE dbo.Pago
+SET Monto = 750
+WHERE Pago.id_entrenador = 1;
+
+REVERT;
+
+/*DELETE en la db*/
+USE GIMNASIO_DB;
+GO
+
+EXECUTE AS USER = 'U_Recepcion';
+
+DELETE FROM dbo.Socio WHERE Socio.Id = 999999;
+/*Aunque no exista el registro igual se genera el evento*/
+
+REVERT;
+
