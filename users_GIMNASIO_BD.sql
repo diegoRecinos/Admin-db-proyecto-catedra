@@ -5,6 +5,7 @@ USE GIMNASIO_DB;
     que se quiera añadir
 */
 --Creacion de usuarios de la base autocontenida:
+CREATE USER U_Root WITH PASSWORD = 'Root1234@';
 CREATE USER U_BackupOperator WITH PASSWORD = 'Backup1234@';
 CREATE USER U_ClassManager WITH PASSWORD = 'ClassM1234@';
 CREATE USER U_PagosManager WITH PASSWORD = 'PagosM1234@';
@@ -15,6 +16,8 @@ CREATE USER U_Auditor WITH PASSWORD ='Audit1234@';
 CREATE USER U_LectorBI WITH PASSWORD ='LectorBI1234@';
 
 --Creacion de roles y asignacion de los usuarios a sus roles
+ALTER ROLE db_owner ADD MEMBER U_Root;
+
 CREATE ROLE Rol_BackupOperator;
 ALTER ROLE Rol_BackupOperator ADD MEMBER U_BackupOperator;
 
