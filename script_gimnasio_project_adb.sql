@@ -25,7 +25,7 @@ CREATE TABLE Clase(
     Id_Entrenador INT,
     Nombre NVARCHAR(50) NOT NULL,
     Descripcion NVARCHAR(200),
-    Capacidad INT DEFAULT(20),
+    Capacidad INT DEFAULT(50), --Cambio de 20 a 50 personas 
     Hora_Inicio TIME,
     Hora_Fin TIME,
     Dia_Semana NVARCHAR(10) NOT NULL CONSTRAINT chk_dia_semana CHECK (Dia_Semana IN 
@@ -59,8 +59,8 @@ CREATE TABLE Reserva (
 CREATE TABLE Pago (
     id INT PRIMARY KEY NOT NULL IDENTITY(1,1),
     id_socio INT NOT NULL,
-    id_grupo_de_clase INT NULL,        
-    id_entrenador INT NULL,
+    id_grupo_de_clase INT NOT NULL,        
+    id_entrenador INT NOT NULL,
     Fecha_Pago DATETIME DEFAULT GETDATE(),
     Tipo_Pago NVARCHAR(10) NOT NULL CONSTRAINT chk_tipo_pago 
     CHECK (Tipo_Pago IN ('Mensual','Clase')),
@@ -68,7 +68,6 @@ CREATE TABLE Pago (
     CHECK (Metodo_Pago IN ('Efectivo','Tarjeta','Transferencia')),     
     Monto DECIMAL(10,2) NOT NULL DEFAULT 0
 );
-GO
 
 --Llaves foraneas
 ALTER TABLE Reserva
@@ -99,7 +98,9 @@ ALTER TABLE Grupo_de_Clase
 ADD CONSTRAINT FK_GrupoDeClase_Clase
 FOREIGN KEY (id_clase) REFERENCES Clase(Id);
 
---Datos quemados:
+
+
+--Datos quemados: (por el momento, luego se ampliaran)
 INSERT INTO Socio (Nombre, Apellido, Fecha_nacimiento, Telefono, Email, Estado) VALUES
 ('Juan', 'Pérez', '1990-05-15', '555-1234', 'juan.perez@email.com', 'Activo'),
 ('María', 'Gómez', '1985-08-22', '555-5678', 'maria.gomez@email.com', 'Activo'),
@@ -262,5 +263,3 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Tipo_Pago, Metodo_
 (23, 12, NULL, 'Mensual', 'Efectivo'),
 (24, NULL, 12, 'Clase', 'Transferencia'),
 (25, 13, NULL, 'Mensual', 'Tarjeta');
-
-
