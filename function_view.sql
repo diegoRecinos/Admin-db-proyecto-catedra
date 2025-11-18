@@ -16,10 +16,12 @@ GROUP BY e.Id, e.Nombre, e.Especialidad;
 SELECT Fecha_Pago, Monto, SUM(Monto) OVER (ORDER BY Fecha_Pago ROWS UNBOUNDED PRECEDING) AS Ganancia_Acumulada,
     AVG(Monto) OVER (ORDER BY Fecha_Pago ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS Promedio_Movil_7_Dias,
     LAG(Monto) OVER (ORDER BY Fecha_Pago) AS Pago_Dia_Anterior,
-    CAST((Monto - LAG(Monto) OVER (ORDER BY Fecha_Pago)) * 100.0 / LAG(Monto) 
+    CAST((Monto - LAG(Monto) OVER (ORDER BY Fecha_Pago)) * 100 / LAG(Monto) 
 OVER (ORDER BY Fecha_Pago) AS DECIMAL(5,2)) AS Variacion_Porcentual
 FROM Pago
 ORDER BY Fecha_Pago;
+
+SELECT * FROM Pago;
 
 --Calcular el ranking de los metodos de pago 
 WITH
