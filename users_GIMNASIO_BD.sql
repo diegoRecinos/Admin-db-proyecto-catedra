@@ -126,11 +126,13 @@ GRANT SELECT ON sys.fn_get_audit_file TO U_Auditor;
 GO
 
 -- Visualizar usuarios y roles en la base​
+USE GIMNASIO_DB;
 SELECT 
     u.name AS Usuario,
     r.name AS Rol,
 	u.type_desc AS Usertypedesc,
-	r.type_desc AS Roltypedesc
+	r.type_desc AS Roltypedesc,
+	u.authentication_type_desc AS TipoAutenticacion
 
 FROM sys.database_role_members drm
 INNER JOIN sys.database_principals r 
