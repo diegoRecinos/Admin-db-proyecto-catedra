@@ -1,8 +1,7 @@
 USE master;
 GO
 
-CREATE LOGIN U_Auditor 
-WITH PASSWORD = 'Audit1234@';
+CREATE LOGIN L_Auditor WITH PASSWORD = 'Audit1234@';
 GO
 
 USE GIMNASIO_DB;
@@ -125,3 +124,17 @@ USE [master]
 GRANT VIEW SERVER STATE TO U_Auditor;
 GRANT SELECT ON sys.fn_get_audit_file TO U_Auditor;
 GO
+
+-- Visualizar usuarios y roles en la base​
+SELECT 
+    u.name AS Usuario,
+    r.name AS Rol,
+	u.type_desc AS Usertypedesc,
+	r.type_desc AS Roltypedesc
+
+FROM sys.database_role_members drm
+INNER JOIN sys.database_principals r 
+    ON drm.role_principal_id = r.principal_id
+INNER JOIN sys.database_principals u 
+    ON drm.member_principal_id = u.principal_id
+ORDER BY u.name, r.name;
