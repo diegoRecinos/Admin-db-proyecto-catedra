@@ -3,6 +3,7 @@
 -- Distribución: 850 Activos, 150 Inactivos
 -- Fechas de registro: 2022-2025
 -- ========================================
+--Se recomienda agregar de 100 en 100
 
 USE GIMNASIO_DB
 GO
@@ -679,7 +680,6 @@ INSERT INTO Socio (Nombre, Apellido, Fecha_nacimiento, Telefono, Email, Fecha_re
 ('Roque', 'Kuri', '1994-05-23', '555-0798', 'roque.kuri798@email.com', '2025-01-08 16:20:00', 'Activo'),
 ('Socorro', 'López', '1985-02-08', '555-0799', 'socorro.lopez799@email.com', '2025-02-05 10:35:00', 'Inactivo'),
 ('Teófilo', 'Martínez', '1990-10-24', '555-0800', 'teofilo.martinez800@email.com', '2025-03-05 13:55:00', 'Activo');
-
 -- ========================================
 -- RESUMEN: Socios 501-600 insertados
 -- Total: 100 socios
@@ -800,14 +800,11 @@ INSERT INTO Socio (Nombre, Apellido, Fecha_nacimiento, Telefono, Email, Fecha_re
 -- Inactivos: 15
 -- ========================================
 
-
-
 -- ========================================
 -- SOCIOS 701-800 PARA GIMNASIO_DB
 -- Distribución: 85 Activos, 15 Inactivos
 -- Fechas de registro: 2022-2025
 -- ========================================
-
 INSERT INTO Socio (Nombre, Apellido, Fecha_nacimiento, Telefono, Email, Fecha_registro, Estado) VALUES
 ('Ventura', 'Jiménez', '1990-08-20', '555-0901', 'ventura.jimenez901@email.com', '2025-05-02 09:15:00', 'Activo'),
 ('Wigberto', 'Kuri', '1987-05-06', '555-0902', 'wigberto.kuri902@email.com', '2025-06-02 16:30:00', 'Activo'),
@@ -909,7 +906,6 @@ INSERT INTO Socio (Nombre, Apellido, Fecha_nacimiento, Telefono, Email, Fecha_re
 ('Serafina', 'Carrasco', '1988-08-07', '555-0998', 'serafina.carrasco998@email.com', '2022-03-08 16:35:00', 'Activo'),
 ('Telesforo', 'Dávila', '1994-04-23', '555-0999', 'telesforo.davila999@email.com', '2022-04-08 10:50:00', 'Inactivo'),
 ('Ubaldina', 'Escobar', '1985-01-09', '555-1000', 'ubaldina.escobar1000@email.com', '2022-05-10 14:10:00', 'Activo');
-
 -- ========================================
 -- RESUMEN: Socios 701-800 insertados
 -- Total: 100 socios
@@ -1030,6 +1026,12 @@ INSERT INTO Socio (Nombre, Apellido, Fecha_nacimiento, Telefono, Email, Fecha_re
 -- Inactivos: 15
 -- ========================================
 
+
+-- ========================================
+-- SOCIOS 901-1000 PARA GIMNASIO_DB
+-- Distribución: 85 Activos, 15 Inactivos
+-- Fechas de registro: 2022-2025
+-- ========================================
 INSERT INTO Socio (Nombre, Apellido, Fecha_nacimiento, Telefono, Email, Fecha_registro, Estado) VALUES
 ('Wistano', 'Benítez', '1990-10-31', '555-1101', 'wistano.benitez1101@email.com', '2024-02-20 09:30:00', 'Activo'),
 ('Xóchitl', 'Carrasco', '1987-07-17', '555-1102', 'xochitl.carrasco1102@email.com', '2024-03-20 16:50:00', 'Activo'),
@@ -1139,11 +1141,9 @@ INSERT INTO Socio (Nombre, Apellido, Fecha_nacimiento, Telefono, Email, Fecha_re
 -- ========================================
 
 
-
 -- =============================================
 -- INSERCIÓN DE 50 ENTRENADORES
 -- =============================================
-
 INSERT INTO Entrenador (Nombre, Correo, Especialidad, sueldo) VALUES
 ('Carlos Martínez', 'carlos.martinez@gym.com', 'CrossFit', 1800.00),
 ('Ana Rodríguez', 'ana.rodriguez@gym.com', 'Yoga', 1500.00),
@@ -1200,7 +1200,6 @@ INSERT INTO Entrenador (Nombre, Correo, Especialidad, sueldo) VALUES
 -- =============================================
 -- INSERCIÓN DE 50 CLASES
 -- =============================================
-
 INSERT INTO Clase (Id_Entrenador, Nombre, Descripcion, Capacidad, Hora_Inicio, Hora_Fin, Dia_Semana) VALUES
 (1, 'CrossFit Matutino', 'Entrenamiento funcional de alta intensidad', 50, '06:00:00', '07:00:00', 'Lunes'),
 (2, 'Yoga Flow', 'Yoga dinámico para flexibilidad y relajación', 50, '07:00:00', '08:00:00', 'Lunes'),
@@ -1252,11 +1251,11 @@ INSERT INTO Clase (Id_Entrenador, Nombre, Descripcion, Capacidad, Hora_Inicio, H
 (48, 'Musculación Full Body', 'Rutina de cuerpo completo', 50, '06:00:00', '07:00:00', 'Miercoles'),
 (49, 'CrossFit Kids', 'CrossFit adaptado para jóvenes', 50, '15:00:00', '16:00:00', 'Sabado'),
 (50, 'Zumba Step', 'Zumba combinado con step aeróbico', 50, '06:00:00', '07:00:00', 'Jueves');
-
 -- =============================================
 -- INSERCIÓN DE GRUPOS_DE_CLASE  1-100 datos (20 tipo de clases en total)
 -- Cada Grupo_deClase tendra 1 clase y tendra varios horarios disponibles en la que se imparte esta misma
 -- =============================================
+
 
 INSERT INTO Grupo_de_Clase (horario, capacidad, id_clase) VALUES
 -- Clase 1: CrossFit Matutino (5 grupos)
@@ -1392,10 +1391,10 @@ INSERT INTO Grupo_de_Clase (horario, capacidad, id_clase) VALUES
 ('Martes 06:00', 50, 20),
 ('Jueves 06:00', 50, 20);
 
+
 -- =============================================
 -- INSERCIÓN DE GRUPOS_DE_CLASE 101-200 datos
 -- =============================================
-
 INSERT INTO Grupo_de_Clase (horario, capacidad, id_clase) VALUES
 -- Clase 21: Musculación Funcional (5 grupos)
 ('Viernes 17:00', 50, 21),
@@ -1537,10 +1536,10 @@ INSERT INTO Grupo_de_Clase (horario, capacidad, id_clase) VALUES
 ('Jueves 16:00', 50, 40),
 ('Viernes 16:00', 50, 40);
 
+
 -- =============================================
 -- INSERCIÓN DE GRUPOS DE CLASE 201-250
 -- =============================================
-
 INSERT INTO Grupo_de_Clase (horario, capacidad, id_clase) VALUES
 -- Clase 41: CrossFit Endurance (5 grupos)
 ('Lunes 06:00', 50, 41),
@@ -1627,8 +1626,6 @@ INSERT INTO Grupo_de_Clase (horario, capacidad, id_clase) VALUES
 -- =============================================
 -- INSERCIÓN DE RESERVAS 1-100
 -- =============================================
-
-
 INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva) VALUES
 (45, 12, '2025-01-15 08:30:00', 'Activa'),
 (128, 45, '2025-02-03 14:20:00', 'Activa'),
@@ -1732,10 +1729,10 @@ INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva)
 (490, 155, '2024-12-02 16:15:00', 'Completada'),
 (623, 80, '2025-02-21 12:30:00', 'Activa');
 
+
 -- =============================================
 -- INSERCIÓN DE RESERVAS 101-200
 -- =============================================
-
 INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva) VALUES
 (501, 139, '2025-01-14 09:45:00', 'Activa'),
 (234, 68, '2024-11-17 14:30:00', 'Completada'),
@@ -1843,7 +1840,6 @@ INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva)
 -- =============================================
 -- INSERCIÓN DE RESERVAS 199-300 (100 registros)
 -- =============================================
-
 INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva) VALUES
 (234, 175, '2025-02-11 13:15:00', 'Activa'),
 (456, 103, '2025-01-26 10:30:00', 'Activa'),
@@ -1950,7 +1946,6 @@ INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva)
 -- =============================================
 -- INSERCIÓN DE RESERVAS 301-400 (100 registros)
 -- =============================================
-
 INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva) VALUES
 (412, 145, '2025-02-10 09:30:00', 'Activa'),
 (634, 88, '2025-01-15 12:15:00', 'Activa'),
@@ -2165,7 +2160,6 @@ INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva)
 -- Distribución: ~67 Mensuales, ~33 por Clase
 -- Mezcla de socios al día y algunos en mora
 -- =============================================
-
 INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
 -- Pagos MENSUALES (socios al día - fechas recientes)
 (1, 1, 1, '2025-02-01 10:30:00', 'Mensual', 'Tarjeta', 45.00),
@@ -2265,9 +2259,7 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 (81, 156, 31, '2025-02-10 17:45:00', 'Clase', 'Efectivo', 8.00),
 (83, 167, 33, '2025-01-15 18:00:00', 'Clase', 'Transferencia', 11.00),
 (85, 178, 35, '2025-02-17 19:30:00', 'Clase', 'Tarjeta', 9.00),
-(87, 189, 37, '2025-01-09 17:15:00', 'Clase', 'Efectivo', 14.00);
-INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
--- Pagos MENSUALES (socios al día)
+(87, 189, 37, '2025-01-09 17:15:00', 'Clase', 'Efectivo', 14.00),
 (89, 201, 39, '2025-02-15 10:30:00', 'Mensual', 'Transferencia', 46.00),
 (91, 12, 41, '2025-01-23 14:00:00', 'Mensual', 'Tarjeta', 43.00),
 (93, 23, 43, '2024-12-19 11:15:00', 'Mensual', 'Efectivo', 39.00),
@@ -2288,11 +2280,10 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 
 
 -- =============================================
--- INSERCIÓN DE PAGOS 101-200 (100 REGISTROS EXACTOS)
+-- INSERCIÓN DE PAGOS 101-200
 -- Distribución: 67 Mensuales, 33 por Clase
 -- Mezcla de socios al día y algunos en mora
 -- =============================================
-
 INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
 -- Pagos MENSUALES (socios al día - fechas recientes)
 (104, 89, 12, '2025-02-02 11:15:00', 'Mensual', 'Efectivo', 44.00),
@@ -2404,7 +2395,6 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 (200, 167, 8, '2025-01-24 17:30:00', 'Clase', 'Efectivo', 10.00),
 (210, 178, 10, '2025-02-15 19:00:00', 'Clase', 'Transferencia', 11.00),
 (211, 189, 11, '2025-01-11 18:45:00', 'Clase', 'Tarjeta', 9.00);
-
 -- =============================================
 -- RESUMEN: Pagos 101-200 insertados
 -- Total: 100 pagos
@@ -2414,11 +2404,10 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 
 
 -- =============================================
--- INSERCIÓN DE PAGOS 201-300 (100 REGISTROS EXACTOS)
+-- INSERCIÓN DE PAGOS 201-300 
 -- Distribución: 67 Mensuales, 33 por Clase
 -- Mezcla de socios al día y algunos en mora
 -- =============================================
-
 INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
 -- Pagos MENSUALES (socios al día - fechas recientes) - 47 registros
 (212, 34, 12, '2025-02-03 10:20:00', 'Mensual', 'Tarjeta', 46.00),
@@ -2525,7 +2514,6 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 (309, 112, 9, '2025-02-14 17:20:00', 'Clase', 'Efectivo', 11.00),
 (310, 123, 10, '2025-01-11 19:45:00', 'Clase', 'Tarjeta', 9.00),
 (311, 134, 11, '2025-02-18 18:10:00', 'Clase', 'Transferencia', 14.00);
-
 -- =============================================
 -- RESUMEN: Pagos 201-300 insertados
 -- Total: 100 pagos EXACTOS
@@ -2533,12 +2521,13 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 -- Por Clase: 33
 -- =============================================
 
+
+
 -- =============================================
--- INSERCIÓN DE PAGOS 301-400 (100 REGISTROS EXACTOS)
+-- INSERCIÓN DE PAGOS 301-400
 -- Distribución: 67 Mensuales, 33 por Clase
 -- Mezcla de socios al día y algunos en mora
 -- =============================================
-
 INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
 -- Pagos MENSUALES (socios al día - fechas recientes) - 47 registros
 (312, 145, 12, '2025-02-04 11:25:00', 'Mensual', 'Transferencia', 47.00),
@@ -2645,7 +2634,6 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 (409, 23, 9, '2025-02-15 17:50:00', 'Clase', 'Tarjeta', 12.00),
 (410, 34, 10, '2025-01-12 19:15:00', 'Clase', 'Efectivo', 10.00),
 (411, 45, 11, '2025-02-19 18:40:00', 'Clase', 'Transferencia', 15.00);
-
 -- =============================================
 -- RESUMEN: Pagos 301-400 insertados
 -- Total: 100 pagos EXACTOS
@@ -2656,11 +2644,10 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 
 
 -- =============================================
--- INSERCIÓN DE PAGOS 401-500 (100 REGISTROS EXACTOS)
+-- INSERCIÓN DE PAGOS 401-500
 -- Distribución: 67 Mensuales, 33 por Clase
 -- Mezcla de socios al día y algunos en mora
 -- =============================================
-
 INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
 -- Pagos MENSUALES (socios al día - fechas recientes) - 47 registros
 (412, 56, 12, '2025-02-05 12:10:00', 'Mensual', 'Efectivo', 48.00),
@@ -2767,7 +2754,6 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 (509, 134, 9, '2025-02-16 19:20:00', 'Clase', 'Tarjeta', 13.00),
 (510, 145, 10, '2025-01-13 18:45:00', 'Clase', 'Efectivo', 11.00),
 (511, 156, 11, '2025-02-20 19:10:00', 'Clase', 'Transferencia', 16.00);
-
 -- =============================================
 -- RESUMEN: Pagos 401-500 insertados
 -- Total: 100 pagos EXACTOS
@@ -2776,11 +2762,10 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 -- =============================================
 
 -- =============================================
--- INSERCIÓN DE PAGOS 601-700 (100 REGISTROS EXACTOS)
+-- INSERCIÓN DE PAGOS 601-700
 -- Distribución: 67 Mensuales, 33 por Clase
 -- Mezcla de socios al día y algunos en mora
 -- =============================================
-
 INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
 -- Pagos MENSUALES (socios al día - fechas recientes) - 47 registros
 (612, 78, 12, '2025-02-07 13:50:00', 'Mensual', 'Efectivo', 50.00),
@@ -2887,7 +2872,6 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 (709, 156, 9, '2025-02-18 20:50:00', 'Clase', 'Tarjeta', 15.00),
 (710, 167, 10, '2025-01-15 20:05:00', 'Clase', 'Efectivo', 13.00),
 (711, 178, 11, '2025-02-22 20:20:00', 'Clase', 'Transferencia', 18.00);
-
 -- =============================================
 -- RESUMEN: Pagos 601-700 insertados
 -- Total: 100 pagos EXACTOS
@@ -2897,11 +2881,10 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 
 
 -- =============================================
--- INSERCIÓN DE PAGOS 701-800 (100 REGISTROS EXACTOS)
+-- INSERCIÓN DE PAGOS 701-800
 -- Distribución: 67 Mensuales, 33 por Clase
 -- Mezcla de socios al día y algunos en mora
 -- =============================================
-
 INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
 -- Pagos MENSUALES (socios al día - fechas recientes) - 47 registros
 (712, 89, 12, '2025-02-08 14:35:00', 'Mensual', 'Transferencia', 50.00),
@@ -3008,7 +2991,6 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 (809, 167, 9, '2025-02-19 21:20:00', 'Clase', 'Tarjeta', 16.00),
 (810, 178, 10, '2025-01-16 20:35:00', 'Clase', 'Efectivo', 14.00),
 (811, 189, 11, '2025-02-23 20:50:00', 'Clase', 'Transferencia', 19.00);
-
 -- =============================================
 -- RESUMEN: Pagos 701-800 insertados
 -- Total: 100 pagos EXACTOS
@@ -3018,11 +3000,10 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 
 
 -- =============================================
--- INSERCIÓN DE PAGOS 801-900 (100 REGISTROS EXACTOS)
+-- INSERCIÓN DE PAGOS 801-900
 -- Distribución: 67 Mensuales, 33 por Clase
 -- Mezcla de socios al día y algunos en mora
 -- =============================================
-
 INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
 -- Pagos MENSUALES (socios al día - fechas recientes) - 47 registros
 (812, 201, 12, '2025-02-09 15:20:00', 'Mensual', 'Efectivo', 50.00),
@@ -3129,7 +3110,6 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 (909, 78, 9, '2025-02-20 21:50:00', 'Clase', 'Tarjeta', 17.00),
 (910, 89, 10, '2025-01-17 21:05:00', 'Clase', 'Efectivo', 15.00),
 (911, 101, 11, '2025-02-24 21:20:00', 'Clase', 'Transferencia', 20.00);
-
 -- =============================================
 -- RESUMEN: Pagos 801-900 insertados
 -- Total: 100 pagos EXACTOS
@@ -3137,12 +3117,12 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 -- Por Clase: 33
 -- =============================================
 
+
 -- =============================================
--- INSERCIÓN DE PAGOS 901-1000 (100 REGISTROS EXACTOS - FINALES)
+-- INSERCIÓN DE PAGOS 901-1000
 -- Distribución: 67 Mensuales, 33 por Clase
 -- Mezcla de socios al día y algunos en mora
 -- =============================================
-
 INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
 -- Pagos MENSUALES (socios al día - fechas recientes) - 47 registros
 (912, 112, 12, '2025-02-10 16:05:00', 'Mensual', 'Transferencia', 50.00),
@@ -3249,7 +3229,6 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 (189, 89, 9, '2025-02-21 22:20:00', 'Clase', 'Tarjeta', 18.00),
 (201, 101, 10, '2025-01-18 21:35:00', 'Clase', 'Efectivo', 16.00),
 (212, 112, 11, '2025-02-25 21:50:00', 'Clase', 'Transferencia', 21.00);
-
 -- =============================================
 -- RESUMEN: Pagos 901-1000 insertados
 -- Total: 100 pagos EXACTOS
