@@ -1,9 +1,17 @@
+USE master;
+GO
+
+CREATE LOGIN U_Auditor 
+WITH PASSWORD = 'Audit1234@';
+GO
+
 USE GIMNASIO_DB;
 /*
     Nota: añadir la denegacion de las vistas ventana cuando ya se tengan listas
     y funcionales al igual de añadir la denegacion de algun procedimiento almacenado
     que se quiera añadir
 */
+
 --Creacion de usuarios de la base autocontenida:
 CREATE USER U_Root WITH PASSWORD = 'Root1234@';
 CREATE USER U_BackupOperator WITH PASSWORD = 'Backup1234@';
@@ -12,8 +20,9 @@ CREATE USER U_PagosManager WITH PASSWORD = 'PagosM1234@';
 CREATE USER U_Recepcion WITH PASSWORD = 'Recep1234@';
 CREATE USER U_Entrenador WITH PASSWORD ='Entre1234@';
 CREATE USER U_Gerente WITH PASSWORD ='Gerente1234@';
-CREATE USER U_Auditor WITH PASSWORD ='Audit1234@';
 CREATE USER U_LectorBI WITH PASSWORD ='LectorBI1234@';
+
+CREATE USER U_Auditor FOR LOGIN U_Auditor;
 
 --Creacion de roles y asignacion de los usuarios a sus roles
 ALTER ROLE db_owner ADD MEMBER U_Root;
@@ -107,3 +116,12 @@ DENY DELETE ON dbo.Socio TO Rol_Gerente;
 DENY DELETE ON dbo.Entrenador TO Rol_Gerente;
 DENY DELETE ON dbo.Clase TO Rol_Gerente;
 DENY DELETE ON dbo.Grupo_de_Clase TO Rol_Gerente;
+
+--rol de auditor
+ALTER ROLE db_datareader ADD MEMBER U_Auditor;
+
+USE [master]
+-- Permisos para auditoría del servidor
+GRANT VIEW SERVER STATE TO U_Auditor;
+GRANT SELECT ON sys.fn_get_audit_file TO U_Auditor;
+GO
