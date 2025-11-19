@@ -21,7 +21,7 @@ CREATE USER U_Entrenador WITH PASSWORD ='Entre1234@';
 CREATE USER U_Gerente WITH PASSWORD ='Gerente1234@';
 CREATE USER U_LectorBI WITH PASSWORD ='LectorBI1234@';
 
-CREATE USER U_Auditor FOR LOGIN U_Auditor;
+CREATE USER U_Auditor FOR LOGIN L_Auditor;
 
 --Creacion de roles y asignacion de los usuarios a sus roles
 ALTER ROLE db_owner ADD MEMBER U_Root;
