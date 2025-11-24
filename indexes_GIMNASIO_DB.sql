@@ -39,6 +39,11 @@ SELECT * FROM VW_Socios_Morosos;
 CREATE NONCLUSTERED INDEX idx_pago_socio_fecha
 ON Pago(id_socio, Fecha_Pago);
 
+/*3. pago e id socio*/
+SELECT * FROM Pago 
+WHERE id_socio = 10;
+
+CREATE NONCLUSTERED INDEX idx_pago_socio ON Pago(id_socio);
 
 /*===========RESERVA=========*/
 /* 1 Buscar reserva por fecha*/
@@ -165,7 +170,6 @@ ALTER INDEX idx_reserva_fecha ON Reserva REBUILD;
 ALTER INDEX idx_reserva_grupo ON Reserva REBUILD;
 ALTER INDEX idx_reserva_socio_fecha ON Reserva REBUILD;
 ALTER INDEX idx_reserva_estado_grupo ON Reserva REBUILD;
-ALTER INDEX idx_reserva_socio ON Reserva REBUILD;
 
 /*CLASE*/
 ALTER INDEX idx_clase_dia_hora ON Clase REBUILD;
@@ -173,7 +177,3 @@ ALTER INDEX idx_clase_entrenador ON Clase REBUILD;
 
 /*GRUPO_DE_CLASE*/
 ALTER INDEX idx_grupo_clase_horario ON Grupo_de_Clase REBUILD;
-
-
-
-
