@@ -25,6 +25,7 @@ CREATE USER U_Auditor FOR LOGIN L_Auditor;
 
 --Creacion de roles y asignacion de los usuarios a sus roles
 ALTER ROLE db_owner ADD MEMBER U_Root;
+GRANT AUTHENTICATE TO U_Root;
 
 CREATE ROLE Rol_BackupOperator;
 ALTER ROLE Rol_BackupOperator ADD MEMBER U_BackupOperator;
@@ -121,7 +122,8 @@ ALTER ROLE db_datareader ADD MEMBER U_Auditor;
 
 USE [master]
 -- Permisos para auditoría del servidor
-GRANT VIEW SERVER STATE TO U_Auditor;
+GRANT VIEW SERVER STATE TO L_Auditor;
+GRANT VIEW SERVER SECURITY AUDIT TO L_Auditor;
 GRANT SELECT ON sys.fn_get_audit_file TO U_Auditor;
 GO
 
@@ -140,3 +142,4 @@ INNER JOIN sys.database_principals r
 INNER JOIN sys.database_principals u 
     ON drm.member_principal_id = u.principal_id
 ORDER BY u.name, r.name;
+
