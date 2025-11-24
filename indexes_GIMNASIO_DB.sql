@@ -6,6 +6,7 @@ USE GIMNASIO_DB;
 
 /*===========SOCIO======== */ 
 /*1 Buscar socios activos VISTA VW_Dashboard_Gimnasio, VW_Socios_Morosos */
+SELECT * FROM VW_Socios_Morosos;
 SELECT * FROM Socio WHERE Estado = 'Activo';
 
 CREATE NONCLUSTERED INDEX idx_socio_estado_activo ON Socio(Estado);
@@ -25,7 +26,8 @@ ON Socio(Nombre, Apellido);
 
 
 /*===========PAGO============*/ 
-/*1 Buscar pago por fecha VISTA VW_Dashboard_Gimnasio	*/
+/*1 Buscar pago por fecha VISTA VW_Dashboard_Gimnasio*/
+SELECT * FROM VW_Dashboard_Gimnasio;
 SELECT * FROM Pago 
 WHERE Fecha_pago BETWEEN '2025-01-01' AND '2025-12-31';
 
@@ -45,13 +47,14 @@ WHERE Fecha_Reserva = '2025-01-28 16:45:00';
 
 CREATE NONCLUSTERED INDEX idx_reserva_fecha ON Reserva(fecha_reserva);
 
-/*2 Buscar reserva por id_grupo clase VISTA VW_Clases_Disponibilidad, VW_Horario_Semanal*/
+/*2 Buscar reserva por id_grupo clase VISTA VW_Clases_Disponibilidad, VW_Horario_Semanal (FK)*/
+SELECT * FROM VW_Horario_Semanal;
 SELECT * FROM Reserva
 WHERE id_grupo_de_clase = 12;
 
 CREATE NONCLUSTERED INDEX idx_reserva_grupo ON Reserva(id_grupo_de_clase);
 
-/*3 Historial de reservas por socio, ordenadas por fecha. FK*/
+/*3 Historial de reservas por socio, ordenadas por fecha. (FK)*/
 SELECT * FROM Reserva
 WHERE id_socio = 12
 ORDER BY Fecha_Reserva DESC;
@@ -67,8 +70,8 @@ ON Reserva(Estado_Reserva, id_grupo_de_clase);
 
 
 /*=============CLASE==================*/
-
 /* 1 Filtrar clases por día y ordenarlas. VW_Clases_Disponibilidad, VW_Horario_Semanal*/
+SELECT * FROM VW_Clases_Disponibilidad;
 SELECT * FROM Clase
 WHERE Dia_Semana = 'Lunes'
 ORDER BY Hora_Inicio;
@@ -78,7 +81,7 @@ ON Clase(Dia_Semana, Hora_Inicio);
 
 
 /*============GRUPO DE CLASE=========*/
-/*1 Buscar grupos por clase y ordenar por horario FK*/
+/*1 Buscar grupos por clase y ordenar por horario (FK)*/
 SELECT * FROM Grupo_de_Clase 
 WHERE id_clase = 3
 ORDER BY horario;
@@ -88,15 +91,7 @@ ON Grupo_de_Clase(id_clase, horario);
 
 
 /*-----INDICES PARA JOINS COMUNES------*/
-/*indices faltantes para relaciones entre tablas FK*/
-
-/* ======== RESERVA ======== */
-/* FK → Socio */
-CREATE NONCLUSTERED INDEX idx_reserva_socio ON Reserva(id_socio);
-
-/* FK → Grupo_de_Clase */
-CREATE NONCLUSTERED INDEX idx_reserva_grupo ON Reserva(id_grupo_de_clase);
-
+/*indices faltantes para relaciones entre tablas (FK)*/
 
 /* ======== PAGO ======== */
 /* FK → Grupo_de_Clase */
@@ -109,6 +104,7 @@ CREATE NONCLUSTERED INDEX idx_pago_entrenador ON Pago(id_entrenador);
 /* ======== CLASE ======== */
 /* FK a Entrenador */
 CREATE NONCLUSTERED INDEX idx_clase_entrenador ON Clase(Id_Entrenador);
+
 
 /*Para JOINS como*/
 
@@ -151,3 +147,33 @@ JOIN
 sys.indexes AS i ON ips.object_id = i.object_id AND ips.index_id = i.index_id
 WHERE
 ips.database_id = DB_ID();
+
+/*--REBUILD O REORGANIZE--*/
+/*SOCIO*/
+ALTER INDEX idx_socio_estado_activo ON Socio REBUILD;
+ALTER INDEX idx_socio_email ON Socio REBUILD;
+ALTER INDEX idx_socio_nombre_apellido ON Socio REBUILD;
+
+/*PAGO*/
+ALTER INDEX idx_pago_fechapago ON Pago REBUILD;
+ALTER INDEX idx_pago_socio_fecha ON Pago REBUILD;
+ALTER INDEX idx_pago_grupo ON Pago REBUILD;
+ALTER INDEX idx_pago_entrenador ON Pago REBUILD;
+
+/*RESERVA*/
+ALTER INDEX idx_reserva_fecha ON Reserva REBUILD;
+ALTER INDEX idx_reserva_grupo ON Reserva REBUILD;
+ALTER INDEX idx_reserva_socio_fecha ON Reserva REBUILD;
+ALTER INDEX idx_reserva_estado_grupo ON Reserva REBUILD;
+ALTER INDEX idx_reserva_socio ON Reserva REBUILD;
+
+/*CLASE*/
+ALTER INDEX idx_clase_dia_hora ON Clase REBUILD;
+ALTER INDEX idx_clase_entrenador ON Clase REBUILD;
+
+/*GRUPO_DE_CLASE*/
+ALTER INDEX idx_grupo_clase_horario ON Grupo_de_Clase REBUILD;
+
+
+
+
