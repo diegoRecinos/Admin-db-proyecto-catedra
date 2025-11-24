@@ -14,13 +14,9 @@ ALTER SERVER AUDIT server_audit_GIMNASIO_DB
 WITH (STATE = ON);
 GO
 
-/*Server audit spec*/
+/*-------Server audit spec*/
 CREATE SERVER AUDIT SPECIFICATION server_audit_spec_GIMNASIO_DB
 FOR SERVER AUDIT server_audit_GIMNASIO_DB
-
--- Cambios de objetos/bases
-ADD (DATABASE_OBJECT_CHANGE_GROUP), --CRUD de tablas, vistas, triggers etc
-ADD (SCHEMA_OBJECT_CHANGE_GROUP), --Cambios en esquemas
 
 -- Cambios de permisos
 ADD (DATABASE_OBJECT_PERMISSION_CHANGE_GROUP),
@@ -34,8 +30,9 @@ ADD (SERVER_PERMISSION_CHANGE_GROUP) --GRANT, DENY, REVOKE
 
 WITH (STATE = ON);
 GO
+/*-------*/
 
-/*Database audit spec*/
+/*-------Database audit spec*/
 USE [GIMNASIO_DB]
 GO
 CREATE DATABASE AUDIT SPECIFICATION audit_spec_GIMNASIO_DB
@@ -62,6 +59,7 @@ ADD (DELETE ON SCHEMA::dbo BY PUBLIC)
 
 WITH (STATE = ON);
 GO
+/*-----*/
 
 -- Ver todos los detalles asociados a cada audit specification
 /*server*/
