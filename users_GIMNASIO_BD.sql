@@ -142,4 +142,3 @@ INNER JOIN sys.database_principals r
 INNER JOIN sys.database_principals u 
     ON drm.member_principal_id = u.principal_id
 ORDER BY u.name, r.name;
-
