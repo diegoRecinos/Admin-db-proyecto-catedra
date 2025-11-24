@@ -17,7 +17,7 @@ CREATE TABLE Socio (
     Telefono NVARCHAR (15) UNIQUE,
     Email NVARCHAR(100) UNIQUE,
     Fecha_registro DATETIME DEFAULT GETDATE(),
-    Estado NVARCHAR(10) DEFAULT 'Activo'
+    Estado NVARCHAR(10) DEFAULT 'Activo' --Que nomas se inscriba, su estado sera en automatico "activo"
     CONSTRAINT chk_Estado CHECK (Estado IN ('Activo', 'Inactivo'))
 );
 
@@ -25,8 +25,8 @@ CREATE TABLE Clase(
 	Id INT PRIMARY KEY NOT NULL IDENTITY (1,1),
     Id_Entrenador INT,
     Nombre NVARCHAR(50) NOT NULL,
-    Descripcion NVARCHAR(200),
-    Capacidad INT DEFAULT(20),
+    Descripcion NVARCHAR(200), --de clase
+    Capacidad INT DEFAULT(20), --capacidad minima, se puede cambiar
     Hora_Inicio TIME,
     Hora_Fin TIME,
     Dia_Semana NVARCHAR(10) NOT NULL CONSTRAINT chk_dia_semana CHECK (Dia_Semana IN 

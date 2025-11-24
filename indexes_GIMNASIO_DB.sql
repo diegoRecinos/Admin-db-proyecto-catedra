@@ -1,6 +1,7 @@
 ﻿/*indices para busquedas comunes compuestos y simples*/
 
 /*============SOCIO======== */ 
+USE GIMNASIO_DB;
 /*1 Buscar socios activos*/
 SELECT * FROM Socio WHERE Estado = 'Activo';
 
@@ -8,7 +9,7 @@ CREATE NONCLUSTERED INDEX idx_socio_estado_activo ON Socio(Estado);
 
 /*2 Buscar socio por email*/
 SELECT * FROM Socio
-WHERE Email = 'laura.torres@email.com';
+WHERE Email = 'laura.torres008@email.com';
 
 CREATE UNIQUE INDEX idx_socio_email ON Socio(Email);
 
@@ -31,12 +32,12 @@ CREATE NONCLUSTERED INDEX idx_pago_fechapago ON Pago(Fecha_Pago);
 SELECT * FROM Pago 
 WHERE id_socio = 10;
 
-CREATE NONCLUSTERED INDEX idx_pago_socio ON Pago(id_socio)
+CREATE NONCLUSTERED INDEX idx_pago_socio ON Pago(id_socio);
 
 /*===========RESERVA=========*/
 /* 1 Buscar reserva por fecha*/
 SELECT * FROM Reserva 
-WHERE Fecha_Reserva = '2025-11-12 21:02:22.690';
+WHERE Fecha_Reserva = '2025-01-28 16:45:00';
 
 CREATE NONCLUSTERED INDEX idx_reserva_fecha ON Reserva(fecha_reserva);
 
@@ -48,13 +49,13 @@ CREATE NONCLUSTERED INDEX idx_reserva_socio ON Reserva(id_socio);
 
 /*3 Buscar reserva por id_grupo clase*/
 SELECT * FROM Reserva
-WHERE Reserva.id_grupo_de_clase = 1;
+WHERE id_grupo_de_clase = 12;
 
 CREATE NONCLUSTERED INDEX idx_reserva_grupo ON Reserva(id_grupo_de_clase);
 
 /*4 Historial de reservas por socio, ordenadas por fecha.*/
 SELECT * FROM Reserva
-WHERE id_socio = 10
+WHERE id_socio = 12
 ORDER BY Fecha_Reserva DESC;
 
 CREATE NONCLUSTERED INDEX idx_reserva_socio_fecha
@@ -116,7 +117,7 @@ FROM Reserva
 JOIN Socio  ON Socio.Id = Reserva.id_socio
 JOIN Grupo_de_Clase  ON Grupo_de_Clase.Id = Reserva.id_grupo_de_clase
 JOIN Clase ON Clase.Id = Grupo_de_Clase.id_clase
-WHERE Socio.Id = 10;
+WHERE Socio.Id = 12;
 
 /*Pagos de un socio con info de grupo y clase*/
 SELECT Pago.Monto, Pago.Fecha_Pago, Clase.Nombre AS Clase, Entrenador.Nombre AS Entrenador
@@ -132,7 +133,7 @@ FROM Reserva
 JOIN Socio  ON Socio.Id = Reserva.id_socio
 JOIN Grupo_de_Clase  ON Grupo_de_Clase.Id = Reserva.id_grupo_de_clase
 JOIN Clase  ON Clase.Id = Grupo_de_Clase.id_clase
-WHERE Socio.Id = 10;
+WHERE Socio.Id = 12;
 
 /*Clases con el nombre del entrenador*/
 SELECT Clase.Nombre, Clase.Dia_Semana, Entrenador.Nombre AS Entrenador
