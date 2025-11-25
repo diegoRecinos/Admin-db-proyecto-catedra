@@ -66,6 +66,7 @@ GRANT SELECT ON dbo.Entrenador TO Rol_ClassManager;
 DENY SELECT, INSERT, UPDATE, DELETE ON dbo.Pago TO Rol_ClassManager;
 DENY SELECT, INSERT, UPDATE, DELETE ON dbo.Socio TO Rol_ClassManager;
 DENY SELECT, INSERT, UPDATE, DELETE ON dbo.Reserva TO Rol_ClassManager;
+DENY INSERT, UPDATE, DELETE ON dbo.Entrenador TO Rol_ClassManager;
 
 --Rol manager de pagos
 GRANT SELECT, INSERT, UPDATE ON dbo.Pago TO Rol_PagosManager;
