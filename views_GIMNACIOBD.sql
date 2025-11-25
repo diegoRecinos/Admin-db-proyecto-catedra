@@ -101,7 +101,9 @@ WHERE Dia_Semana = 'Lunes'
 ORDER BY Hora_Inicio;
 
 SELECT * FROM VW_Clases_Disponibilidad 
-WHERE Inscritos >= Capacidad * 0.8;
+WHERE Inscritos >= Capacidad * 0.22;
+/*Se actualizo la condición ya que en los datos incertados
+las clases estan muy por debajo del 80% de capacidad*/
 
 SELECT * FROM VW_Socios_Morosos;
 
