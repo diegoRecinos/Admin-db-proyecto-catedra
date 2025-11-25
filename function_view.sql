@@ -17,7 +17,7 @@ SELECT Fecha_Pago, Monto, SUM(Monto) OVER (ORDER BY Fecha_Pago ROWS UNBOUNDED PR
     AVG(Monto) OVER (ORDER BY Fecha_Pago ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS Promedio_Movil_7_Dias,
     LAG(Monto) OVER (ORDER BY Fecha_Pago) AS Pago_Dia_Anterior,
     CAST((Monto - LAG(Monto) OVER (ORDER BY Fecha_Pago)) * 100 / LAG(Monto) 
-OVER (ORDER BY Fecha_Pago) AS DECIMAL(5,2)) AS Variacion_Porcentual
+OVER (ORDER BY Fecha_Pago) AS DECIMAL(10,2)) AS Variacion_Porcentual
 FROM Pago
 ORDER BY Fecha_Pago;
 
