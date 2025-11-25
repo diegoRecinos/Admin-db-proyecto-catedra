@@ -3238,6 +3238,2559 @@ INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_P
 
 
 
+--Añadiendo mas datos para una base de datos con mayor informacion para su analisis 
+
+-- =====================================================
+-- SCRIPT 1: PAGOS 2024 (Enero-Febrero)
+-- Total: 100 registros
+-- Enero 2024: 90 pagos (IDs 1001-1090)
+-- Febrero 2024: 10 pagos (IDs 1091-1100)
+-- =====================================================
+
+-- =============================================
+-- PAGOS ENERO-FEBRERO 2024 (Registros 1-100)
+-- Distribución: 67 Mensuales, 33 por Clase
+-- ENERO: 65 pagos (más afluencia año nuevo)
+-- FEBRERO: 35 pagos
+-- Incluye pagos EN MORA (atrasados dentro de 2024)
+-- =============================================
+
+
+INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
+-- ENERO 2024 - Pagos MENSUALES AL DÍA (40 registros)
+(512, 145, 12, '2024-01-03 10:20:00', 'Mensual', 'Tarjeta', 45.00),
+(234, 78, 13, '2024-01-05 14:35:00', 'Mensual', 'Efectivo', 42.00),
+(678, 201, 14, '2024-01-08 09:50:00', 'Mensual', 'Transferencia', 48.00),
+(145, 123, 15, '2024-01-10 16:15:00', 'Mensual', 'Tarjeta', 44.00),
+(389, 56, 16, '2024-01-12 11:30:00', 'Mensual', 'Efectivo', 40.00),
+(567, 189, 17, '2024-01-15 08:45:00', 'Mensual', 'Transferencia', 47.00),
+(712, 34, 18, '2024-01-17 15:20:00', 'Mensual', 'Tarjeta', 43.00),
+(98, 167, 19, '2024-01-19 12:05:00', 'Mensual', 'Efectivo', 39.00),
+(256, 12, 20, '2024-01-22 17:40:00', 'Mensual', 'Transferencia', 46.00),
+(423, 95, 21, '2024-01-24 10:55:00', 'Mensual', 'Tarjeta', 41.00),
+(589, 178, 22, '2024-01-26 14:10:00', 'Mensual', 'Efectivo', 44.00),
+(734, 23, 23, '2024-01-28 09:25:00', 'Mensual', 'Transferencia', 48.00),
+(167, 134, 24, '2024-01-30 16:50:00', 'Mensual', 'Tarjeta', 45.00),
+(312, 67, 25, '2024-01-04 13:15:00', 'Mensual', 'Efectivo', 42.00),
+(478, 112, 26, '2024-01-06 11:40:00', 'Mensual', 'Transferencia', 47.00),
+(623, 156, 27, '2024-01-09 18:25:00', 'Mensual', 'Tarjeta', 43.00),
+(56, 89, 28, '2024-01-11 15:50:00', 'Mensual', 'Efectivo', 40.00),
+(201, 45, 29, '2024-01-14 10:05:00', 'Mensual', 'Transferencia', 46.00),
+(367, 201, 30, '2024-01-16 14:30:00', 'Mensual', 'Tarjeta', 44.00),
+(501, 78, 31, '2024-01-18 09:45:00', 'Mensual', 'Efectivo', 41.00),
+(645, 134, 32, '2024-01-21 17:10:00', 'Mensual', 'Transferencia', 48.00),
+(123, 23, 33, '2024-01-23 12:35:00', 'Mensual', 'Tarjeta', 45.00),
+(289, 167, 34, '2024-01-25 10:00:00', 'Mensual', 'Efectivo', 42.00),
+(445, 56, 35, '2024-01-27 15:45:00', 'Mensual', 'Transferencia', 47.00),
+(578, 189, 36, '2024-01-29 13:20:00', 'Mensual', 'Tarjeta', 43.00),
+(701, 101, 37, '2024-01-31 11:15:00', 'Mensual', 'Efectivo', 40.00),
+(34, 145, 38, '2024-01-05 16:40:00', 'Mensual', 'Transferencia', 46.00),
+(178, 12, 39, '2024-01-07 14:05:00', 'Mensual', 'Tarjeta', 44.00),
+(334, 89, 40, '2024-01-13 10:30:00', 'Mensual', 'Efectivo', 41.00),
+(489, 178, 41, '2024-01-20 17:55:00', 'Mensual', 'Transferencia', 48.00),
+(612, 34, 42, '2024-01-02 12:20:00', 'Mensual', 'Tarjeta', 45.00),
+(745, 123, 43, '2024-01-08 09:45:00', 'Mensual', 'Efectivo', 42.00),
+(89, 67, 44, '2024-01-15 16:10:00', 'Mensual', 'Transferencia', 47.00),
+(223, 156, 45, '2024-01-22 13:35:00', 'Mensual', 'Tarjeta', 43.00),
+(401, 45, 46, '2024-01-03 11:00:00', 'Mensual', 'Efectivo', 40.00),
+(534, 201, 47, '2024-01-10 18:25:00', 'Mensual', 'Transferencia', 46.00),
+(667, 112, 48, '2024-01-17 15:50:00', 'Mensual', 'Tarjeta', 44.00),
+(112, 89, 49, '2024-01-24 10:15:00', 'Mensual', 'Efectivo', 41.00),
+(267, 134, 50, '2024-01-31 14:40:00', 'Mensual', 'Transferencia', 48.00),
+(412, 78, 1, '2024-01-12 12:05:00', 'Mensual', 'Tarjeta', 45.00),
+
+-- ENERO 2024 - Pagos POR CLASE (25 registros - alta demanda en enero)
+(556, 167, 2, '2024-01-06 18:30:00', 'Clase', 'Efectivo', 12.00),
+(689, 23, 3, '2024-01-09 19:15:00', 'Clase', 'Tarjeta', 10.00),
+(145, 156, 4, '2024-01-12 17:45:00', 'Clase', 'Transferencia', 13.00),
+(298, 45, 5, '2024-01-15 18:20:00', 'Clase', 'Efectivo', 11.00),
+(467, 189, 6, '2024-01-17 19:50:00', 'Clase', 'Tarjeta', 9.00),
+(601, 101, 7, '2024-01-20 18:05:00', 'Clase', 'Transferencia', 14.00),
+(723, 67, 8, '2024-01-22 17:30:00', 'Clase', 'Efectivo', 12.00),
+(78, 134, 9, '2024-01-25 19:45:00', 'Clase', 'Tarjeta', 10.00),
+(209, 12, 10, '2024-01-27 18:15:00', 'Clase', 'Transferencia', 13.00),
+(356, 89, 11, '2024-01-29 17:40:00', 'Clase', 'Efectivo', 11.00),
+(490, 178, 12, '2024-01-07 19:00:00', 'Clase', 'Tarjeta', 9.00),
+(623, 56, 13, '2024-01-10 18:25:00', 'Clase', 'Transferencia', 15.00),
+(156, 201, 14, '2024-01-13 17:50:00', 'Clase', 'Efectivo', 12.00),
+(312, 123, 15, '2024-01-16 19:35:00', 'Clase', 'Tarjeta', 10.00),
+(445, 34, 16, '2024-01-19 18:10:00', 'Clase', 'Transferencia', 14.00),
+(578, 145, 17, '2024-01-21 17:35:00', 'Clase', 'Efectivo', 11.00),
+(712, 78, 18, '2024-01-24 20:00:00', 'Clase', 'Tarjeta', 9.00),
+(234, 167, 19, '2024-01-26 18:45:00', 'Clase', 'Transferencia', 16.00),
+(456, 23, 20, '2024-01-28 17:20:00', 'Clase', 'Efectivo', 12.00),
+(789, 112, 21, '2024-01-31 19:10:00', 'Clase', 'Tarjeta', 10.00),
+(134, 156, 22, '2024-01-04 18:40:00', 'Clase', 'Transferencia', 13.00),
+(378, 45, 23, '2024-01-08 19:25:00', 'Clase', 'Efectivo', 11.00),
+(523, 189, 24, '2024-01-14 17:55:00', 'Clase', 'Tarjeta', 14.00),
+(656, 101, 25, '2024-01-18 18:30:00', 'Clase', 'Transferencia', 12.00),
+(890, 67, 26, '2024-01-23 19:20:00', 'Clase', 'Efectivo', 10.00),
+
+-- FEBRERO 2024 - Pagos MENSUALES AL DÍA (20 registros)
+(123, 156, 27, '2024-02-02 11:25:00', 'Mensual', 'Transferencia', 46.00),
+(345, 89, 28, '2024-02-05 15:40:00', 'Mensual', 'Tarjeta', 43.00),
+(567, 201, 29, '2024-02-07 10:55:00', 'Mensual', 'Efectivo', 47.00),
+(890, 45, 30, '2024-02-10 17:10:00', 'Mensual', 'Transferencia', 44.00),
+(212, 134, 31, '2024-02-12 12:35:00', 'Mensual', 'Tarjeta', 41.00),
+(434, 78, 32, '2024-02-15 09:50:00', 'Mensual', 'Efectivo', 48.00),
+(656, 167, 33, '2024-02-17 16:15:00', 'Mensual', 'Transferencia', 45.00),
+(178, 23, 34, '2024-02-19 13:30:00', 'Mensual', 'Tarjeta', 42.00),
+(390, 112, 35, '2024-02-22 11:05:00', 'Mensual', 'Efectivo', 47.00),
+(512, 56, 36, '2024-02-24 18:20:00', 'Mensual', 'Transferencia', 44.00),
+(734, 189, 37, '2024-02-26 15:45:00', 'Mensual', 'Tarjeta', 41.00),
+(256, 101, 38, '2024-02-28 10:10:00', 'Mensual', 'Efectivo', 46.00),
+(478, 145, 39, '2024-02-03 14:25:00', 'Mensual', 'Transferencia', 48.00),
+(601, 12, 40, '2024-02-06 11:50:00', 'Mensual', 'Tarjeta', 43.00),
+(823, 89, 41, '2024-02-09 17:15:00', 'Mensual', 'Efectivo', 45.00),
+(45, 178, 42, '2024-02-11 14:40:00', 'Mensual', 'Transferencia', 42.00),
+(267, 34, 43, '2024-02-14 10:05:00', 'Mensual', 'Tarjeta', 47.00),
+(489, 123, 44, '2024-02-16 16:30:00', 'Mensual', 'Efectivo', 44.00),
+(612, 67, 45, '2024-02-20 13:55:00', 'Mensual', 'Transferencia', 41.00),
+(834, 156, 46, '2024-02-23 11:20:00', 'Mensual', 'Tarjeta', 48.00),
+
+-- FEBRERO 2024 - Pagos MENSUALES EN MORA (7 registros - debían pagar en enero)
+(27, 23, 47, '2024-01-05 09:00:00', 'Mensual', 'Tarjeta', 38.00),
+(29, 34, 48, '2024-01-08 16:20:00', 'Mensual', 'Efectivo', 35.00),
+(30, 45, 49, '2024-01-12 11:15:00', 'Mensual', 'Transferencia', 37.00),
+(36, 67, 50, '2024-01-15 13:30:00', 'Mensual', 'Tarjeta', 40.00),
+(40, 78, 1, '2024-01-18 10:00:00', 'Mensual', 'Efectivo', 33.00),
+(42, 89, 2, '2024-01-22 14:45:00', 'Mensual', 'Transferencia', 39.00),
+(44, 101, 3, '2024-01-25 09:30:00', 'Mensual', 'Tarjeta', 36.00),
+
+-- FEBRERO 2024 - Pagos POR CLASE (8 registros)
+(412, 89, 4, '2024-02-05 18:40:00', 'Clase', 'Transferencia', 13.00),
+(634, 156, 5, '2024-02-08 19:25:00', 'Clase', 'Tarjeta', 11.00),
+(856, 45, 6, '2024-02-11 17:50:00', 'Clase', 'Efectivo', 14.00),
+(78, 201, 7, '2024-02-14 18:35:00', 'Clase', 'Transferencia', 12.00),
+(201, 123, 8, '2024-02-18 20:00:00', 'Clase', 'Tarjeta', 10.00),
+(423, 67, 9, '2024-02-21 18:15:00', 'Clase', 'Efectivo', 15.00),
+(645, 134, 10, '2024-02-25 17:40:00', 'Clase', 'Transferencia', 13.00),
+(867, 12, 11, '2024-02-27 19:55:00', 'Clase', 'Tarjeta', 11.00);
+
+-- =============================================
+-- RESUMEN: Registros 1-100 insertados
+-- ENERO 2024: 65 pagos (40 mensuales al día + 25 por clase)
+-- FEBRERO 2024: 35 pagos (20 mensuales al día + 7 en MORA + 8 por clase)
+-- Total MORA: 7 pagos (debían pagar en enero, pagaron tarde)
+-- Total: 100 registros
+-- =============================================
+
+-- =============================================
+-- PAGOS FEBRERO-MARZO-ABRIL 2024 (Registros 101-200)
+-- Distribución: 67 Mensuales, 33 por Clase
+-- FEBRERO: 50 pagos (completando)
+-- MARZO: 35 pagos
+-- ABRIL: 15 pagos
+-- Incluye pagos EN MORA
+-- =============================================
+
+INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
+-- FEBRERO 2024 - Pagos MENSUALES AL DÍA (30 registros - completando febrero)
+(156, 201, 12, '2024-02-01 10:30:00', 'Mensual', 'Efectivo', 45.00),
+(378, 45, 13, '2024-02-04 14:45:00', 'Mensual', 'Tarjeta', 42.00),
+(501, 112, 14, '2024-02-08 09:20:00', 'Mensual', 'Transferencia', 48.00),
+(723, 78, 15, '2024-02-13 16:35:00', 'Mensual', 'Efectivo', 44.00),
+(945, 134, 16, '2024-02-16 11:50:00', 'Mensual', 'Tarjeta', 46.00),
+(67, 23, 17, '2024-02-21 08:15:00', 'Mensual', 'Transferencia', 43.00),
+(289, 167, 18, '2024-02-25 15:30:00', 'Mensual', 'Efectivo', 47.00),
+(412, 89, 19, '2024-02-29 12:45:00', 'Mensual', 'Tarjeta', 45.00),
+(634, 156, 20, '2024-02-02 17:00:00', 'Mensual', 'Transferencia', 42.00),
+(856, 45, 21, '2024-02-06 10:25:00', 'Mensual', 'Efectivo', 48.00),
+(78, 201, 22, '2024-02-10 14:40:00', 'Mensual', 'Tarjeta', 44.00),
+(201, 123, 23, '2024-02-15 09:55:00', 'Mensual', 'Transferencia', 46.00),
+(423, 67, 24, '2024-02-19 16:10:00', 'Mensual', 'Efectivo', 43.00),
+(645, 134, 25, '2024-02-22 13:25:00', 'Mensual', 'Tarjeta', 47.00),
+(867, 12, 26, '2024-02-26 11:40:00', 'Mensual', 'Transferencia', 45.00),
+(89, 178, 27, '2024-02-03 18:55:00', 'Mensual', 'Efectivo', 42.00),
+(312, 56, 28, '2024-02-07 15:10:00', 'Mensual', 'Tarjeta', 48.00),
+(534, 189, 29, '2024-02-12 10:35:00', 'Mensual', 'Transferencia', 44.00),
+(756, 101, 30, '2024-02-17 17:50:00', 'Mensual', 'Efectivo', 46.00),
+(178, 145, 31, '2024-02-20 14:05:00', 'Mensual', 'Tarjeta', 43.00),
+(390, 112, 32, '2024-02-24 09:30:00', 'Mensual', 'Transferencia', 47.00),
+(512, 56, 33, '2024-02-27 16:45:00', 'Mensual', 'Efectivo', 45.00),
+(734, 189, 34, '2024-02-05 12:00:00', 'Mensual', 'Tarjeta', 42.00),
+(256, 101, 35, '2024-02-09 18:15:00', 'Mensual', 'Transferencia', 48.00),
+(478, 145, 36, '2024-02-14 13:30:00', 'Mensual', 'Efectivo', 44.00),
+(601, 12, 37, '2024-02-18 10:45:00', 'Mensual', 'Tarjeta', 46.00),
+(823, 89, 38, '2024-02-23 17:00:00', 'Mensual', 'Transferencia', 43.00),
+(45, 178, 39, '2024-02-28 14:15:00', 'Mensual', 'Efectivo', 47.00),
+(267, 34, 40, '2024-02-11 11:30:00', 'Mensual', 'Tarjeta', 45.00),
+(489, 123, 41, '2024-02-16 08:45:00', 'Mensual', 'Transferencia', 42.00),
+
+-- FEBRERO 2024 - Pagos MENSUALES EN MORA (5 registros - debían pagar en enero)
+(48, 112, 42, '2024-01-10 16:00:00', 'Mensual', 'Efectivo', 34.00),
+(50, 123, 43, '2024-01-14 12:15:00', 'Mensual', 'Transferencia', 37.00),
+(80, 134, 44, '2024-01-19 08:45:00', 'Mensual', 'Tarjeta', 35.00),
+(82, 145, 45, '2024-01-23 14:30:00', 'Mensual', 'Efectivo', 33.00),
+(84, 178, 46, '2024-01-28 10:50:00', 'Mensual', 'Transferencia', 36.00),
+
+-- FEBRERO 2024 - Pagos POR CLASE (15 registros - completando febrero)
+(89, 178, 47, '2024-02-04 18:20:00', 'Clase', 'Efectivo', 12.00),
+(312, 56, 48, '2024-02-09 19:35:00', 'Clase', 'Tarjeta', 14.00),
+(534, 189, 49, '2024-02-13 17:50:00', 'Clase', 'Transferencia', 11.00),
+(756, 101, 50, '2024-02-18 18:45:00', 'Clase', 'Efectivo', 13.00),
+(178, 145, 1, '2024-02-22 20:00:00', 'Clase', 'Tarjeta', 10.00),
+(390, 112, 2, '2024-02-26 18:15:00', 'Clase', 'Transferencia', 15.00),
+(512, 56, 3, '2024-02-03 19:30:00', 'Clase', 'Efectivo', 12.00),
+(734, 189, 4, '2024-02-08 17:45:00', 'Clase', 'Tarjeta', 11.00),
+(256, 101, 5, '2024-02-12 20:10:00', 'Clase', 'Transferencia', 14.00),
+(478, 145, 6, '2024-02-17 18:25:00', 'Clase', 'Efectivo', 13.00),
+(601, 12, 7, '2024-02-21 19:40:00', 'Clase', 'Tarjeta', 10.00),
+(823, 89, 8, '2024-02-25 17:55:00', 'Clase', 'Transferencia', 16.00),
+(45, 178, 9, '2024-02-28 18:30:00', 'Clase', 'Efectivo', 12.00),
+(267, 34, 10, '2024-02-06 19:20:00', 'Clase', 'Tarjeta', 11.00),
+(489, 123, 11, '2024-02-15 18:05:00', 'Clase', 'Transferencia', 14.00),
+
+-- MARZO 2024 - Pagos MENSUALES AL DÍA (22 registros)
+(612, 67, 12, '2024-03-01 10:15:00', 'Mensual', 'Efectivo', 46.00),
+(834, 156, 13, '2024-03-04 14:30:00', 'Mensual', 'Tarjeta', 43.00),
+(156, 201, 14, '2024-03-07 09:45:00', 'Mensual', 'Transferencia', 48.00),
+(378, 45, 15, '2024-03-10 16:00:00', 'Mensual', 'Efectivo', 45.00),
+(501, 112, 16, '2024-03-13 11:15:00', 'Mensual', 'Tarjeta', 42.00),
+(723, 78, 17, '2024-03-16 08:30:00', 'Mensual', 'Transferencia', 47.00),
+(945, 134, 18, '2024-03-19 15:45:00', 'Mensual', 'Efectivo', 44.00),
+(67, 23, 19, '2024-03-22 13:00:00', 'Mensual', 'Tarjeta', 46.00),
+(289, 167, 20, '2024-03-25 10:15:00', 'Mensual', 'Transferencia', 43.00),
+(412, 89, 21, '2024-03-28 17:30:00', 'Mensual', 'Efectivo', 48.00),
+(634, 156, 22, '2024-03-31 14:45:00', 'Mensual', 'Tarjeta', 45.00),
+(856, 45, 23, '2024-03-03 12:00:00', 'Mensual', 'Transferencia', 42.00),
+(78, 201, 24, '2024-03-06 09:15:00', 'Mensual', 'Efectivo', 47.00),
+(201, 123, 25, '2024-03-09 16:30:00', 'Mensual', 'Tarjeta', 44.00),
+(423, 67, 26, '2024-03-12 13:45:00', 'Mensual', 'Transferencia', 46.00),
+(645, 134, 27, '2024-03-15 11:00:00', 'Mensual', 'Efectivo', 43.00),
+(867, 12, 28, '2024-03-18 18:15:00', 'Mensual', 'Tarjeta', 48.00),
+(89, 178, 29, '2024-03-21 15:30:00', 'Mensual', 'Transferencia', 45.00),
+(312, 56, 30, '2024-03-24 10:45:00', 'Mensual', 'Efectivo', 42.00),
+(534, 189, 31, '2024-03-27 17:00:00', 'Mensual', 'Tarjeta', 47.00),
+(756, 101, 32, '2024-03-30 14:15:00', 'Mensual', 'Transferencia', 44.00),
+(178, 145, 33, '2024-03-05 11:30:00', 'Mensual', 'Efectivo', 46.00),
+
+-- MARZO 2024 - Pagos MENSUALES EN MORA (3 registros - debían pagar en febrero)
+(86, 189, 34, '2024-02-12 12:00:00', 'Mensual', 'Tarjeta', 38.00),
+(88, 201, 35, '2024-02-18 14:30:00', 'Mensual', 'Transferencia', 36.00),
+(90, 12, 36, '2024-02-25 10:45:00', 'Mensual', 'Efectivo', 35.00),
+
+-- MARZO 2024 - Pagos POR CLASE (10 registros)
+(390, 112, 37, '2024-03-02 18:40:00', 'Clase', 'Tarjeta', 13.00),
+(512, 56, 38, '2024-03-08 19:25:00', 'Clase', 'Efectivo', 11.00),
+(734, 189, 39, '2024-03-14 17:50:00', 'Clase', 'Transferencia', 14.00),
+(256, 101, 40, '2024-03-20 18:35:00', 'Clase', 'Tarjeta', 12.00),
+(478, 145, 41, '2024-03-26 20:00:00', 'Clase', 'Efectivo', 10.00),
+(601, 12, 42, '2024-03-04 18:15:00', 'Clase', 'Transferencia', 15.00),
+(823, 89, 43, '2024-03-11 17:40:00', 'Clase', 'Tarjeta', 13.00),
+(45, 178, 44, '2024-03-17 19:55:00', 'Clase', 'Efectivo', 11.00),
+(267, 34, 45, '2024-03-23 18:20:00', 'Clase', 'Transferencia', 14.00),
+(489, 123, 46, '2024-03-29 17:45:00', 'Clase', 'Tarjeta', 12.00),
+
+-- ABRIL 2024 - Pagos MENSUALES AL DÍA (9 registros)
+(612, 67, 47, '2024-04-02 10:30:00', 'Mensual', 'Transferencia', 47.00),
+(834, 156, 48, '2024-04-05 14:45:00', 'Mensual', 'Tarjeta', 44.00),
+(156, 201, 49, '2024-04-08 09:00:00', 'Mensual', 'Efectivo', 48.00),
+(378, 45, 50, '2024-04-11 16:15:00', 'Mensual', 'Transferencia', 46.00),
+(501, 112, 1, '2024-04-14 11:30:00', 'Mensual', 'Tarjeta', 43.00),
+(723, 78, 2, '2024-04-17 08:45:00', 'Mensual', 'Efectivo', 48.00),
+(945, 134, 3, '2024-04-20 16:00:00', 'Mensual', 'Transferencia', 45.00),
+(67, 23, 4, '2024-04-23 13:15:00', 'Mensual', 'Tarjeta', 47.00),
+(289, 167, 5, '2024-04-26 10:30:00', 'Mensual', 'Efectivo', 44.00),
+
+-- ABRIL 2024 - Pagos MENSUALES EN MORA (2 registros - debían pagar en marzo)
+(92, 23, 6, '2024-03-05 11:00:00', 'Mensual', 'Tarjeta', 34.00),
+(94, 34, 7, '2024-03-15 15:30:00', 'Mensual', 'Efectivo', 37.00),
+
+-- ABRIL 2024 - Pagos POR CLASE (4 registros)
+(412, 89, 8, '2024-04-03 18:50:00', 'Clase', 'Transferencia', 14.00),
+(634, 156, 9, '2024-04-10 19:35:00', 'Clase', 'Tarjeta', 12.00),
+(856, 45, 10, '2024-04-18 17:20:00', 'Clase', 'Efectivo', 13.00),
+(78, 201, 11, '2024-04-25 18:45:00', 'Clase', 'Transferencia', 11.00);
+
+-- =============================================
+-- RESUMEN: Registros 101-200 insertados
+-- FEBRERO 2024: 50 pagos (30 mensuales al día + 5 en MORA + 15 por clase)
+-- MARZO 2024: 35 pagos (22 mensuales al día + 3 en MORA + 10 por clase)
+-- ABRIL 2024: 15 pagos (9 mensuales al día + 2 en MORA + 4 por clase)
+-- Total MORA: 10 pagos
+-- Total: 100 registros
+-- =============================================
+
+
+
+-- =============================================
+-- PAGOS ABRIL 2024 - MARZO-MAYO 2025 (Registros 201-300)
+-- Distribución: 67 Mensuales, 33 por Clase
+-- ABRIL 2024: 60 pagos (completando)
+-- MARZO 2025: 25 pagos
+-- ABRIL 2025: 10 pagos
+-- MAYO 2025: 5 pagos
+-- Incluye pagos EN MORA
+-- =============================================
+
+INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
+-- ABRIL 2024 - Pagos MENSUALES AL DÍA (38 registros - completando abril)
+(412, 89, 12, '2024-04-01 10:20:00', 'Mensual', 'Efectivo', 46.00),
+(634, 156, 13, '2024-04-04 14:35:00', 'Mensual', 'Tarjeta', 43.00),
+(856, 45, 14, '2024-04-07 09:50:00', 'Mensual', 'Transferencia', 48.00),
+(78, 201, 15, '2024-04-09 16:15:00', 'Mensual', 'Efectivo', 45.00),
+(201, 123, 16, '2024-04-12 11:30:00', 'Mensual', 'Tarjeta', 42.00),
+(423, 67, 17, '2024-04-15 08:45:00', 'Mensual', 'Transferencia', 47.00),
+(645, 134, 18, '2024-04-19 15:20:00', 'Mensual', 'Efectivo', 44.00),
+(867, 12, 19, '2024-04-22 12:05:00', 'Mensual', 'Tarjeta', 46.00),
+(89, 178, 20, '2024-04-24 17:40:00', 'Mensual', 'Transferencia', 43.00),
+(312, 56, 21, '2024-04-27 10:55:00', 'Mensual', 'Efectivo', 48.00),
+(534, 189, 22, '2024-04-29 14:10:00', 'Mensual', 'Tarjeta', 45.00),
+(756, 101, 23, '2024-04-02 09:25:00', 'Mensual', 'Transferencia', 42.00),
+(178, 145, 24, '2024-04-06 16:50:00', 'Mensual', 'Efectivo', 47.00),
+(390, 112, 25, '2024-04-10 13:15:00', 'Mensual', 'Tarjeta', 44.00),
+(512, 56, 26, '2024-04-13 11:40:00', 'Mensual', 'Transferencia', 46.00),
+(734, 189, 27, '2024-04-16 18:25:00', 'Mensual', 'Efectivo', 43.00),
+(256, 101, 28, '2024-04-21 15:50:00', 'Mensual', 'Tarjeta', 48.00),
+(478, 145, 29, '2024-04-25 10:05:00', 'Mensual', 'Transferencia', 45.00),
+(601, 12, 30, '2024-04-28 14:30:00', 'Mensual', 'Efectivo', 42.00),
+(823, 89, 31, '2024-04-30 09:45:00', 'Mensual', 'Tarjeta', 47.00),
+(45, 178, 32, '2024-04-03 17:10:00', 'Mensual', 'Transferencia', 44.00),
+(267, 34, 33, '2024-04-08 12:35:00', 'Mensual', 'Efectivo', 46.00),
+(489, 123, 34, '2024-04-11 10:00:00', 'Mensual', 'Tarjeta', 43.00),
+(612, 67, 35, '2024-04-14 15:45:00', 'Mensual', 'Transferencia', 48.00),
+(834, 156, 36, '2024-04-18 13:20:00', 'Mensual', 'Efectivo', 45.00),
+(156, 201, 37, '2024-04-23 11:15:00', 'Mensual', 'Tarjeta', 42.00),
+(378, 45, 38, '2024-04-26 16:40:00', 'Mensual', 'Transferencia', 47.00),
+(501, 112, 39, '2024-04-29 14:05:00', 'Mensual', 'Efectivo', 44.00),
+(723, 78, 40, '2024-04-05 10:30:00', 'Mensual', 'Tarjeta', 46.00),
+(945, 134, 41, '2024-04-12 17:55:00', 'Mensual', 'Transferencia', 43.00),
+(67, 23, 42, '2024-04-17 12:20:00', 'Mensual', 'Efectivo', 48.00),
+(289, 167, 43, '2024-04-20 09:45:00', 'Mensual', 'Tarjeta', 45.00),
+(412, 89, 44, '2024-04-24 16:10:00', 'Mensual', 'Transferencia', 42.00),
+(634, 156, 45, '2024-04-27 13:35:00', 'Mensual', 'Efectivo', 47.00),
+(856, 45, 46, '2024-04-30 11:00:00', 'Mensual', 'Tarjeta', 44.00),
+(78, 201, 47, '2024-04-07 18:25:00', 'Mensual', 'Transferencia', 46.00),
+(201, 123, 48, '2024-04-15 15:50:00', 'Mensual', 'Efectivo', 43.00),
+(423, 67, 49, '2024-04-22 10:15:00', 'Mensual', 'Tarjeta', 48.00),
+
+-- ABRIL 2024 - Pagos MENSUALES EN MORA (4 registros - debían pagar en marzo)
+(96, 45, 50, '2024-03-08 14:40:00', 'Mensual', 'Efectivo', 36.00),
+(98, 56, 1, '2024-03-18 11:20:00', 'Mensual', 'Transferencia', 38.00),
+(100, 67, 2, '2024-03-22 16:50:00', 'Mensual', 'Tarjeta', 35.00),
+(102, 78, 3, '2024-03-28 09:15:00', 'Mensual', 'Efectivo', 37.00),
+
+-- ABRIL 2024 - Pagos POR CLASE (18 registros - completando abril)
+(645, 134, 4, '2024-04-02 18:30:00', 'Clase', 'Tarjeta', 12.00),
+(867, 12, 5, '2024-04-06 19:15:00', 'Clase', 'Efectivo', 14.00),
+(89, 178, 6, '2024-04-09 17:45:00', 'Clase', 'Transferencia', 11.00),
+(312, 56, 7, '2024-04-13 18:20:00', 'Clase', 'Tarjeta', 13.00),
+(534, 189, 8, '2024-04-16 19:50:00', 'Clase', 'Efectivo', 10.00),
+(756, 101, 9, '2024-04-19 18:05:00', 'Clase', 'Transferencia', 15.00),
+(178, 145, 10, '2024-04-22 17:30:00', 'Clase', 'Tarjeta', 12.00),
+(390, 112, 11, '2024-04-25 19:45:00', 'Clase', 'Efectivo', 14.00),
+(512, 56, 12, '2024-04-28 18:15:00', 'Clase', 'Transferencia', 11.00),
+(734, 189, 13, '2024-04-03 17:40:00', 'Clase', 'Tarjeta', 13.00),
+(256, 101, 14, '2024-04-08 19:00:00', 'Clase', 'Efectivo', 10.00),
+(478, 145, 15, '2024-04-11 18:25:00', 'Clase', 'Transferencia', 16.00),
+(601, 12, 16, '2024-04-15 17:50:00', 'Clase', 'Tarjeta', 12.00),
+(823, 89, 17, '2024-04-18 19:35:00', 'Clase', 'Efectivo', 14.00),
+(45, 178, 18, '2024-04-21 18:10:00', 'Clase', 'Transferencia', 11.00),
+(267, 34, 19, '2024-04-24 17:35:00', 'Clase', 'Tarjeta', 13.00),
+(489, 123, 20, '2024-04-27 20:00:00', 'Clase', 'Efectivo', 10.00),
+(612, 67, 21, '2024-04-30 18:45:00', 'Clase', 'Transferencia', 15.00),
+
+-- MARZO 2025 - Pagos MENSUALES AL DÍA (16 registros)
+(834, 156, 22, '2025-03-03 11:25:00', 'Mensual', 'Tarjeta', 47.00),
+(156, 201, 23, '2025-03-05 15:40:00', 'Mensual', 'Efectivo', 44.00),
+(378, 45, 24, '2025-03-08 10:55:00', 'Mensual', 'Transferencia', 48.00),
+(501, 112, 25, '2025-03-11 17:10:00', 'Mensual', 'Tarjeta', 46.00),
+(723, 78, 26, '2025-03-14 12:35:00', 'Mensual', 'Efectivo', 43.00),
+(945, 134, 27, '2025-03-17 09:50:00', 'Mensual', 'Transferencia', 48.00),
+(67, 23, 28, '2025-03-20 16:15:00', 'Mensual', 'Tarjeta', 45.00),
+(289, 167, 29, '2025-03-23 13:30:00', 'Mensual', 'Efectivo', 47.00),
+(412, 89, 30, '2025-03-26 11:05:00', 'Mensual', 'Transferencia', 44.00),
+(634, 156, 31, '2025-03-29 18:20:00', 'Mensual', 'Tarjeta', 48.00),
+(856, 45, 32, '2025-03-31 15:45:00', 'Mensual', 'Efectivo', 46.00),
+(78, 201, 33, '2025-03-04 10:10:00', 'Mensual', 'Transferencia', 43.00),
+(201, 123, 34, '2025-03-07 14:25:00', 'Mensual', 'Tarjeta', 48.00),
+(423, 67, 35, '2025-03-12 11:50:00', 'Mensual', 'Efectivo', 45.00),
+(645, 134, 36, '2025-03-18 17:15:00', 'Mensual', 'Transferencia', 47.00),
+(867, 12, 37, '2025-03-24 14:40:00', 'Mensual', 'Tarjeta', 44.00),
+
+-- MARZO 2025 - Pagos MENSUALES EN MORA (2 registros - debían pagar en febrero 2025)
+(104, 89, 38, '2025-02-12 10:05:00', 'Mensual', 'Efectivo', 39.00),
+(106, 101, 39, '2025-02-22 16:30:00', 'Mensual', 'Transferencia', 37.00),
+
+-- MARZO 2025 - Pagos POR CLASE (7 registros)
+(89, 178, 40, '2025-03-05 18:40:00', 'Clase', 'Tarjeta', 13.00),
+(312, 56, 41, '2025-03-10 19:25:00', 'Clase', 'Efectivo', 11.00),
+(534, 189, 42, '2025-03-15 17:50:00', 'Clase', 'Transferencia', 14.00),
+(756, 101, 43, '2025-03-20 18:35:00', 'Clase', 'Tarjeta', 12.00),
+(178, 145, 44, '2025-03-25 20:00:00', 'Clase', 'Efectivo', 10.00),
+(390, 112, 45, '2025-03-28 18:15:00', 'Clase', 'Transferencia', 15.00),
+(512, 56, 46, '2025-03-13 17:40:00', 'Clase', 'Tarjeta', 13.00),
+
+-- ABRIL 2025 - Pagos MENSUALES AL DÍA (6 registros)
+(734, 189, 47, '2025-04-02 11:20:00', 'Mensual', 'Efectivo', 48.00),
+(256, 101, 48, '2025-04-08 18:45:00', 'Mensual', 'Transferencia', 46.00),
+(478, 145, 49, '2025-04-14 16:10:00', 'Mensual', 'Tarjeta', 47.00),
+(601, 12, 50, '2025-04-20 12:35:00', 'Mensual', 'Efectivo', 44.00),
+(823, 89, 1, '2025-04-25 10:00:00', 'Mensual', 'Transferencia', 48.00),
+(45, 178, 2, '2025-04-28 15:25:00', 'Mensual', 'Tarjeta', 45.00),
+
+-- ABRIL 2025 - Pagos MENSUALES EN MORA (1 registro - debía pagar en marzo 2025)
+(108, 112, 3, '2025-03-15 12:50:00', 'Mensual', 'Efectivo', 38.00),
+
+-- ABRIL 2025 - Pagos POR CLASE (3 registros)
+(267, 34, 4, '2025-04-05 18:30:00', 'Clase', 'Transferencia', 14.00),
+(489, 123, 5, '2025-04-15 19:45:00', 'Clase', 'Tarjeta', 12.00),
+(612, 67, 6, '2025-04-24 17:20:00', 'Clase', 'Efectivo', 13.00),
+
+-- MAYO 2025 - Pagos MENSUALES AL DÍA (3 registros)
+(834, 156, 7, '2025-05-05 10:15:00', 'Mensual', 'Transferencia', 47.00),
+(156, 201, 8, '2025-05-12 14:30:00', 'Mensual', 'Tarjeta', 45.00),
+(378, 45, 9, '2025-05-19 09:45:00', 'Mensual', 'Efectivo', 48.00),
+
+-- MAYO 2025 - Pagos POR CLASE (2 registros)
+(501, 112, 10, '2025-05-08 18:50:00', 'Clase', 'Transferencia', 14.00),
+(723, 78, 11, '2025-05-22 19:35:00', 'Clase', 'Tarjeta', 12.00);
+
+-- =============================================
+-- RESUMEN: Registros 201-300 insertados
+-- ABRIL 2024: 60 pagos (38 mensuales al día + 4 en MORA + 18 por clase)
+-- MARZO 2025: 25 pagos (16 mensuales al día + 2 en MORA + 7 por clase)
+-- ABRIL 2025: 10 pagos (6 mensuales al día + 1 en MORA + 3 por clase)
+-- MAYO 2025: 5 pagos (3 mensuales al día + 2 por clase)
+-- Total MORA: 7 pagos
+-- Total: 100 registros
+-- =============================================
+
+-- =============================================
+-- PAGOS MAYO-JUNIO-JULIO 2025 (Registros 301-400)
+-- Distribución: 67 Mensuales, 33 por Clase
+-- MAYO 2025: 70 pagos (completando)
+-- JUNIO 2025: 20 pagos
+-- JULIO 2025: 10 pagos
+-- Incluye pagos EN MORA
+-- =============================================
+
+INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
+-- MAYO 2025 - Pagos MENSUALES AL DÍA (44 registros - completando mayo)
+(945, 134, 12, '2025-05-02 10:20:00', 'Mensual', 'Efectivo', 46.00),
+(67, 23, 13, '2025-05-06 14:35:00', 'Mensual', 'Tarjeta', 44.00),
+(289, 167, 14, '2025-05-09 09:50:00', 'Mensual', 'Transferencia', 48.00),
+(412, 89, 15, '2025-05-13 16:15:00', 'Mensual', 'Efectivo', 47.00),
+(634, 156, 16, '2025-05-16 11:30:00', 'Mensual', 'Tarjeta', 45.00),
+(856, 45, 17, '2025-05-20 08:45:00', 'Mensual', 'Transferencia', 48.00),
+(78, 201, 18, '2025-05-23 15:20:00', 'Mensual', 'Efectivo', 46.00),
+(201, 123, 19, '2025-05-26 12:05:00', 'Mensual', 'Tarjeta', 44.00),
+(423, 67, 20, '2025-05-29 17:40:00', 'Mensual', 'Transferencia', 47.00),
+(645, 134, 21, '2025-05-31 10:55:00', 'Mensual', 'Efectivo', 45.00),
+(867, 12, 22, '2025-05-03 14:10:00', 'Mensual', 'Tarjeta', 48.00),
+(89, 178, 23, '2025-05-07 09:25:00', 'Mensual', 'Transferencia', 46.00),
+(312, 56, 24, '2025-05-10 16:50:00', 'Mensual', 'Efectivo', 44.00),
+(534, 189, 25, '2025-05-14 13:15:00', 'Mensual', 'Tarjeta', 47.00),
+(756, 101, 26, '2025-05-17 11:40:00', 'Mensual', 'Transferencia', 45.00),
+(178, 145, 27, '2025-05-21 18:25:00', 'Mensual', 'Efectivo', 48.00),
+(390, 112, 28, '2025-05-24 15:50:00', 'Mensual', 'Tarjeta', 46.00),
+(512, 56, 29, '2025-05-27 10:05:00', 'Mensual', 'Transferencia', 44.00),
+(734, 189, 30, '2025-05-30 14:30:00', 'Mensual', 'Efectivo', 47.00),
+(256, 101, 31, '2025-05-04 09:45:00', 'Mensual', 'Tarjeta', 45.00),
+(478, 145, 32, '2025-05-08 17:10:00', 'Mensual', 'Transferencia', 48.00),
+(601, 12, 33, '2025-05-11 12:35:00', 'Mensual', 'Efectivo', 46.00),
+(823, 89, 34, '2025-05-15 10:00:00', 'Mensual', 'Tarjeta', 44.00),
+(45, 178, 35, '2025-05-18 15:45:00', 'Mensual', 'Transferencia', 47.00),
+(267, 34, 36, '2025-05-22 13:20:00', 'Mensual', 'Efectivo', 45.00),
+(489, 123, 37, '2025-05-25 11:15:00', 'Mensual', 'Tarjeta', 48.00),
+(612, 67, 38, '2025-05-28 16:40:00', 'Mensual', 'Transferencia', 46.00),
+(834, 156, 39, '2025-05-31 14:05:00', 'Mensual', 'Efectivo', 44.00),
+(156, 201, 40, '2025-05-01 10:30:00', 'Mensual', 'Tarjeta', 47.00),
+(378, 45, 41, '2025-05-05 17:55:00', 'Mensual', 'Transferencia', 45.00),
+(501, 112, 42, '2025-05-09 12:20:00', 'Mensual', 'Efectivo', 48.00),
+(723, 78, 43, '2025-05-12 09:45:00', 'Mensual', 'Tarjeta', 46.00),
+(945, 134, 44, '2025-05-16 16:10:00', 'Mensual', 'Transferencia', 44.00),
+(67, 23, 45, '2025-05-19 13:35:00', 'Mensual', 'Efectivo', 47.00),
+(289, 167, 46, '2025-05-23 11:00:00', 'Mensual', 'Tarjeta', 45.00),
+(412, 89, 47, '2025-05-26 18:25:00', 'Mensual', 'Transferencia', 48.00),
+(634, 156, 48, '2025-05-29 15:50:00', 'Mensual', 'Efectivo', 46.00),
+(856, 45, 49, '2025-05-03 10:15:00', 'Mensual', 'Tarjeta', 44.00),
+(78, 201, 50, '2025-05-07 14:40:00', 'Mensual', 'Transferencia', 47.00),
+(201, 123, 1, '2025-05-10 12:05:00', 'Mensual', 'Efectivo', 45.00),
+(423, 67, 2, '2025-05-14 17:30:00', 'Mensual', 'Tarjeta', 48.00),
+(645, 134, 3, '2025-05-17 14:55:00', 'Mensual', 'Transferencia', 46.00),
+(867, 12, 4, '2025-05-21 10:20:00', 'Mensual', 'Efectivo', 44.00),
+(89, 178, 5, '2025-05-24 16:45:00', 'Mensual', 'Tarjeta', 47.00),
+
+-- MAYO 2025 - Pagos MENSUALES EN MORA (3 registros - debían pagar en abril 2025)
+(110, 123, 6, '2025-04-08 13:10:00', 'Mensual', 'Efectivo', 39.00),
+(112, 134, 7, '2025-04-18 11:35:00', 'Mensual', 'Transferencia', 37.00),
+(114, 145, 8, '2025-04-25 15:00:00', 'Mensual', 'Tarjeta', 36.00),
+
+-- MAYO 2025 - Pagos POR CLASE (23 registros - completando mayo)
+(312, 56, 9, '2025-05-02 18:30:00', 'Clase', 'Efectivo', 13.00),
+(534, 189, 10, '2025-05-05 19:15:00', 'Clase', 'Tarjeta', 11.00),
+(756, 101, 11, '2025-05-08 17:45:00', 'Clase', 'Transferencia', 14.00),
+(178, 145, 12, '2025-05-11 18:20:00', 'Clase', 'Efectivo', 12.00),
+(390, 112, 13, '2025-05-14 19:50:00', 'Clase', 'Tarjeta', 10.00),
+(512, 56, 14, '2025-05-17 18:05:00', 'Clase', 'Transferencia', 15.00),
+(734, 189, 15, '2025-05-20 17:30:00', 'Clase', 'Efectivo', 13.00),
+(256, 101, 16, '2025-05-23 19:45:00', 'Clase', 'Tarjeta', 11.00),
+(478, 145, 17, '2025-05-26 18:15:00', 'Clase', 'Transferencia', 14.00),
+(601, 12, 18, '2025-05-29 17:40:00', 'Clase', 'Efectivo', 12.00),
+(823, 89, 19, '2025-05-31 19:00:00', 'Clase', 'Tarjeta', 10.00),
+(45, 178, 20, '2025-05-03 18:25:00', 'Clase', 'Transferencia', 16.00),
+(267, 34, 21, '2025-05-06 17:50:00', 'Clase', 'Efectivo', 13.00),
+(489, 123, 22, '2025-05-09 19:35:00', 'Clase', 'Tarjeta', 11.00),
+(612, 67, 23, '2025-05-12 18:10:00', 'Clase', 'Transferencia', 14.00),
+(834, 156, 24, '2025-05-15 17:35:00', 'Clase', 'Efectivo', 12.00),
+(156, 201, 25, '2025-05-18 20:00:00', 'Clase', 'Tarjeta', 10.00),
+(378, 45, 26, '2025-05-21 18:45:00', 'Clase', 'Transferencia', 15.00),
+(501, 112, 27, '2025-05-24 17:20:00', 'Clase', 'Efectivo', 13.00),
+(723, 78, 28, '2025-05-27 19:10:00', 'Clase', 'Tarjeta', 11.00),
+(945, 134, 29, '2025-05-30 18:35:00', 'Clase', 'Transferencia', 14.00),
+(67, 23, 30, '2025-05-04 17:00:00', 'Clase', 'Efectivo', 12.00),
+(289, 167, 31, '2025-05-13 19:20:00', 'Clase', 'Tarjeta', 13.00),
+
+-- JUNIO 2025 - Pagos MENSUALES AL DÍA (12 registros)
+(412, 89, 32, '2025-06-02 11:25:00', 'Mensual', 'Transferencia', 48.00),
+(634, 156, 33, '2025-06-05 15:40:00', 'Mensual', 'Tarjeta', 46.00),
+(856, 45, 34, '2025-06-09 10:55:00', 'Mensual', 'Efectivo', 47.00),
+(78, 201, 35, '2025-06-12 17:10:00', 'Mensual', 'Transferencia', 45.00),
+(201, 123, 36, '2025-06-16 12:35:00', 'Mensual', 'Tarjeta', 48.00),
+(423, 67, 37, '2025-06-19 09:50:00', 'Mensual', 'Efectivo', 46.00),
+(645, 134, 38, '2025-06-23 16:15:00', 'Mensual', 'Transferencia', 47.00),
+(867, 12, 39, '2025-06-26 13:30:00', 'Mensual', 'Tarjeta', 45.00),
+(89, 178, 40, '2025-06-29 11:05:00', 'Mensual', 'Efectivo', 48.00),
+(312, 56, 41, '2025-06-04 18:20:00', 'Mensual', 'Transferencia', 46.00),
+(534, 189, 42, '2025-06-10 15:45:00', 'Mensual', 'Tarjeta', 47.00),
+(756, 101, 43, '2025-06-17 10:10:00', 'Mensual', 'Efectivo', 45.00),
+
+-- JUNIO 2025 - Pagos MENSUALES EN MORA (2 registros - debían pagar en mayo 2025)
+(116, 156, 44, '2025-05-12 14:25:00', 'Mensual', 'Transferencia', 38.00),
+(118, 167, 45, '2025-05-22 11:50:00', 'Mensual', 'Tarjeta', 40.00),
+
+-- JUNIO 2025 - Pagos POR CLASE (6 registros)
+(178, 145, 46, '2025-06-03 18:40:00', 'Clase', 'Efectivo', 14.00),
+(390, 112, 47, '2025-06-08 19:25:00', 'Clase', 'Transferencia', 12.00),
+(512, 56, 48, '2025-06-14 17:50:00', 'Clase', 'Tarjeta', 13.00),
+(734, 189, 49, '2025-06-20 18:35:00', 'Clase', 'Efectivo', 11.00),
+(256, 101, 50, '2025-06-25 20:00:00', 'Clase', 'Transferencia', 15.00),
+(478, 145, 1, '2025-06-28 18:15:00', 'Clase', 'Tarjeta', 14.00),
+
+-- JULIO 2025 - Pagos MENSUALES AL DÍA (6 registros)
+(601, 12, 2, '2025-07-02 10:30:00', 'Mensual', 'Efectivo', 48.00),
+(823, 89, 3, '2025-07-08 14:45:00', 'Mensual', 'Transferencia', 47.00),
+(45, 178, 4, '2025-07-14 09:00:00', 'Mensual', 'Tarjeta', 46.00),
+(267, 34, 5, '2025-07-20 16:15:00', 'Mensual', 'Efectivo', 48.00),
+(489, 123, 6, '2025-07-25 11:30:00', 'Mensual', 'Transferencia', 47.00),
+(612, 67, 7, '2025-07-29 08:45:00', 'Mensual', 'Tarjeta', 45.00),
+
+-- JULIO 2025 - Pagos MENSUALES EN MORA (1 registro - debía pagar en junio 2025)
+(120, 178, 8, '2025-06-15 12:20:00', 'Mensual', 'Efectivo', 39.00),
+
+-- JULIO 2025 - Pagos POR CLASE (3 registros)
+(834, 156, 9, '2025-07-05 18:50:00', 'Clase', 'Transferencia', 14.00),
+(156, 201, 10, '2025-07-15 19:35:00', 'Clase', 'Tarjeta', 12.00),
+(378, 45, 11, '2025-07-24 17:20:00', 'Clase', 'Efectivo', 13.00);
+
+-- =============================================
+-- RESUMEN: Registros 301-400 insertados
+-- MAYO 2025: 70 pagos (44 mensuales al día + 3 en MORA + 23 por clase)
+-- JUNIO 2025: 20 pagos (12 mensuales al día + 2 en MORA + 6 por clase)
+-- JULIO 2025: 10 pagos (6 mensuales al día + 1 en MORA + 3 por clase)
+-- Total MORA: 6 pagos
+-- Total: 100 registros
+-- =============================================
+
+-- =============================================
+-- PAGOS JULIO-AGOSTO-SEPTIEMBRE 2025 (Registros 401-500)
+-- Distribución: 67 Mensuales, 33 por Clase
+-- JULIO 2025: 65 pagos (completando)
+-- AGOSTO 2025: 25 pagos
+-- SEPTIEMBRE 2025: 10 pagos
+-- Incluye pagos EN MORA
+-- =============================================
+
+
+INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
+-- JULIO 2025 - Pagos MENSUALES AL DÍA (41 registros - completando julio)
+(501, 112, 12, '2025-07-01 10:20:00', 'Mensual', 'Efectivo', 46.00),
+(723, 78, 13, '2025-07-03 14:35:00', 'Mensual', 'Tarjeta', 48.00),
+(945, 134, 14, '2025-07-06 09:50:00', 'Mensual', 'Transferencia', 47.00),
+(67, 23, 15, '2025-07-09 16:15:00', 'Mensual', 'Efectivo', 45.00),
+(289, 167, 16, '2025-07-12 11:30:00', 'Mensual', 'Tarjeta', 48.00),
+(412, 89, 17, '2025-07-15 08:45:00', 'Mensual', 'Transferencia', 46.00),
+(634, 156, 18, '2025-07-18 15:20:00', 'Mensual', 'Efectivo', 47.00),
+(856, 45, 19, '2025-07-21 12:05:00', 'Mensual', 'Tarjeta', 45.00),
+(78, 201, 20, '2025-07-24 17:40:00', 'Mensual', 'Transferencia', 48.00),
+(201, 123, 21, '2025-07-27 10:55:00', 'Mensual', 'Efectivo', 46.00),
+(423, 67, 22, '2025-07-30 14:10:00', 'Mensual', 'Tarjeta', 47.00),
+(645, 134, 23, '2025-07-31 09:25:00', 'Mensual', 'Transferencia', 45.00),
+(867, 12, 24, '2025-07-04 16:50:00', 'Mensual', 'Efectivo', 48.00),
+(89, 178, 25, '2025-07-07 13:15:00', 'Mensual', 'Tarjeta', 46.00),
+(312, 56, 26, '2025-07-10 11:40:00', 'Mensual', 'Transferencia', 47.00),
+(534, 189, 27, '2025-07-13 18:25:00', 'Mensual', 'Efectivo', 45.00),
+(756, 101, 28, '2025-07-16 15:50:00', 'Mensual', 'Tarjeta', 48.00),
+(178, 145, 29, '2025-07-19 10:05:00', 'Mensual', 'Transferencia', 46.00),
+(390, 112, 30, '2025-07-22 14:30:00', 'Mensual', 'Efectivo', 47.00),
+(512, 56, 31, '2025-07-25 09:45:00', 'Mensual', 'Tarjeta', 45.00),
+(734, 189, 32, '2025-07-28 17:10:00', 'Mensual', 'Transferencia', 48.00),
+(256, 101, 33, '2025-07-31 12:35:00', 'Mensual', 'Efectivo', 46.00),
+(478, 145, 34, '2025-07-02 10:00:00', 'Mensual', 'Tarjeta', 47.00),
+(601, 12, 35, '2025-07-05 15:45:00', 'Mensual', 'Transferencia', 45.00),
+(823, 89, 36, '2025-07-08 13:20:00', 'Mensual', 'Efectivo', 48.00),
+(45, 178, 37, '2025-07-11 11:15:00', 'Mensual', 'Tarjeta', 46.00),
+(267, 34, 38, '2025-07-14 16:40:00', 'Mensual', 'Transferencia', 47.00),
+(489, 123, 39, '2025-07-17 14:05:00', 'Mensual', 'Efectivo', 45.00),
+(612, 67, 40, '2025-07-20 10:30:00', 'Mensual', 'Tarjeta', 48.00),
+(834, 156, 41, '2025-07-23 17:55:00', 'Mensual', 'Transferencia', 46.00),
+(156, 201, 42, '2025-07-26 12:20:00', 'Mensual', 'Efectivo', 47.00),
+(378, 45, 43, '2025-07-29 09:45:00', 'Mensual', 'Tarjeta', 45.00),
+(501, 112, 44, '2025-07-03 16:10:00', 'Mensual', 'Transferencia', 48.00),
+(723, 78, 45, '2025-07-07 13:35:00', 'Mensual', 'Efectivo', 46.00),
+(945, 134, 46, '2025-07-11 11:00:00', 'Mensual', 'Tarjeta', 47.00),
+(67, 23, 47, '2025-07-16 18:25:00', 'Mensual', 'Transferencia', 45.00),
+(289, 167, 48, '2025-07-20 15:50:00', 'Mensual', 'Efectivo', 48.00),
+(412, 89, 49, '2025-07-24 10:15:00', 'Mensual', 'Tarjeta', 46.00),
+(634, 156, 50, '2025-07-28 14:40:00', 'Mensual', 'Transferencia', 47.00),
+(856, 45, 1, '2025-07-31 12:05:00', 'Mensual', 'Efectivo', 45.00),
+(78, 201, 2, '2025-07-06 17:30:00', 'Mensual', 'Tarjeta', 48.00),
+
+-- JULIO 2025 - Pagos MENSUALES EN MORA (3 registros - debían pagar en junio 2025)
+(122, 189, 3, '2025-06-10 14:55:00', 'Mensual', 'Transferencia', 37.00),
+(124, 201, 4, '2025-06-20 10:20:00', 'Mensual', 'Efectivo', 39.00),
+(126, 12, 5, '2025-06-28 16:45:00', 'Mensual', 'Tarjeta', 38.00),
+
+-- JULIO 2025 - Pagos POR CLASE (21 registros - completando julio)
+(201, 123, 6, '2025-07-01 18:30:00', 'Clase', 'Efectivo', 13.00),
+(423, 67, 7, '2025-07-04 19:15:00', 'Clase', 'Tarjeta', 12.00),
+(645, 134, 8, '2025-07-07 17:45:00', 'Clase', 'Transferencia', 14.00),
+(867, 12, 9, '2025-07-10 18:20:00', 'Clase', 'Efectivo', 11.00),
+(89, 178, 10, '2025-07-13 19:50:00', 'Clase', 'Tarjeta', 15.00),
+(312, 56, 11, '2025-07-16 18:05:00', 'Clase', 'Transferencia', 13.00),
+(534, 189, 12, '2025-07-19 17:30:00', 'Clase', 'Efectivo', 12.00),
+(756, 101, 13, '2025-07-22 19:45:00', 'Clase', 'Tarjeta', 14.00),
+(178, 145, 14, '2025-07-25 18:15:00', 'Clase', 'Transferencia', 11.00),
+(390, 112, 15, '2025-07-28 17:40:00', 'Clase', 'Efectivo', 13.00),
+(512, 56, 16, '2025-07-31 19:00:00', 'Clase', 'Tarjeta', 12.00),
+(734, 189, 17, '2025-07-03 18:25:00', 'Clase', 'Transferencia', 16.00),
+(256, 101, 18, '2025-07-06 17:50:00', 'Clase', 'Efectivo', 13.00),
+(478, 145, 19, '2025-07-09 19:35:00', 'Clase', 'Tarjeta', 11.00),
+(601, 12, 20, '2025-07-12 18:10:00', 'Clase', 'Transferencia', 14.00),
+(823, 89, 21, '2025-07-15 17:35:00', 'Clase', 'Efectivo', 12.00),
+(45, 178, 22, '2025-07-18 20:00:00', 'Clase', 'Tarjeta', 10.00),
+(267, 34, 23, '2025-07-21 18:45:00', 'Clase', 'Transferencia', 15.00),
+(489, 123, 24, '2025-07-24 17:20:00', 'Clase', 'Efectivo', 13.00),
+(612, 67, 25, '2025-07-27 19:10:00', 'Clase', 'Tarjeta', 11.00),
+(834, 156, 26, '2025-07-30 18:35:00', 'Clase', 'Transferencia', 14.00),
+
+-- AGOSTO 2025 - Pagos MENSUALES AL DÍA (15 registros)
+(156, 201, 27, '2025-08-01 11:25:00', 'Mensual', 'Efectivo', 48.00),
+(378, 45, 28, '2025-08-04 15:40:00', 'Mensual', 'Tarjeta', 46.00),
+(501, 112, 29, '2025-08-07 10:55:00', 'Mensual', 'Transferencia', 47.00),
+(723, 78, 30, '2025-08-11 17:10:00', 'Mensual', 'Efectivo', 45.00),
+(945, 134, 31, '2025-08-14 12:35:00', 'Mensual', 'Tarjeta', 48.00),
+(67, 23, 32, '2025-08-18 09:50:00', 'Mensual', 'Transferencia', 46.00),
+(289, 167, 33, '2025-08-21 16:15:00', 'Mensual', 'Efectivo', 47.00),
+(412, 89, 34, '2025-08-25 13:30:00', 'Mensual', 'Tarjeta', 45.00),
+(634, 156, 35, '2025-08-28 11:05:00', 'Mensual', 'Transferencia', 48.00),
+(856, 45, 36, '2025-08-31 18:20:00', 'Mensual', 'Efectivo', 46.00),
+(78, 201, 37, '2025-08-03 15:45:00', 'Mensual', 'Tarjeta', 47.00),
+(201, 123, 38, '2025-08-08 10:10:00', 'Mensual', 'Transferencia', 45.00),
+(423, 67, 39, '2025-08-13 14:25:00', 'Mensual', 'Efectivo', 48.00),
+(645, 134, 40, '2025-08-19 11:50:00', 'Mensual', 'Tarjeta', 46.00),
+(867, 12, 41, '2025-08-24 17:15:00', 'Mensual', 'Transferencia', 47.00),
+
+-- AGOSTO 2025 - Pagos MENSUALES EN MORA (2 registros - debían pagar en julio 2025)
+(128, 23, 42, '2025-07-12 14:40:00', 'Mensual', 'Efectivo', 40.00),
+(130, 34, 43, '2025-07-22 10:05:00', 'Mensual', 'Tarjeta', 38.00),
+
+-- AGOSTO 2025 - Pagos POR CLASE (8 registros)
+(89, 178, 44, '2025-08-02 18:40:00', 'Clase', 'Transferencia', 14.00),
+(312, 56, 45, '2025-08-06 19:25:00', 'Clase', 'Efectivo', 12.00),
+(534, 189, 46, '2025-08-12 17:50:00', 'Clase', 'Tarjeta', 13.00),
+(756, 101, 47, '2025-08-17 18:35:00', 'Clase', 'Transferencia', 11.00),
+(178, 145, 48, '2025-08-22 20:00:00', 'Clase', 'Efectivo', 15.00),
+(390, 112, 49, '2025-08-27 18:15:00', 'Clase', 'Tarjeta', 14.00),
+(512, 56, 50, '2025-08-09 17:40:00', 'Clase', 'Transferencia', 12.00),
+(734, 189, 1, '2025-08-20 19:55:00', 'Clase', 'Efectivo', 13.00),
+
+-- SEPTIEMBRE 2025 - Pagos MENSUALES AL DÍA (6 registros)
+(256, 101, 2, '2025-09-02 10:30:00', 'Mensual', 'Tarjeta', 48.00),
+(478, 145, 3, '2025-09-08 14:45:00', 'Mensual', 'Transferencia', 47.00),
+(601, 12, 4, '2025-09-14 09:00:00', 'Mensual', 'Efectivo', 46.00),
+(823, 89, 5, '2025-09-20 16:15:00', 'Mensual', 'Tarjeta', 48.00),
+(45, 178, 6, '2025-09-25 11:30:00', 'Mensual', 'Transferencia', 47.00),
+(267, 34, 7, '2025-09-29 08:45:00', 'Mensual', 'Efectivo', 45.00),
+
+-- SEPTIEMBRE 2025 - Pagos MENSUALES EN MORA (1 registro - debía pagar en agosto 2025)
+(132, 45, 8, '2025-08-18 15:20:00', 'Mensual', 'Tarjeta', 39.00),
+
+-- SEPTIEMBRE 2025 - Pagos POR CLASE (3 registros)
+(489, 123, 9, '2025-09-05 18:50:00', 'Clase', 'Transferencia', 14.00),
+(612, 67, 10, '2025-09-15 19:35:00', 'Clase', 'Efectivo', 12.00),
+(834, 156, 11, '2025-09-24 17:20:00', 'Clase', 'Tarjeta', 13.00);
+
+-- =============================================
+-- RESUMEN: Registros 401-500 insertados
+-- JULIO 2025: 65 pagos (41 mensuales al día + 3 en MORA + 21 por clase)
+-- AGOSTO 2025: 25 pagos (15 mensuales al día + 2 en MORA + 8 por clase)
+-- SEPTIEMBRE 2025: 10 pagos (6 mensuales al día + 1 en MORA + 3 por clase)
+-- Total MORA: 6 pagos
+-- Total: 100 registros
+-- =============================================
+
+-- =============================================
+-- PAGOS SEPTIEMBRE-OCTUBRE 2025 (Registros 501-600)
+-- Distribución: 67 Mensuales, 33 por Clase
+-- SEPTIEMBRE 2025: 65 pagos (completando)
+-- OCTUBRE 2025: 35 pagos
+-- Incluye pagos EN MORA
+-- =============================================
+
+
+INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
+-- SEPTIEMBRE 2025 - Pagos MENSUALES AL DÍA (41 registros - completando septiembre)
+(156, 201, 12, '2025-09-01 10:20:00', 'Mensual', 'Efectivo', 46.00),
+(378, 45, 13, '2025-09-03 14:35:00', 'Mensual', 'Tarjeta', 48.00),
+(501, 112, 14, '2025-09-06 09:50:00', 'Mensual', 'Transferencia', 47.00),
+(723, 78, 15, '2025-09-09 16:15:00', 'Mensual', 'Efectivo', 45.00),
+(945, 134, 16, '2025-09-12 11:30:00', 'Mensual', 'Tarjeta', 48.00),
+(67, 23, 17, '2025-09-15 08:45:00', 'Mensual', 'Transferencia', 46.00),
+(289, 167, 18, '2025-09-18 15:20:00', 'Mensual', 'Efectivo', 47.00),
+(412, 89, 19, '2025-09-21 12:05:00', 'Mensual', 'Tarjeta', 45.00),
+(634, 156, 20, '2025-09-24 17:40:00', 'Mensual', 'Transferencia', 48.00),
+(856, 45, 21, '2025-09-27 10:55:00', 'Mensual', 'Efectivo', 46.00),
+(78, 201, 22, '2025-09-30 14:10:00', 'Mensual', 'Tarjeta', 47.00),
+(201, 123, 23, '2025-09-02 09:25:00', 'Mensual', 'Transferencia', 45.00),
+(423, 67, 24, '2025-09-05 16:50:00', 'Mensual', 'Efectivo', 48.00),
+(645, 134, 25, '2025-09-08 13:15:00', 'Mensual', 'Tarjeta', 46.00),
+(867, 12, 26, '2025-09-11 11:40:00', 'Mensual', 'Transferencia', 47.00),
+(89, 178, 27, '2025-09-14 18:25:00', 'Mensual', 'Efectivo', 45.00),
+(312, 56, 28, '2025-09-17 15:50:00', 'Mensual', 'Tarjeta', 48.00),
+(534, 189, 29, '2025-09-20 10:05:00', 'Mensual', 'Transferencia', 46.00),
+(756, 101, 30, '2025-09-23 14:30:00', 'Mensual', 'Efectivo', 47.00),
+(178, 145, 31, '2025-09-26 09:45:00', 'Mensual', 'Tarjeta', 45.00),
+(390, 112, 32, '2025-09-29 17:10:00', 'Mensual', 'Transferencia', 48.00),
+(512, 56, 33, '2025-09-04 12:35:00', 'Mensual', 'Efectivo', 46.00),
+(734, 189, 34, '2025-09-07 10:00:00', 'Mensual', 'Tarjeta', 47.00),
+(256, 101, 35, '2025-09-10 15:45:00', 'Mensual', 'Transferencia', 45.00),
+(478, 145, 36, '2025-09-13 13:20:00', 'Mensual', 'Efectivo', 48.00),
+(601, 12, 37, '2025-09-16 11:15:00', 'Mensual', 'Tarjeta', 46.00),
+(823, 89, 38, '2025-09-19 16:40:00', 'Mensual', 'Transferencia', 47.00),
+(45, 178, 39, '2025-09-22 14:05:00', 'Mensual', 'Efectivo', 45.00),
+(267, 34, 40, '2025-09-25 10:30:00', 'Mensual', 'Tarjeta', 48.00),
+(489, 123, 41, '2025-09-28 17:55:00', 'Mensual', 'Transferencia', 46.00),
+(612, 67, 42, '2025-09-01 12:20:00', 'Mensual', 'Efectivo', 47.00),
+(834, 156, 43, '2025-09-06 09:45:00', 'Mensual', 'Tarjeta', 45.00),
+(156, 201, 44, '2025-09-11 16:10:00', 'Mensual', 'Transferencia', 48.00),
+(378, 45, 45, '2025-09-16 13:35:00', 'Mensual', 'Efectivo', 46.00),
+(501, 112, 46, '2025-09-21 11:00:00', 'Mensual', 'Tarjeta', 47.00),
+(723, 78, 47, '2025-09-26 18:25:00', 'Mensual', 'Transferencia', 45.00),
+(945, 134, 48, '2025-09-03 15:50:00', 'Mensual', 'Efectivo', 48.00),
+(67, 23, 49, '2025-09-08 10:15:00', 'Mensual', 'Tarjeta', 46.00),
+(289, 167, 50, '2025-09-13 14:40:00', 'Mensual', 'Transferencia', 47.00),
+(412, 89, 1, '2025-09-18 12:05:00', 'Mensual', 'Efectivo', 45.00),
+(634, 156, 2, '2025-09-23 17:30:00', 'Mensual', 'Tarjeta', 48.00),
+
+-- SEPTIEMBRE 2025 - Pagos MENSUALES EN MORA (3 registros - debían pagar en agosto 2025)
+(134, 56, 3, '2025-08-15 14:55:00', 'Mensual', 'Transferencia', 38.00),
+(136, 67, 4, '2025-08-25 10:20:00', 'Mensual', 'Efectivo', 40.00),
+(138, 78, 5, '2025-08-30 16:45:00', 'Mensual', 'Tarjeta', 37.00),
+
+-- SEPTIEMBRE 2025 - Pagos POR CLASE (21 registros - completando septiembre)
+(856, 45, 6, '2025-09-01 18:30:00', 'Clase', 'Efectivo', 13.00),
+(78, 201, 7, '2025-09-04 19:15:00', 'Clase', 'Tarjeta', 12.00),
+(201, 123, 8, '2025-09-07 17:45:00', 'Clase', 'Transferencia', 14.00),
+(423, 67, 9, '2025-09-10 18:20:00', 'Clase', 'Efectivo', 11.00),
+(645, 134, 10, '2025-09-13 19:50:00', 'Clase', 'Tarjeta', 15.00),
+(867, 12, 11, '2025-09-16 18:05:00', 'Clase', 'Transferencia', 13.00),
+(89, 178, 12, '2025-09-19 17:30:00', 'Clase', 'Efectivo', 12.00),
+(312, 56, 13, '2025-09-22 19:45:00', 'Clase', 'Tarjeta', 14.00),
+(534, 189, 14, '2025-09-25 18:15:00', 'Clase', 'Transferencia', 11.00),
+(756, 101, 15, '2025-09-28 17:40:00', 'Clase', 'Efectivo', 13.00),
+(178, 145, 16, '2025-09-02 19:00:00', 'Clase', 'Tarjeta', 12.00),
+(390, 112, 17, '2025-09-05 18:25:00', 'Clase', 'Transferencia', 16.00),
+(512, 56, 18, '2025-09-08 17:50:00', 'Clase', 'Efectivo', 13.00),
+(734, 189, 19, '2025-09-11 19:35:00', 'Clase', 'Tarjeta', 11.00),
+(256, 101, 20, '2025-09-14 18:10:00', 'Clase', 'Transferencia', 14.00),
+(478, 145, 21, '2025-09-17 17:35:00', 'Clase', 'Efectivo', 12.00),
+(601, 12, 22, '2025-09-20 20:00:00', 'Clase', 'Tarjeta', 10.00),
+(823, 89, 23, '2025-09-23 18:45:00', 'Clase', 'Transferencia', 15.00),
+(45, 178, 24, '2025-09-26 17:20:00', 'Clase', 'Efectivo', 13.00),
+(267, 34, 25, '2025-09-29 19:10:00', 'Clase', 'Tarjeta', 11.00),
+(489, 123, 26, '2025-09-12 18:35:00', 'Clase', 'Transferencia', 14.00),
+
+-- OCTUBRE 2025 - Pagos MENSUALES AL DÍA (22 registros)
+(612, 67, 27, '2025-10-01 11:25:00', 'Mensual', 'Efectivo', 48.00),
+(834, 156, 28, '2025-10-03 15:40:00', 'Mensual', 'Tarjeta', 46.00),
+(156, 201, 29, '2025-10-06 10:55:00', 'Mensual', 'Transferencia', 47.00),
+(378, 45, 30, '2025-10-09 17:10:00', 'Mensual', 'Efectivo', 45.00),
+(501, 112, 31, '2025-10-12 12:35:00', 'Mensual', 'Tarjeta', 48.00),
+(723, 78, 32, '2025-10-15 09:50:00', 'Mensual', 'Transferencia', 46.00),
+(945, 134, 33, '2025-10-18 16:15:00', 'Mensual', 'Efectivo', 47.00),
+(67, 23, 34, '2025-10-21 13:30:00', 'Mensual', 'Tarjeta', 45.00),
+(289, 167, 35, '2025-10-24 11:05:00', 'Mensual', 'Transferencia', 48.00),
+(412, 89, 36, '2025-10-27 18:20:00', 'Mensual', 'Efectivo', 46.00),
+(634, 156, 37, '2025-10-30 15:45:00', 'Mensual', 'Tarjeta', 47.00),
+(856, 45, 38, '2025-10-02 10:10:00', 'Mensual', 'Transferencia', 45.00),
+(78, 201, 39, '2025-10-05 14:25:00', 'Mensual', 'Efectivo', 48.00),
+(201, 123, 40, '2025-10-08 11:50:00', 'Mensual', 'Tarjeta', 46.00),
+(423, 67, 41, '2025-10-11 17:15:00', 'Mensual', 'Transferencia', 47.00),
+(645, 134, 42, '2025-10-14 14:40:00', 'Mensual', 'Efectivo', 45.00),
+(867, 12, 43, '2025-10-17 10:05:00', 'Mensual', 'Tarjeta', 48.00),
+(89, 178, 44, '2025-10-20 16:30:00', 'Mensual', 'Transferencia', 46.00),
+(312, 56, 45, '2025-10-23 13:55:00', 'Mensual', 'Efectivo', 47.00),
+(534, 189, 46, '2025-10-26 11:20:00', 'Mensual', 'Tarjeta', 45.00),
+(756, 101, 47, '2025-10-29 18:45:00', 'Mensual', 'Transferencia', 48.00),
+(178, 145, 48, '2025-10-31 16:10:00', 'Mensual', 'Efectivo', 46.00),
+
+-- OCTUBRE 2025 - Pagos MENSUALES EN MORA (2 registros - debían pagar en septiembre 2025)
+(140, 89, 49, '2025-09-18 12:35:00', 'Mensual', 'Tarjeta', 39.00),
+(142, 101, 50, '2025-09-28 10:00:00', 'Mensual', 'Efectivo', 37.00),
+
+-- OCTUBRE 2025 - Pagos POR CLASE (11 registros)
+(390, 112, 1, '2025-10-02 18:40:00', 'Clase', 'Transferencia', 14.00),
+(512, 56, 2, '2025-10-07 19:25:00', 'Clase', 'Tarjeta', 12.00),
+(734, 189, 3, '2025-10-12 17:50:00', 'Clase', 'Efectivo', 13.00),
+(256, 101, 4, '2025-10-17 18:35:00', 'Clase', 'Transferencia', 11.00),
+(478, 145, 5, '2025-10-22 20:00:00', 'Clase', 'Tarjeta', 15.00),
+(601, 12, 6, '2025-10-27 18:15:00', 'Clase', 'Efectivo', 14.00),
+(823, 89, 7, '2025-10-05 17:40:00', 'Clase', 'Transferencia', 12.00),
+(45, 178, 8, '2025-10-10 19:55:00', 'Clase', 'Tarjeta', 13.00),
+(267, 34, 9, '2025-10-15 18:20:00', 'Clase', 'Efectivo', 11.00),
+(489, 123, 10, '2025-10-20 17:45:00', 'Clase', 'Transferencia', 14.00),
+(612, 67, 11, '2025-10-25 20:10:00', 'Clase', 'Tarjeta', 12.00);
+
+-- =============================================
+-- RESUMEN: Registros 501-600 insertados
+-- SEPTIEMBRE 2025: 65 pagos (41 mensuales al día + 3 en MORA + 21 por clase)
+-- OCTUBRE 2025: 35 pagos (22 mensuales al día + 2 en MORA + 11 por clase)
+-- Total MORA: 5 pagos
+-- Total: 100 registros
+-- =============================================
+
+
+-- =============================================
+-- PAGOS OCTUBRE-NOVIEMBRE 2025 (Registros 601-700)
+-- Distribución: 67 Mensuales, 33 por Clase
+-- OCTUBRE 2025: 60 pagos (completando)
+-- NOVIEMBRE 2025: 40 pagos
+-- Incluye pagos EN MORA
+-- =============================================
+
+
+INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
+-- OCTUBRE 2025 - Pagos MENSUALES AL DÍA (38 registros - completando octubre)
+(834, 156, 12, '2025-10-01 10:20:00', 'Mensual', 'Efectivo', 47.00),
+(156, 201, 13, '2025-10-04 14:35:00', 'Mensual', 'Tarjeta', 45.00),
+(378, 45, 14, '2025-10-07 09:50:00', 'Mensual', 'Transferencia', 48.00),
+(501, 112, 15, '2025-10-10 16:15:00', 'Mensual', 'Efectivo', 46.00),
+(723, 78, 16, '2025-10-13 11:30:00', 'Mensual', 'Tarjeta', 47.00),
+(945, 134, 17, '2025-10-16 08:45:00', 'Mensual', 'Transferencia', 45.00),
+(67, 23, 18, '2025-10-19 15:20:00', 'Mensual', 'Efectivo', 48.00),
+(289, 167, 19, '2025-10-22 12:05:00', 'Mensual', 'Tarjeta', 46.00),
+(412, 89, 20, '2025-10-25 17:40:00', 'Mensual', 'Transferencia', 47.00),
+(634, 156, 21, '2025-10-28 10:55:00', 'Mensual', 'Efectivo', 45.00),
+(856, 45, 22, '2025-10-31 14:10:00', 'Mensual', 'Tarjeta', 48.00),
+(78, 201, 23, '2025-10-03 09:25:00', 'Mensual', 'Transferencia', 46.00),
+(201, 123, 24, '2025-10-06 16:50:00', 'Mensual', 'Efectivo', 47.00),
+(423, 67, 25, '2025-10-09 13:15:00', 'Mensual', 'Tarjeta', 45.00),
+(645, 134, 26, '2025-10-12 11:40:00', 'Mensual', 'Transferencia', 48.00),
+(867, 12, 27, '2025-10-15 18:25:00', 'Mensual', 'Efectivo', 46.00),
+(89, 178, 28, '2025-10-18 15:50:00', 'Mensual', 'Tarjeta', 47.00),
+(312, 56, 29, '2025-10-21 10:05:00', 'Mensual', 'Transferencia', 45.00),
+(534, 189, 30, '2025-10-24 14:30:00', 'Mensual', 'Efectivo', 48.00),
+(756, 101, 31, '2025-10-27 09:45:00', 'Mensual', 'Tarjeta', 46.00),
+(178, 145, 32, '2025-10-30 17:10:00', 'Mensual', 'Transferencia', 47.00),
+(390, 112, 33, '2025-10-02 12:35:00', 'Mensual', 'Efectivo', 45.00),
+(512, 56, 34, '2025-10-05 10:00:00', 'Mensual', 'Tarjeta', 48.00),
+(734, 189, 35, '2025-10-08 15:45:00', 'Mensual', 'Transferencia', 46.00),
+(256, 101, 36, '2025-10-11 13:20:00', 'Mensual', 'Efectivo', 47.00),
+(478, 145, 37, '2025-10-14 11:15:00', 'Mensual', 'Tarjeta', 45.00),
+(601, 12, 38, '2025-10-17 16:40:00', 'Mensual', 'Transferencia', 48.00),
+(823, 89, 39, '2025-10-20 14:05:00', 'Mensual', 'Efectivo', 46.00),
+(45, 178, 40, '2025-10-23 10:30:00', 'Mensual', 'Tarjeta', 47.00),
+(267, 34, 41, '2025-10-26 17:55:00', 'Mensual', 'Transferencia', 45.00),
+(489, 123, 42, '2025-10-29 12:20:00', 'Mensual', 'Efectivo', 48.00),
+(612, 67, 43, '2025-10-31 09:45:00', 'Mensual', 'Tarjeta', 46.00),
+(834, 156, 44, '2025-10-04 16:10:00', 'Mensual', 'Transferencia', 47.00),
+(156, 201, 45, '2025-10-09 13:35:00', 'Mensual', 'Efectivo', 45.00),
+(378, 45, 46, '2025-10-14 11:00:00', 'Mensual', 'Tarjeta', 48.00),
+(501, 112, 47, '2025-10-19 18:25:00', 'Mensual', 'Transferencia', 46.00),
+(723, 78, 48, '2025-10-24 15:50:00', 'Mensual', 'Efectivo', 47.00),
+(945, 134, 49, '2025-10-29 10:15:00', 'Mensual', 'Tarjeta', 45.00),
+
+-- OCTUBRE 2025 - Pagos MENSUALES EN MORA (3 registros - debían pagar en septiembre 2025)
+(144, 112, 50, '2025-09-15 14:40:00', 'Mensual', 'Efectivo', 38.00),
+(146, 123, 1, '2025-09-25 12:05:00', 'Mensual', 'Transferencia', 40.00),
+(148, 134, 2, '2025-09-30 17:30:00', 'Mensual', 'Tarjeta', 37.00),
+
+-- OCTUBRE 2025 - Pagos POR CLASE (19 registros - completando octubre)
+(67, 23, 3, '2025-10-01 18:30:00', 'Clase', 'Efectivo', 13.00),
+(289, 167, 4, '2025-10-04 19:15:00', 'Clase', 'Tarjeta', 12.00),
+(412, 89, 5, '2025-10-07 17:45:00', 'Clase', 'Transferencia', 14.00),
+(634, 156, 6, '2025-10-10 18:20:00', 'Clase', 'Efectivo', 11.00),
+(856, 45, 7, '2025-10-13 19:50:00', 'Clase', 'Tarjeta', 15.00),
+(78, 201, 8, '2025-10-16 18:05:00', 'Clase', 'Transferencia', 13.00),
+(201, 123, 9, '2025-10-19 17:30:00', 'Clase', 'Efectivo', 12.00),
+(423, 67, 10, '2025-10-22 19:45:00', 'Clase', 'Tarjeta', 14.00),
+(645, 134, 11, '2025-10-25 18:15:00', 'Clase', 'Transferencia', 11.00),
+(867, 12, 12, '2025-10-28 17:40:00', 'Clase', 'Efectivo', 13.00),
+(89, 178, 13, '2025-10-31 19:00:00', 'Clase', 'Tarjeta', 12.00),
+(312, 56, 14, '2025-10-03 18:25:00', 'Clase', 'Transferencia', 16.00),
+(534, 189, 15, '2025-10-06 17:50:00', 'Clase', 'Efectivo', 13.00),
+(756, 101, 16, '2025-10-11 19:35:00', 'Clase', 'Tarjeta', 11.00),
+(178, 145, 17, '2025-10-16 18:10:00', 'Clase', 'Transferencia', 14.00),
+(390, 112, 18, '2025-10-21 17:35:00', 'Clase', 'Efectivo', 12.00),
+(512, 56, 19, '2025-10-26 20:00:00', 'Clase', 'Tarjeta', 10.00),
+(734, 189, 20, '2025-10-08 18:45:00', 'Clase', 'Transferencia', 15.00),
+(256, 101, 21, '2025-10-18 17:20:00', 'Clase', 'Efectivo', 13.00),
+
+-- NOVIEMBRE 2025 - Pagos MENSUALES AL DÍA (25 registros)
+(478, 145, 22, '2025-11-01 11:25:00', 'Mensual', 'Tarjeta', 48.00),
+(601, 12, 23, '2025-11-03 15:40:00', 'Mensual', 'Transferencia', 46.00),
+(823, 89, 24, '2025-11-05 10:55:00', 'Mensual', 'Efectivo', 47.00),
+(45, 178, 25, '2025-11-07 17:10:00', 'Mensual', 'Tarjeta', 45.00),
+(267, 34, 26, '2025-11-09 12:35:00', 'Mensual', 'Transferencia', 48.00),
+(489, 123, 27, '2025-11-11 09:50:00', 'Mensual', 'Efectivo', 46.00),
+(612, 67, 28, '2025-11-13 16:15:00', 'Mensual', 'Tarjeta', 47.00),
+(834, 156, 29, '2025-11-15 13:30:00', 'Mensual', 'Transferencia', 45.00),
+(156, 201, 30, '2025-11-17 11:05:00', 'Mensual', 'Efectivo', 48.00),
+(378, 45, 31, '2025-11-19 18:20:00', 'Mensual', 'Tarjeta', 46.00),
+(501, 112, 32, '2025-11-21 15:45:00', 'Mensual', 'Transferencia', 47.00),
+(723, 78, 33, '2025-11-23 10:10:00', 'Mensual', 'Efectivo', 45.00),
+(945, 134, 34, '2025-11-24 14:25:00', 'Mensual', 'Tarjeta', 48.00),
+(67, 23, 35, '2025-11-02 11:50:00', 'Mensual', 'Transferencia', 46.00),
+(289, 167, 36, '2025-11-06 17:15:00', 'Mensual', 'Efectivo', 47.00),
+(412, 89, 37, '2025-11-10 14:40:00', 'Mensual', 'Tarjeta', 45.00),
+(634, 156, 38, '2025-11-14 10:05:00', 'Mensual', 'Transferencia', 48.00),
+(856, 45, 39, '2025-11-18 16:30:00', 'Mensual', 'Efectivo', 46.00),
+(78, 201, 40, '2025-11-22 13:55:00', 'Mensual', 'Tarjeta', 47.00),
+(201, 123, 41, '2025-11-24 11:20:00', 'Mensual', 'Transferencia', 45.00),
+(423, 67, 42, '2025-11-04 18:45:00', 'Mensual', 'Efectivo', 48.00),
+(645, 134, 43, '2025-11-08 16:10:00', 'Mensual', 'Tarjeta', 46.00),
+(867, 12, 44, '2025-11-12 12:35:00', 'Mensual', 'Transferencia', 47.00),
+(89, 178, 45, '2025-11-16 10:00:00', 'Mensual', 'Efectivo', 45.00),
+(312, 56, 46, '2025-11-20 15:25:00', 'Mensual', 'Tarjeta', 48.00),
+
+-- NOVIEMBRE 2025 - Pagos MENSUALES EN MORA (2 registros - debían pagar en octubre 2025)
+(150, 145, 47, '2025-10-18 12:50:00', 'Mensual', 'Transferencia', 39.00),
+(152, 156, 48, '2025-10-28 10:15:00', 'Mensual', 'Efectivo', 38.00),
+
+-- NOVIEMBRE 2025 - Pagos POR CLASE (13 registros)
+(534, 189, 49, '2025-11-01 18:40:00', 'Clase', 'Tarjeta', 14.00),
+(756, 101, 50, '2025-11-04 19:25:00', 'Clase', 'Efectivo', 12.00),
+(178, 145, 1, '2025-11-07 17:50:00', 'Clase', 'Transferencia', 13.00),
+(390, 112, 2, '2025-11-10 18:35:00', 'Clase', 'Tarjeta', 11.00),
+(512, 56, 3, '2025-11-13 20:00:00', 'Clase', 'Efectivo', 15.00),
+(734, 189, 4, '2025-11-16 18:15:00', 'Clase', 'Transferencia', 14.00),
+(256, 101, 5, '2025-11-19 17:40:00', 'Clase', 'Tarjeta', 12.00),
+(478, 145, 6, '2025-11-22 19:55:00', 'Clase', 'Efectivo', 13.00),
+(601, 12, 7, '2025-11-24 18:20:00', 'Clase', 'Transferencia', 11.00),
+(823, 89, 8, '2025-11-03 17:45:00', 'Clase', 'Tarjeta', 14.00),
+(45, 178, 9, '2025-11-08 20:10:00', 'Clase', 'Efectivo', 12.00),
+(267, 34, 10, '2025-11-14 18:35:00', 'Clase', 'Transferencia', 13.00),
+(489, 123, 11, '2025-11-20 17:00:00', 'Clase', 'Tarjeta', 11.00);
+
+-- =============================================
+-- RESUMEN: Registros 601-700 insertados
+-- OCTUBRE 2025: 60 pagos (38 mensuales al día + 3 en MORA + 19 por clase)
+-- NOVIEMBRE 2025: 40 pagos (25 mensuales al día + 2 en MORA + 13 por clase)
+-- Total MORA: 5 pagos
+-- Total: 100 registros
+-- =============================================
+
+
+
+-- =============================================
+-- PAGOS NOVIEMBRE 2025 (Registros 701-800)
+-- Distribución: 67 Mensuales, 33 por Clase
+-- NOVIEMBRE 2025: 100 pagos (completando hasta Nov 24)
+-- Incluye pagos EN MORA
+-- =============================================
+
+INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
+-- NOVIEMBRE 2025 - Pagos MENSUALES AL DÍA (42 registros - completando noviembre)
+(612, 67, 12, '2025-11-01 10:20:00', 'Mensual', 'Transferencia', 47.00),
+(834, 156, 13, '2025-11-02 14:35:00', 'Mensual', 'Efectivo', 46.00),
+(156, 201, 14, '2025-11-03 09:50:00', 'Mensual', 'Tarjeta', 48.00),
+(378, 45, 15, '2025-11-04 16:15:00', 'Mensual', 'Transferencia', 45.00),
+(501, 112, 16, '2025-11-05 11:30:00', 'Mensual', 'Efectivo', 47.00),
+(723, 78, 17, '2025-11-06 08:45:00', 'Mensual', 'Tarjeta', 46.00),
+(945, 134, 18, '2025-11-07 15:20:00', 'Mensual', 'Transferencia', 48.00),
+(67, 23, 19, '2025-11-08 12:05:00', 'Mensual', 'Efectivo', 45.00),
+(289, 167, 20, '2025-11-09 17:40:00', 'Mensual', 'Tarjeta', 47.00),
+(412, 89, 21, '2025-11-10 10:55:00', 'Mensual', 'Transferencia', 46.00),
+(634, 156, 22, '2025-11-11 14:10:00', 'Mensual', 'Efectivo', 48.00),
+(856, 45, 23, '2025-11-12 09:25:00', 'Mensual', 'Tarjeta', 45.00),
+(78, 201, 24, '2025-11-13 16:50:00', 'Mensual', 'Transferencia', 47.00),
+(201, 123, 25, '2025-11-14 13:15:00', 'Mensual', 'Efectivo', 46.00),
+(423, 67, 26, '2025-11-15 11:40:00', 'Mensual', 'Tarjeta', 48.00),
+(645, 134, 27, '2025-11-16 18:25:00', 'Mensual', 'Transferencia', 45.00),
+(867, 12, 28, '2025-11-17 15:50:00', 'Mensual', 'Efectivo', 47.00),
+(89, 178, 29, '2025-11-18 10:05:00', 'Mensual', 'Tarjeta', 46.00),
+(312, 56, 30, '2025-11-19 14:30:00', 'Mensual', 'Transferencia', 48.00),
+(534, 189, 31, '2025-11-20 09:45:00', 'Mensual', 'Efectivo', 45.00),
+(756, 101, 32, '2025-11-21 17:10:00', 'Mensual', 'Tarjeta', 47.00),
+(178, 145, 33, '2025-11-22 12:35:00', 'Mensual', 'Transferencia', 46.00),
+(390, 112, 34, '2025-11-23 10:00:00', 'Mensual', 'Efectivo', 48.00),
+(512, 56, 35, '2025-11-24 15:45:00', 'Mensual', 'Tarjeta', 45.00),
+(734, 189, 36, '2025-11-01 13:20:00', 'Mensual', 'Transferencia', 47.00),
+(256, 101, 37, '2025-11-02 11:15:00', 'Mensual', 'Efectivo', 46.00),
+(478, 145, 38, '2025-11-03 16:40:00', 'Mensual', 'Tarjeta', 48.00),
+(601, 12, 39, '2025-11-04 14:05:00', 'Mensual', 'Transferencia', 45.00),
+(823, 89, 40, '2025-11-05 10:30:00', 'Mensual', 'Efectivo', 47.00),
+(45, 178, 41, '2025-11-06 17:55:00', 'Mensual', 'Tarjeta', 46.00),
+(267, 34, 42, '2025-11-07 12:20:00', 'Mensual', 'Transferencia', 48.00),
+(489, 123, 43, '2025-11-08 09:45:00', 'Mensual', 'Efectivo', 45.00),
+(612, 67, 44, '2025-11-09 16:10:00', 'Mensual', 'Tarjeta', 47.00),
+(834, 156, 45, '2025-11-10 13:35:00', 'Mensual', 'Transferencia', 46.00),
+(156, 201, 46, '2025-11-11 11:00:00', 'Mensual', 'Efectivo', 48.00),
+(378, 45, 47, '2025-11-12 18:25:00', 'Mensual', 'Tarjeta', 45.00),
+(501, 112, 48, '2025-11-13 15:50:00', 'Mensual', 'Transferencia', 47.00),
+(723, 78, 49, '2025-11-14 10:15:00', 'Mensual', 'Efectivo', 46.00),
+(945, 134, 50, '2025-11-15 14:40:00', 'Mensual', 'Tarjeta', 48.00),
+(67, 23, 1, '2025-11-16 12:05:00', 'Mensual', 'Transferencia', 45.00),
+(289, 167, 2, '2025-11-17 17:30:00', 'Mensual', 'Efectivo', 47.00),
+(412, 89, 3, '2025-11-18 14:55:00', 'Mensual', 'Tarjeta', 46.00),
+
+-- NOVIEMBRE 2025 - Pagos MENSUALES EN MORA (25 registros - debían pagar en octubre 2025)
+(154, 167, 4, '2025-10-05 10:20:00', 'Mensual', 'Transferencia', 38.00),
+(156, 178, 5, '2025-10-08 16:45:00', 'Mensual', 'Efectivo', 40.00),
+(158, 189, 6, '2025-10-12 13:10:00', 'Mensual', 'Tarjeta', 37.00),
+(160, 201, 7, '2025-10-15 11:35:00', 'Mensual', 'Transferencia', 39.00),
+(162, 12, 8, '2025-10-18 15:00:00', 'Mensual', 'Efectivo', 36.00),
+(164, 23, 9, '2025-10-21 12:25:00', 'Mensual', 'Tarjeta', 38.00),
+(166, 34, 10, '2025-10-24 10:50:00', 'Mensual', 'Transferencia', 40.00),
+(168, 45, 11, '2025-10-27 14:15:00', 'Mensual', 'Efectivo', 37.00),
+(170, 56, 12, '2025-10-30 11:40:00', 'Mensual', 'Tarjeta', 39.00),
+(172, 67, 13, '2025-10-03 16:05:00', 'Mensual', 'Transferencia', 36.00),
+(174, 78, 14, '2025-10-07 13:30:00', 'Mensual', 'Efectivo', 38.00),
+(176, 89, 15, '2025-10-10 10:55:00', 'Mensual', 'Tarjeta', 40.00),
+(178, 101, 16, '2025-10-13 15:20:00', 'Mensual', 'Transferencia', 37.00),
+(180, 112, 17, '2025-10-16 12:45:00', 'Mensual', 'Efectivo', 39.00),
+(182, 123, 18, '2025-10-19 10:10:00', 'Mensual', 'Tarjeta', 36.00),
+(184, 134, 19, '2025-10-22 14:35:00', 'Mensual', 'Transferencia', 38.00),
+(186, 145, 20, '2025-10-25 12:00:00', 'Mensual', 'Efectivo', 40.00),
+(188, 156, 21, '2025-10-28 09:25:00', 'Mensual', 'Tarjeta', 37.00),
+(190, 167, 22, '2025-10-31 16:50:00', 'Mensual', 'Transferencia', 39.00),
+(192, 178, 23, '2025-10-04 14:15:00', 'Mensual', 'Efectivo', 36.00),
+(194, 189, 24, '2025-10-09 11:40:00', 'Mensual', 'Tarjeta', 38.00),
+(196, 201, 25, '2025-10-14 18:05:00', 'Mensual', 'Transferencia', 40.00),
+(198, 12, 26, '2025-10-20 15:30:00', 'Mensual', 'Efectivo', 37.00),
+(200, 23, 27, '2025-10-26 10:55:00', 'Mensual', 'Tarjeta', 39.00),
+(202, 34, 28, '2025-10-29 14:20:00', 'Mensual', 'Transferencia', 36.00),
+
+-- NOVIEMBRE 2025 - Pagos POR CLASE (33 registros - completando noviembre)
+(634, 156, 29, '2025-11-01 18:30:00', 'Clase', 'Efectivo', 13.00),
+(856, 45, 30, '2025-11-02 19:15:00', 'Clase', 'Tarjeta', 12.00),
+(78, 201, 31, '2025-11-03 17:45:00', 'Clase', 'Transferencia', 14.00),
+(201, 123, 32, '2025-11-04 18:20:00', 'Clase', 'Efectivo', 11.00),
+(423, 67, 33, '2025-11-05 19:50:00', 'Clase', 'Tarjeta', 15.00),
+(645, 134, 34, '2025-11-06 18:05:00', 'Clase', 'Transferencia', 13.00),
+(867, 12, 35, '2025-11-07 17:30:00', 'Clase', 'Efectivo', 12.00),
+(89, 178, 36, '2025-11-08 19:45:00', 'Clase', 'Tarjeta', 14.00),
+(312, 56, 37, '2025-11-09 18:15:00', 'Clase', 'Transferencia', 11.00),
+(534, 189, 38, '2025-11-10 17:40:00', 'Clase', 'Efectivo', 13.00),
+(756, 101, 39, '2025-11-11 19:00:00', 'Clase', 'Tarjeta', 12.00),
+(178, 145, 40, '2025-11-12 18:25:00', 'Clase', 'Transferencia', 16.00),
+(390, 112, 41, '2025-11-13 17:50:00', 'Clase', 'Efectivo', 13.00),
+(512, 56, 42, '2025-11-14 19:35:00', 'Clase', 'Tarjeta', 11.00),
+(734, 189, 43, '2025-11-15 18:10:00', 'Clase', 'Transferencia', 14.00),
+(256, 101, 44, '2025-11-16 17:35:00', 'Clase', 'Efectivo', 12.00),
+(478, 145, 45, '2025-11-17 20:00:00', 'Clase', 'Tarjeta', 10.00),
+(601, 12, 46, '2025-11-18 18:45:00', 'Clase', 'Transferencia', 15.00),
+(823, 89, 47, '2025-11-19 17:20:00', 'Clase', 'Efectivo', 13.00),
+(45, 178, 48, '2025-11-20 19:10:00', 'Clase', 'Tarjeta', 11.00),
+(267, 34, 49, '2025-11-21 18:35:00', 'Clase', 'Transferencia', 14.00),
+(489, 123, 50, '2025-11-22 17:00:00', 'Clase', 'Efectivo', 12.00),
+(612, 67, 1, '2025-11-23 19:25:00', 'Clase', 'Tarjeta', 13.00),
+(834, 156, 2, '2025-11-24 18:50:00', 'Clase', 'Transferencia', 11.00),
+(156, 201, 3, '2025-11-01 17:15:00', 'Clase', 'Efectivo', 14.00),
+(378, 45, 4, '2025-11-03 19:40:00', 'Clase', 'Tarjeta', 12.00),
+(501, 112, 5, '2025-11-05 18:05:00', 'Clase', 'Transferencia', 13.00),
+(723, 78, 6, '2025-11-07 17:30:00', 'Clase', 'Efectivo', 11.00),
+(945, 134, 7, '2025-11-09 19:55:00', 'Clase', 'Tarjeta', 15.00),
+(67, 23, 8, '2025-11-11 18:20:00', 'Clase', 'Transferencia', 14.00),
+(289, 167, 9, '2025-11-13 17:45:00', 'Clase', 'Efectivo', 12.00),
+(412, 89, 10, '2025-11-15 20:10:00', 'Clase', 'Tarjeta', 13.00),
+(634, 156, 11, '2025-11-17 18:35:00', 'Clase', 'Transferencia', 11.00);
+
+-- =============================================
+-- RESUMEN: Registros 701-800 insertados
+-- NOVIEMBRE 2025: 100 pagos (42 mensuales al día + 25 en MORA + 33 por clase)
+-- Total MORA: 25 pagos (socios con deudas de octubre)
+-- Total: 100 registros
+-- Fechas hasta Noviembre 24, 2025
+-- =============================================
+
+
+
+-- =============================================
+-- PAGOS COMPLEMENTARIOS 2024-2025 (Registros 801-900)
+-- Distribución: 67 Mensuales, 33 por Clase
+-- Completando meses con menos registros
+-- ABRIL 2024: 40 pagos
+-- MARZO 2025: 30 pagos
+-- JUNIO 2025: 30 pagos
+-- Incluye pagos EN MORA
+-- =============================================
+
+INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
+-- ABRIL 2024 - Pagos MENSUALES AL DÍA (25 registros - completando abril)
+(204, 45, 12, '2024-04-01 10:25:00', 'Mensual', 'Efectivo', 46.00),
+(206, 56, 13, '2024-04-03 14:40:00', 'Mensual', 'Tarjeta', 43.00),
+(208, 67, 14, '2024-04-05 09:55:00', 'Mensual', 'Transferencia', 48.00),
+(210, 78, 15, '2024-04-07 16:20:00', 'Mensual', 'Efectivo', 45.00),
+(212, 89, 16, '2024-04-09 11:35:00', 'Mensual', 'Tarjeta', 42.00),
+(214, 101, 17, '2024-04-11 08:50:00', 'Mensual', 'Transferencia', 47.00),
+(216, 112, 18, '2024-04-13 15:25:00', 'Mensual', 'Efectivo', 44.00),
+(218, 123, 19, '2024-04-15 12:10:00', 'Mensual', 'Tarjeta', 46.00),
+(220, 134, 20, '2024-04-17 17:45:00', 'Mensual', 'Transferencia', 43.00),
+(222, 145, 21, '2024-04-19 11:00:00', 'Mensual', 'Efectivo', 48.00),
+(224, 156, 22, '2024-04-21 14:15:00', 'Mensual', 'Tarjeta', 45.00),
+(226, 167, 23, '2024-04-23 09:30:00', 'Mensual', 'Transferencia', 42.00),
+(228, 178, 24, '2024-04-25 16:55:00', 'Mensual', 'Efectivo', 47.00),
+(230, 189, 25, '2024-04-27 13:20:00', 'Mensual', 'Tarjeta', 44.00),
+(232, 201, 26, '2024-04-29 11:45:00', 'Mensual', 'Transferencia', 46.00),
+(234, 12, 27, '2024-04-02 18:30:00', 'Mensual', 'Efectivo', 43.00),
+(236, 23, 28, '2024-04-06 15:55:00', 'Mensual', 'Tarjeta', 48.00),
+(238, 34, 29, '2024-04-10 10:10:00', 'Mensual', 'Transferencia', 45.00),
+(240, 45, 30, '2024-04-14 14:35:00', 'Mensual', 'Efectivo', 42.00),
+(242, 56, 31, '2024-04-18 09:50:00', 'Mensual', 'Tarjeta', 47.00),
+(244, 67, 32, '2024-04-22 17:15:00', 'Mensual', 'Transferencia', 44.00),
+(246, 78, 33, '2024-04-26 13:40:00', 'Mensual', 'Efectivo', 46.00),
+(248, 89, 34, '2024-04-30 11:05:00', 'Mensual', 'Tarjeta', 43.00),
+(250, 101, 35, '2024-04-04 18:20:00', 'Mensual', 'Transferencia', 48.00),
+(252, 112, 36, '2024-04-16 15:45:00', 'Mensual', 'Efectivo', 45.00),
+
+-- ABRIL 2024 - Pagos MENSUALES EN MORA (2 registros - debían pagar en marzo)
+(254, 123, 37, '2024-03-10 10:10:00', 'Mensual', 'Tarjeta', 35.00),
+(256, 134, 38, '2024-03-20 14:25:00', 'Mensual', 'Efectivo', 37.00),
+
+-- ABRIL 2024 - Pagos POR CLASE (13 registros - completando abril)
+(258, 145, 39, '2024-04-02 18:40:00', 'Clase', 'Transferencia', 13.00),
+(260, 156, 40, '2024-04-05 19:25:00', 'Clase', 'Tarjeta', 11.00),
+(262, 167, 41, '2024-04-08 17:50:00', 'Clase', 'Efectivo', 14.00),
+(264, 178, 42, '2024-04-11 18:35:00', 'Clase', 'Transferencia', 12.00),
+(266, 189, 43, '2024-04-14 20:00:00', 'Clase', 'Tarjeta', 10.00),
+(268, 201, 44, '2024-04-17 18:15:00', 'Clase', 'Efectivo', 15.00),
+(270, 12, 45, '2024-04-20 17:40:00', 'Clase', 'Transferencia', 13.00),
+(272, 23, 46, '2024-04-23 19:55:00', 'Clase', 'Tarjeta', 11.00),
+(274, 34, 47, '2024-04-26 18:20:00', 'Clase', 'Efectivo', 14.00),
+(276, 45, 48, '2024-04-29 17:45:00', 'Clase', 'Transferencia', 12.00),
+(278, 56, 49, '2024-04-07 20:10:00', 'Clase', 'Tarjeta', 16.00),
+(280, 67, 50, '2024-04-19 18:35:00', 'Clase', 'Efectivo', 13.00),
+(282, 78, 1, '2024-04-28 17:00:00', 'Clase', 'Transferencia', 11.00),
+
+-- MARZO 2025 - Pagos MENSUALES AL DÍA (18 registros - completando marzo)
+(284, 89, 2, '2025-03-01 11:30:00', 'Mensual', 'Tarjeta', 47.00),
+(286, 101, 3, '2025-03-03 15:45:00', 'Mensual', 'Efectivo', 44.00),
+(288, 112, 4, '2025-03-06 11:00:00', 'Mensual', 'Transferencia', 48.00),
+(290, 123, 5, '2025-03-09 17:15:00', 'Mensual', 'Tarjeta', 46.00),
+(292, 134, 6, '2025-03-13 12:40:00', 'Mensual', 'Efectivo', 43.00),
+(294, 145, 7, '2025-03-16 09:55:00', 'Mensual', 'Transferencia', 48.00),
+(296, 156, 8, '2025-03-19 16:20:00', 'Mensual', 'Tarjeta', 45.00),
+(298, 167, 9, '2025-03-22 13:35:00', 'Mensual', 'Efectivo', 47.00),
+(300, 178, 10, '2025-03-25 11:10:00', 'Mensual', 'Transferencia', 44.00),
+(302, 189, 11, '2025-03-28 18:25:00', 'Mensual', 'Tarjeta', 48.00),
+(304, 201, 12, '2025-03-30 15:50:00', 'Mensual', 'Efectivo', 46.00),
+(306, 12, 13, '2025-03-02 10:15:00', 'Mensual', 'Transferencia', 43.00),
+(308, 23, 14, '2025-03-05 14:30:00', 'Mensual', 'Tarjeta', 48.00),
+(310, 34, 15, '2025-03-10 12:05:00', 'Mensual', 'Efectivo', 45.00),
+(312, 45, 16, '2025-03-15 17:40:00', 'Mensual', 'Transferencia', 47.00),
+(314, 56, 17, '2025-03-21 14:55:00', 'Mensual', 'Tarjeta', 44.00),
+(316, 67, 18, '2025-03-27 10:20:00', 'Mensual', 'Efectivo', 48.00),
+(318, 78, 19, '2025-03-31 16:45:00', 'Mensual', 'Transferencia', 46.00),
+
+-- MARZO 2025 - Pagos MENSUALES EN MORA (2 registros - debían pagar en febrero)
+(320, 89, 20, '2025-02-15 13:10:00', 'Mensual', 'Tarjeta', 38.00),
+(322, 101, 21, '2025-02-25 11:35:00', 'Mensual', 'Efectivo', 40.00),
+
+-- MARZO 2025 - Pagos POR CLASE (10 registros - completando marzo)
+(324, 112, 22, '2025-03-02 18:50:00', 'Clase', 'Transferencia', 14.00),
+(326, 123, 23, '2025-03-07 19:35:00', 'Clase', 'Tarjeta', 12.00),
+(328, 134, 24, '2025-03-12 17:20:00', 'Clase', 'Efectivo', 13.00),
+(330, 145, 25, '2025-03-17 18:45:00', 'Clase', 'Transferencia', 11.00),
+(332, 156, 26, '2025-03-22 20:10:00', 'Clase', 'Tarjeta', 15.00),
+(334, 167, 27, '2025-03-27 18:25:00', 'Clase', 'Efectivo', 14.00),
+(336, 178, 28, '2025-03-04 17:50:00', 'Clase', 'Transferencia', 12.00),
+(338, 189, 29, '2025-03-11 19:15:00', 'Clase', 'Tarjeta', 13.00),
+(340, 201, 30, '2025-03-19 18:40:00', 'Clase', 'Efectivo', 11.00),
+(342, 12, 31, '2025-03-26 17:05:00', 'Clase', 'Transferencia', 14.00),
+
+-- JUNIO 2025 - Pagos MENSUALES AL DÍA (18 registros - completando junio)
+(344, 23, 32, '2025-06-01 11:35:00', 'Mensual', 'Tarjeta', 48.00),
+(346, 34, 33, '2025-06-03 15:50:00', 'Mensual', 'Efectivo', 46.00),
+(348, 45, 34, '2025-06-06 11:05:00', 'Mensual', 'Transferencia', 47.00),
+(350, 56, 35, '2025-06-09 17:20:00', 'Mensual', 'Tarjeta', 45.00),
+(352, 67, 36, '2025-06-12 12:45:00', 'Mensual', 'Efectivo', 48.00),
+(354, 78, 37, '2025-06-15 10:00:00', 'Mensual', 'Transferencia', 46.00),
+(356, 89, 38, '2025-06-18 16:25:00', 'Mensual', 'Tarjeta', 47.00),
+(358, 101, 39, '2025-06-21 13:40:00', 'Mensual', 'Efectivo', 45.00),
+(360, 112, 40, '2025-06-24 11:15:00', 'Mensual', 'Transferencia', 48.00),
+(362, 123, 41, '2025-06-27 18:30:00', 'Mensual', 'Tarjeta', 46.00),
+(364, 134, 42, '2025-06-30 15:55:00', 'Mensual', 'Efectivo', 47.00),
+(366, 145, 43, '2025-06-02 10:20:00', 'Mensual', 'Transferencia', 45.00),
+(368, 156, 44, '2025-06-07 14:35:00', 'Mensual', 'Tarjeta', 48.00),
+(370, 167, 45, '2025-06-13 12:10:00', 'Mensual', 'Efectivo', 46.00),
+(372, 178, 46, '2025-06-19 17:25:00', 'Mensual', 'Transferencia', 47.00),
+(374, 189, 47, '2025-06-25 14:50:00', 'Mensual', 'Tarjeta', 45.00),
+(376, 201, 48, '2025-06-05 10:15:00', 'Mensual', 'Efectivo', 48.00),
+(378, 12, 49, '2025-06-11 16:40:00', 'Mensual', 'Transferencia', 46.00),
+
+-- JUNIO 2025 - Pagos MENSUALES EN MORA (2 registros - debían pagar en mayo)
+(380, 23, 50, '2025-05-10 13:05:00', 'Mensual', 'Tarjeta', 39.00),
+(382, 34, 1, '2025-05-20 10:30:00', 'Mensual', 'Efectivo', 37.00),
+
+-- JUNIO 2025 - Pagos POR CLASE (10 registros - completando junio)
+(384, 45, 2, '2025-06-01 18:55:00', 'Clase', 'Transferencia', 14.00),
+(386, 56, 3, '2025-06-05 19:40:00', 'Clase', 'Tarjeta', 12.00),
+(388, 67, 4, '2025-06-10 17:25:00', 'Clase', 'Efectivo', 13.00),
+(390, 78, 5, '2025-06-15 18:50:00', 'Clase', 'Transferencia', 11.00),
+(392, 89, 6, '2025-06-20 20:15:00', 'Clase', 'Tarjeta', 15.00),
+(394, 101, 7, '2025-06-25 18:30:00', 'Clase', 'Efectivo', 14.00),
+(396, 112, 8, '2025-06-03 17:55:00', 'Clase', 'Transferencia', 12.00),
+(398, 123, 9, '2025-06-12 19:20:00', 'Clase', 'Tarjeta', 13.00),
+(400, 134, 10, '2025-06-22 18:45:00', 'Clase', 'Efectivo', 11.00),
+(402, 145, 11, '2025-06-29 17:10:00', 'Clase', 'Transferencia', 14.00);
+
+-- =============================================
+-- RESUMEN: Registros 801-900 insertados
+-- ABRIL 2024: 40 pagos (25 mensuales al día + 2 en MORA + 13 por clase)
+-- MARZO 2025: 30 pagos (18 mensuales al día + 2 en MORA + 10 por clase)
+-- JUNIO 2025: 30 pagos (18 mensuales al día + 2 en MORA + 10 por clase)
+-- Total MORA: 6 pagos
+-- Total: 100 registros
+-- =============================================
+
+-- =============================================
+-- PAGOS COMPLEMENTARIOS FINALES 2024-2025 (Registros 901-975)
+-- Distribución: 67 Mensuales, 33 por Clase
+-- Completando todos los meses faltantes
+-- FEBRERO 2024: 15 pagos
+-- MARZO 2024: 15 pagos
+-- MAYO 2025: 15 pagos
+-- AGOSTO 2025: 15 pagos
+-- OCTUBRE 2025: 15 pagos
+-- Incluye pagos EN MORA
+-- =============================================
+
+INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto) VALUES
+-- FEBRERO 2024 - Pagos MENSUALES AL DÍA (9 registros)
+(404, 156, 12, '2024-02-01 10:30:00', 'Mensual', 'Efectivo', 46.00),
+(406, 167, 13, '2024-02-04 14:45:00', 'Mensual', 'Tarjeta', 43.00),
+(408, 178, 14, '2024-02-08 10:00:00', 'Mensual', 'Transferencia', 48.00),
+(410, 189, 15, '2024-02-12 16:25:00', 'Mensual', 'Efectivo', 45.00),
+(412, 201, 16, '2024-02-16 11:50:00', 'Mensual', 'Tarjeta', 42.00),
+(414, 12, 17, '2024-02-20 09:15:00', 'Mensual', 'Transferencia', 47.00),
+(416, 23, 18, '2024-02-24 15:40:00', 'Mensual', 'Efectivo', 44.00),
+(418, 34, 19, '2024-02-27 12:55:00', 'Mensual', 'Tarjeta', 46.00),
+(420, 45, 20, '2024-02-29 17:20:00', 'Mensual', 'Transferencia', 43.00),
+
+-- FEBRERO 2024 - Pagos MENSUALES EN MORA (1 registro)
+(422, 56, 21, '2024-01-20 11:10:00', 'Mensual', 'Efectivo', 36.00),
+
+-- FEBRERO 2024 - Pagos POR CLASE (5 registros)
+(424, 67, 22, '2024-02-03 18:45:00', 'Clase', 'Tarjeta', 13.00),
+(426, 78, 23, '2024-02-10 19:30:00', 'Clase', 'Transferencia', 11.00),
+(428, 89, 24, '2024-02-17 17:55:00', 'Clase', 'Efectivo', 14.00),
+(430, 101, 25, '2024-02-23 18:40:00', 'Clase', 'Tarjeta', 12.00),
+(432, 112, 26, '2024-02-28 20:05:00', 'Clase', 'Transferencia', 10.00),
+
+-- MARZO 2024 - Pagos MENSUALES AL DÍA (9 registros)
+(434, 123, 27, '2024-03-01 11:40:00', 'Mensual', 'Efectivo', 48.00),
+(436, 134, 28, '2024-03-04 15:55:00', 'Mensual', 'Tarjeta', 46.00),
+(438, 145, 29, '2024-03-08 11:10:00', 'Mensual', 'Transferencia', 47.00),
+(440, 156, 30, '2024-03-12 17:35:00', 'Mensual', 'Efectivo', 45.00),
+(442, 167, 31, '2024-03-16 12:50:00', 'Mensual', 'Tarjeta', 48.00),
+(444, 178, 32, '2024-03-20 10:05:00', 'Mensual', 'Transferencia', 46.00),
+(446, 189, 33, '2024-03-24 16:30:00', 'Mensual', 'Efectivo', 47.00),
+(448, 201, 34, '2024-03-28 13:45:00', 'Mensual', 'Tarjeta', 45.00),
+(450, 12, 35, '2024-03-31 11:20:00', 'Mensual', 'Transferencia', 48.00),
+
+-- MARZO 2024 - Pagos MENSUALES EN MORA (1 registro)
+(452, 23, 36, '2024-02-18 14:25:00', 'Mensual', 'Efectivo', 37.00),
+
+-- MARZO 2024 - Pagos POR CLASE (5 registros)
+(454, 34, 37, '2024-03-03 18:55:00', 'Clase', 'Tarjeta', 14.00),
+(456, 45, 38, '2024-03-09 19:40:00', 'Clase', 'Transferencia', 12.00),
+(458, 56, 39, '2024-03-15 17:25:00', 'Clase', 'Efectivo', 13.00),
+(460, 67, 40, '2024-03-22 18:50:00', 'Clase', 'Tarjeta', 11.00),
+(462, 78, 41, '2024-03-29 20:15:00', 'Clase', 'Transferencia', 15.00),
+
+-- MAYO 2025 - Pagos MENSUALES AL DÍA (9 registros)
+(464, 89, 42, '2025-05-01 11:45:00', 'Mensual', 'Efectivo', 48.00),
+(466, 101, 43, '2025-05-04 16:00:00', 'Mensual', 'Tarjeta', 46.00),
+(468, 112, 44, '2025-05-08 11:15:00', 'Mensual', 'Transferencia', 47.00),
+(470, 123, 45, '2025-05-12 17:40:00', 'Mensual', 'Efectivo', 45.00),
+(472, 134, 46, '2025-05-16 12:55:00', 'Mensual', 'Tarjeta', 48.00),
+(474, 145, 47, '2025-05-20 10:10:00', 'Mensual', 'Transferencia', 46.00),
+(476, 156, 48, '2025-05-24 16:35:00', 'Mensual', 'Efectivo', 47.00),
+(478, 167, 49, '2025-05-28 13:50:00', 'Mensual', 'Tarjeta', 45.00),
+(480, 178, 50, '2025-05-31 11:25:00', 'Mensual', 'Transferencia', 48.00),
+
+-- MAYO 2025 - Pagos MENSUALES EN MORA (1 registro)
+(482, 189, 1, '2025-04-20 14:30:00', 'Mensual', 'Efectivo', 38.00),
+
+-- MAYO 2025 - Pagos POR CLASE (5 registros)
+(484, 201, 2, '2025-05-03 19:00:00', 'Clase', 'Tarjeta', 14.00),
+(486, 12, 3, '2025-05-10 19:45:00', 'Clase', 'Transferencia', 12.00),
+(488, 23, 4, '2025-05-17 17:30:00', 'Clase', 'Efectivo', 13.00),
+(490, 34, 5, '2025-05-24 18:55:00', 'Clase', 'Tarjeta', 11.00),
+(492, 45, 6, '2025-05-30 20:20:00', 'Clase', 'Transferencia', 15.00),
+
+-- AGOSTO 2025 - Pagos MENSUALES AL DÍA (9 registros)
+(494, 56, 7, '2025-08-01 11:50:00', 'Mensual', 'Efectivo', 48.00),
+(496, 67, 8, '2025-08-05 16:05:00', 'Mensual', 'Tarjeta', 46.00),
+(498, 78, 9, '2025-08-09 11:20:00', 'Mensual', 'Transferencia', 47.00),
+(500, 89, 10, '2025-08-13 17:45:00', 'Mensual', 'Efectivo', 45.00),
+(502, 101, 11, '2025-08-17 13:00:00', 'Mensual', 'Tarjeta', 48.00),
+(504, 112, 12, '2025-08-21 10:15:00', 'Mensual', 'Transferencia', 46.00),
+(506, 123, 13, '2025-08-25 16:40:00', 'Mensual', 'Efectivo', 47.00),
+(508, 134, 14, '2025-08-29 14:05:00', 'Mensual', 'Tarjeta', 45.00),
+(510, 145, 15, '2025-08-31 11:30:00', 'Mensual', 'Transferencia', 48.00),
+
+-- AGOSTO 2025 - Pagos MENSUALES EN MORA (1 registro)
+(512, 156, 16, '2025-07-18 14:35:00', 'Mensual', 'Efectivo', 39.00),
+
+-- AGOSTO 2025 - Pagos POR CLASE (5 registros)
+(514, 167, 17, '2025-08-03 19:05:00', 'Clase', 'Tarjeta', 14.00),
+(516, 178, 18, '2025-08-10 19:50:00', 'Clase', 'Transferencia', 12.00),
+(518, 189, 19, '2025-08-17 17:35:00', 'Clase', 'Efectivo', 13.00),
+(520, 201, 20, '2025-08-24 19:00:00', 'Clase', 'Tarjeta', 11.00),
+(522, 12, 21, '2025-08-30 20:25:00', 'Clase', 'Transferencia', 15.00),
+
+-- OCTUBRE 2025 - Pagos MENSUALES AL DÍA (9 registros)
+(524, 23, 22, '2025-10-01 11:55:00', 'Mensual', 'Efectivo', 48.00),
+(526, 34, 23, '2025-10-04 16:10:00', 'Mensual', 'Tarjeta', 46.00),
+(528, 45, 24, '2025-10-08 11:25:00', 'Mensual', 'Transferencia', 47.00),
+(530, 56, 25, '2025-10-12 17:50:00', 'Mensual', 'Efectivo', 45.00),
+(532, 67, 26, '2025-10-16 13:05:00', 'Mensual', 'Tarjeta', 48.00),
+(534, 78, 27, '2025-10-20 10:20:00', 'Mensual', 'Transferencia', 46.00),
+(536, 89, 28, '2025-10-24 16:45:00', 'Mensual', 'Efectivo', 47.00),
+(538, 101, 29, '2025-10-28 14:10:00', 'Mensual', 'Tarjeta', 45.00),
+(540, 112, 30, '2025-10-31 11:35:00', 'Mensual', 'Transferencia', 48.00),
+
+-- OCTUBRE 2025 - Pagos MENSUALES EN MORA (1 registro)
+(542, 123, 31, '2025-09-20 14:40:00', 'Mensual', 'Efectivo', 38.00),
+
+-- OCTUBRE 2025 - Pagos POR CLASE (5 registros)
+(544, 134, 32, '2025-10-03 19:10:00', 'Clase', 'Tarjeta', 14.00),
+(546, 145, 33, '2025-10-11 19:55:00', 'Clase', 'Transferencia', 12.00),
+(548, 156, 34, '2025-10-18 17:40:00', 'Clase', 'Efectivo', 13.00),
+(550, 167, 35, '2025-10-25 19:05:00', 'Clase', 'Tarjeta', 11.00),
+(552, 178, 36, '2025-10-30 20:30:00', 'Clase', 'Transferencia', 15.00);
+-- =============================================
+-- RESUMEN: Registros 901-975 insertados
+-- FEBRERO 2024: 15 pagos (9 mensuales + 1 MORA + 5 clase)
+-- MARZO 2024: 15 pagos (9 mensuales + 1 MORA + 5 clase)
+-- MAYO 2025: 15 pagos (9 mensuales + 1 MORA + 5 clase)
+-- AGOSTO 2025: 15 pagos (9 mensuales + 1 MORA + 5 clase)
+-- OCTUBRE 2025: 15 pagos (9 mensuales + 1 MORA + 5 clase)
+-- Total MORA: 5 pagos
+-- Total: 75 registros
+-- =============================================
+
+-- =============================================
+-- RESUMEN FINAL TOTAL DE PAGOS
+-- Total registros insertados: 975 pagos
+-- Periodo: Enero-Abril 2024 y Marzo-Noviembre 2025
+-- Distribución aproximada: 67% Mensuales, 33% Por Clase
+-- Pagos en MORA distribuidos en todos los meses
+-- =============================================
+
+
+
+
+--Ingresando datos nuevos a reserva
+
+
+
+
+
+INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva) VALUES
+-- ENERO 2024 - RESERVAS (60 registros)
+(512, 145, '2024-01-02 06:30:00', 'Completada'),
+(234, 78, '2024-01-02 07:00:00', 'Completada'),
+(678, 201, '2024-01-02 18:00:00', 'Completada'),
+(145, 123, '2024-01-03 06:30:00', 'Completada'),
+(389, 56, '2024-01-03 07:30:00', 'Completada'),
+(567, 189, '2024-01-03 18:30:00', 'Completada'),
+(712, 34, '2024-01-04 06:00:00', 'Completada'),
+(98, 167, '2024-01-04 19:00:00', 'Completada'),
+(256, 12, '2024-01-05 07:00:00', 'Completada'),
+(423, 95, '2024-01-05 18:00:00', 'Completada'),
+(589, 178, '2024-01-06 06:30:00', 'Completada'),
+(734, 23, '2024-01-06 19:30:00', 'Completada'),
+(167, 134, '2024-01-08 07:30:00', 'Completada'),
+(312, 67, '2024-01-08 18:00:00', 'Completada'),
+(478, 112, '2024-01-09 06:00:00', 'Completada'),
+(623, 156, '2024-01-09 19:00:00', 'Completada'),
+(56, 89, '2024-01-10 07:00:00', 'Completada'),
+(201, 45, '2024-01-10 18:30:00', 'Cancelada'),
+(367, 201, '2024-01-11 06:30:00', 'Completada'),
+(512, 78, '2024-01-11 19:30:00', 'Completada'),
+(645, 134, '2024-01-12 07:30:00', 'Completada'),
+(123, 23, '2024-01-12 18:00:00', 'Completada'),
+(289, 167, '2024-01-13 06:00:00', 'Completada'),
+(445, 56, '2024-01-13 19:00:00', 'Completada'),
+(578, 189, '2024-01-15 07:00:00', 'Completada'),
+(701, 101, '2024-01-15 18:30:00', 'Completada'),
+(34, 145, '2024-01-16 06:30:00', 'Completada'),
+(178, 12, '2024-01-16 19:30:00', 'Completada'),
+(334, 89, '2024-01-17 07:30:00', 'Completada'),
+(489, 178, '2024-01-17 18:00:00', 'Completada'),
+(612, 34, '2024-01-18 06:00:00', 'Completada'),
+(745, 123, '2024-01-18 19:00:00', 'Completada'),
+(89, 67, '2024-01-19 07:00:00', 'Completada'),
+(223, 156, '2024-01-19 18:30:00', 'Completada'),
+(401, 45, '2024-01-20 06:30:00', 'Cancelada'),
+(534, 201, '2024-01-20 19:30:00', 'Completada'),
+(667, 112, '2024-01-22 07:30:00', 'Completada'),
+(112, 89, '2024-01-22 18:00:00', 'Completada'),
+(267, 134, '2024-01-23 06:00:00', 'Completada'),
+(412, 78, '2024-01-23 19:00:00', 'Completada'),
+(556, 167, '2024-01-24 07:00:00', 'Completada'),
+(689, 23, '2024-01-24 18:30:00', 'Completada'),
+(145, 156, '2024-01-25 06:30:00', 'Completada'),
+(298, 45, '2024-01-25 19:30:00', 'Completada'),
+(467, 189, '2024-01-26 07:30:00', 'Completada'),
+(601, 101, '2024-01-26 18:00:00', 'Completada'),
+(723, 67, '2024-01-27 06:00:00', 'Completada'),
+(78, 134, '2024-01-27 19:00:00', 'Completada'),
+(209, 12, '2024-01-29 07:00:00', 'Completada'),
+(356, 89, '2024-01-29 18:30:00', 'Completada'),
+(490, 178, '2024-01-30 06:30:00', 'Completada'),
+(623, 56, '2024-01-30 19:30:00', 'Completada'),
+(156, 201, '2024-01-31 07:30:00', 'Completada'),
+(312, 123, '2024-01-31 18:00:00', 'Completada'),
+(445, 34, '2024-01-05 12:00:00', 'Completada'),
+(578, 145, '2024-01-12 13:30:00', 'Completada'),
+(712, 78, '2024-01-19 14:00:00', 'Completada'),
+(234, 167, '2024-01-26 15:30:00', 'Cancelada'),
+(456, 23, '2024-01-10 16:00:00', 'Completada'),
+(789, 112, '2024-01-17 17:30:00', 'Completada'),
+
+-- FEBRERO 2024 - RESERVAS (40 registros)
+(123, 156, '2024-02-01 06:30:00', 'Completada'),
+(345, 89, '2024-02-01 18:00:00', 'Completada'),
+(567, 201, '2024-02-02 07:00:00', 'Completada'),
+(890, 45, '2024-02-02 19:00:00', 'Completada'),
+(212, 134, '2024-02-03 06:30:00', 'Completada'),
+(434, 78, '2024-02-03 18:30:00', 'Completada'),
+(656, 167, '2024-02-05 07:30:00', 'Completada'),
+(178, 23, '2024-02-05 19:30:00', 'Completada'),
+(390, 112, '2024-02-06 06:00:00', 'Completada'),
+(512, 56, '2024-02-06 19:00:00', 'Completada'),
+(734, 189, '2024-02-07 07:00:00', 'Completada'),
+(256, 101, '2024-02-07 18:00:00', 'Completada'),
+(478, 145, '2024-02-08 06:30:00', 'Completada'),
+(601, 12, '2024-02-08 18:30:00', 'Completada'),
+(823, 89, '2024-02-09 07:30:00', 'Cancelada'),
+(45, 178, '2024-02-09 19:30:00', 'Completada'),
+(267, 34, '2024-02-10 06:00:00', 'Completada'),
+(489, 123, '2024-02-10 19:00:00', 'Completada'),
+(612, 67, '2024-02-12 07:00:00', 'Completada'),
+(834, 156, '2024-02-12 18:00:00', 'Completada'),
+(156, 201, '2024-02-13 06:30:00', 'Completada'),
+(378, 45, '2024-02-13 18:30:00', 'Completada'),
+(501, 112, '2024-02-14 07:30:00', 'Completada'),
+(723, 78, '2024-02-14 19:30:00', 'Completada'),
+(945, 134, '2024-02-15 06:00:00', 'Completada'),
+(67, 23, '2024-02-15 19:00:00', 'Completada'),
+(289, 167, '2024-02-16 07:00:00', 'Completada'),
+(412, 89, '2024-02-16 18:00:00', 'Completada'),
+(634, 156, '2024-02-17 06:30:00', 'Completada'),
+(856, 45, '2024-02-17 18:30:00', 'Completada'),
+(78, 201, '2024-02-19 07:30:00', 'Cancelada'),
+(201, 123, '2024-02-19 19:30:00', 'Completada'),
+(423, 67, '2024-02-20 06:00:00', 'Completada'),
+(645, 134, '2024-02-20 19:00:00', 'Completada'),
+(867, 12, '2024-02-21 07:00:00', 'Completada'),
+(89, 178, '2024-02-21 18:00:00', 'Completada'),
+(312, 56, '2024-02-22 06:30:00', 'Completada'),
+(534, 189, '2024-02-22 18:30:00', 'Completada'),
+(756, 101, '2024-02-23 07:30:00', 'Completada'),
+(178, 145, '2024-02-23 19:30:00', 'Completada');
+
+-- =============================================
+-- RESUMEN: Reservas 1-100 insertadas
+-- ENERO 2024: 60 reservas
+-- FEBRERO 2024: 40 reservas
+-- Estados: Mayoría Completada, algunas Canceladas
+-- Total: 100 reservas
+-- =============================================
+
+
+-- =============================================
+-- RESERVAS FEBRERO-MARZO-ABRIL 2024 (Registros 101-200)
+-- Estados: Activa, Completada, Cancelada
+-- FEBRERO 2024: 30 reservas (completando)
+-- MARZO 2024: 45 reservas
+-- ABRIL 2024: 25 reservas
+-- =============================================
+
+
+INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva) VALUES
+-- FEBRERO 2024 - RESERVAS (30 registros - completando febrero)
+(390, 112, '2024-02-24 06:00:00', 'Completada'),
+(512, 56, '2024-02-24 19:00:00', 'Completada'),
+(734, 189, '2024-02-26 07:00:00', 'Completada'),
+(256, 101, '2024-02-26 18:00:00', 'Completada'),
+(478, 145, '2024-02-27 06:30:00', 'Completada'),
+(601, 12, '2024-02-27 18:30:00', 'Cancelada'),
+(823, 89, '2024-02-28 07:30:00', 'Completada'),
+(45, 178, '2024-02-28 19:30:00', 'Completada'),
+(267, 34, '2024-02-29 06:00:00', 'Completada'),
+(489, 123, '2024-02-29 19:00:00', 'Completada'),
+(612, 67, '2024-02-05 14:00:00', 'Completada'),
+(834, 156, '2024-02-08 15:30:00', 'Completada'),
+(156, 201, '2024-02-12 13:00:00', 'Completada'),
+(378, 45, '2024-02-15 16:00:00', 'Completada'),
+(501, 112, '2024-02-18 14:30:00', 'Cancelada'),
+(723, 78, '2024-02-22 15:00:00', 'Completada'),
+(945, 134, '2024-02-25 13:30:00', 'Completada'),
+(67, 23, '2024-02-28 16:30:00', 'Completada'),
+(289, 167, '2024-02-04 07:30:00', 'Completada'),
+(412, 89, '2024-02-07 18:30:00', 'Completada'),
+(634, 156, '2024-02-11 06:30:00', 'Completada'),
+(856, 45, '2024-02-14 19:00:00', 'Completada'),
+(78, 201, '2024-02-17 07:00:00', 'Completada'),
+(201, 123, '2024-02-20 18:00:00', 'Completada'),
+(423, 67, '2024-02-23 06:00:00', 'Activa'),
+(645, 134, '2024-02-26 19:30:00', 'Completada'),
+(867, 12, '2024-02-29 07:30:00', 'Completada'),
+(89, 178, '2024-02-06 18:00:00', 'Completada'),
+(312, 56, '2024-02-13 06:30:00', 'Completada'),
+(534, 189, '2024-02-19 19:00:00', 'Completada'),
+
+-- MARZO 2024 - RESERVAS (45 registros)
+(756, 101, '2024-03-01 06:30:00', 'Completada'),
+(178, 145, '2024-03-01 18:00:00', 'Completada'),
+(390, 112, '2024-03-02 07:00:00', 'Completada'),
+(512, 56, '2024-03-02 19:00:00', 'Completada'),
+(734, 189, '2024-03-04 06:30:00', 'Completada'),
+(256, 101, '2024-03-04 18:30:00', 'Completada'),
+(478, 145, '2024-03-05 07:30:00', 'Cancelada'),
+(601, 12, '2024-03-05 19:30:00', 'Completada'),
+(823, 89, '2024-03-06 06:00:00', 'Completada'),
+(45, 178, '2024-03-06 19:00:00', 'Completada'),
+(267, 34, '2024-03-07 07:00:00', 'Completada'),
+(489, 123, '2024-03-07 18:00:00', 'Completada'),
+(612, 67, '2024-03-08 06:30:00', 'Completada'),
+(834, 156, '2024-03-08 18:30:00', 'Completada'),
+(156, 201, '2024-03-09 07:30:00', 'Completada'),
+(378, 45, '2024-03-09 19:30:00', 'Completada'),
+(501, 112, '2024-03-11 06:00:00', 'Completada'),
+(723, 78, '2024-03-11 19:00:00', 'Completada'),
+(945, 134, '2024-03-12 07:00:00', 'Completada'),
+(67, 23, '2024-03-12 18:00:00', 'Completada'),
+(289, 167, '2024-03-13 06:30:00', 'Completada'),
+(412, 89, '2024-03-13 18:30:00', 'Cancelada'),
+(634, 156, '2024-03-14 07:30:00', 'Completada'),
+(856, 45, '2024-03-14 19:30:00', 'Completada'),
+(78, 201, '2024-03-15 06:00:00', 'Completada'),
+(201, 123, '2024-03-15 19:00:00', 'Completada'),
+(423, 67, '2024-03-16 07:00:00', 'Completada'),
+(645, 134, '2024-03-16 18:00:00', 'Completada'),
+(867, 12, '2024-03-18 06:30:00', 'Completada'),
+(89, 178, '2024-03-18 18:30:00', 'Completada'),
+(312, 56, '2024-03-19 07:30:00', 'Completada'),
+(534, 189, '2024-03-19 19:30:00', 'Completada'),
+(756, 101, '2024-03-20 06:00:00', 'Activa'),
+(178, 145, '2024-03-20 19:00:00', 'Completada'),
+(390, 112, '2024-03-21 07:00:00', 'Completada'),
+(512, 56, '2024-03-21 18:00:00', 'Completada'),
+(734, 189, '2024-03-22 06:30:00', 'Completada'),
+(256, 101, '2024-03-22 18:30:00', 'Completada'),
+(478, 145, '2024-03-23 07:30:00', 'Completada'),
+(601, 12, '2024-03-23 19:30:00', 'Completada'),
+(823, 89, '2024-03-25 06:00:00', 'Completada'),
+(45, 178, '2024-03-25 19:00:00', 'Cancelada'),
+(267, 34, '2024-03-26 07:00:00', 'Completada'),
+(489, 123, '2024-03-26 18:00:00', 'Completada'),
+(612, 67, '2024-03-27 06:30:00', 'Completada'),
+
+-- ABRIL 2024 - RESERVAS (25 registros)
+(834, 156, '2024-04-01 06:30:00', 'Completada'),
+(156, 201, '2024-04-01 18:00:00', 'Completada'),
+(378, 45, '2024-04-02 07:00:00', 'Completada'),
+(501, 112, '2024-04-02 19:00:00', 'Completada'),
+(723, 78, '2024-04-03 06:30:00', 'Completada'),
+(945, 134, '2024-04-03 18:30:00', 'Completada'),
+(67, 23, '2024-04-04 07:30:00', 'Completada'),
+(289, 167, '2024-04-04 19:30:00', 'Cancelada'),
+(412, 89, '2024-04-05 06:00:00', 'Completada'),
+(634, 156, '2024-04-05 19:00:00', 'Completada'),
+(856, 45, '2024-04-06 07:00:00', 'Completada'),
+(78, 201, '2024-04-06 18:00:00', 'Completada'),
+(201, 123, '2024-04-08 06:30:00', 'Completada'),
+(423, 67, '2024-04-08 18:30:00', 'Completada'),
+(645, 134, '2024-04-09 07:30:00', 'Completada'),
+(867, 12, '2024-04-09 19:30:00', 'Completada'),
+(89, 178, '2024-04-10 06:00:00', 'Activa'),
+(312, 56, '2024-04-10 19:00:00', 'Completada'),
+(534, 189, '2024-04-11 07:00:00', 'Completada'),
+(756, 101, '2024-04-11 18:00:00', 'Completada'),
+(178, 145, '2024-04-12 06:30:00', 'Completada'),
+(390, 112, '2024-04-12 18:30:00', 'Completada'),
+(512, 56, '2024-04-13 07:30:00', 'Completada'),
+(734, 189, '2024-04-13 19:30:00', 'Cancelada'),
+(256, 101, '2024-04-15 06:00:00', 'Completada');
+
+-- =============================================
+-- RESUMEN: Reservas 101-200 insertadas
+-- FEBRERO 2024: 30 reservas (completando)
+-- MARZO 2024: 45 reservas
+-- ABRIL 2024: 25 reservas
+-- Estados: Mayoría Completada, algunas Canceladas y Activas
+-- Total: 100 reservas
+-- =============================================
+
+
+-- =============================================
+-- RESERVAS ABRIL 2024 - MARZO 2025 (Registros 201-300)
+-- Estados: Activa, Completada, Cancelada
+-- ABRIL 2024: 50 reservas (completando)
+-- MARZO 2025: 50 reservas
+-- =============================================
+
+
+INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva) VALUES
+-- ABRIL 2024 - RESERVAS (50 registros - completando abril)
+(478, 145, '2024-04-15 19:00:00', 'Completada'),
+(601, 12, '2024-04-16 06:30:00', 'Completada'),
+(823, 89, '2024-04-16 18:00:00', 'Completada'),
+(45, 178, '2024-04-17 07:00:00', 'Completada'),
+(267, 34, '2024-04-17 19:00:00', 'Completada'),
+(489, 123, '2024-04-18 06:30:00', 'Completada'),
+(612, 67, '2024-04-18 18:30:00', 'Cancelada'),
+(834, 156, '2024-04-19 07:30:00', 'Completada'),
+(156, 201, '2024-04-19 19:30:00', 'Completada'),
+(378, 45, '2024-04-20 06:00:00', 'Completada'),
+(501, 112, '2024-04-20 19:00:00', 'Completada'),
+(723, 78, '2024-04-22 07:00:00', 'Completada'),
+(945, 134, '2024-04-22 18:00:00', 'Completada'),
+(67, 23, '2024-04-23 06:30:00', 'Completada'),
+(289, 167, '2024-04-23 18:30:00', 'Completada'),
+(412, 89, '2024-04-24 07:30:00', 'Completada'),
+(634, 156, '2024-04-24 19:30:00', 'Activa'),
+(856, 45, '2024-04-25 06:00:00', 'Completada'),
+(78, 201, '2024-04-25 19:00:00', 'Completada'),
+(201, 123, '2024-04-26 07:00:00', 'Completada'),
+(423, 67, '2024-04-26 18:00:00', 'Completada'),
+(645, 134, '2024-04-27 06:30:00', 'Completada'),
+(867, 12, '2024-04-27 18:30:00', 'Completada'),
+(89, 178, '2024-04-29 07:30:00', 'Completada'),
+(312, 56, '2024-04-29 19:30:00', 'Cancelada'),
+(534, 189, '2024-04-30 06:00:00', 'Completada'),
+(756, 101, '2024-04-30 19:00:00', 'Completada'),
+(178, 145, '2024-04-02 14:00:00', 'Completada'),
+(390, 112, '2024-04-05 15:30:00', 'Completada'),
+(512, 56, '2024-04-09 13:00:00', 'Completada'),
+(734, 189, '2024-04-12 16:00:00', 'Completada'),
+(256, 101, '2024-04-16 14:30:00', 'Completada'),
+(478, 145, '2024-04-19 15:00:00', 'Completada'),
+(601, 12, '2024-04-23 13:30:00', 'Completada'),
+(823, 89, '2024-04-26 16:30:00', 'Completada'),
+(45, 178, '2024-04-30 14:00:00', 'Completada'),
+(267, 34, '2024-04-03 12:00:00', 'Completada'),
+(489, 123, '2024-04-07 13:30:00', 'Activa'),
+(612, 67, '2024-04-10 15:00:00', 'Completada'),
+(834, 156, '2024-04-14 12:30:00', 'Completada'),
+(156, 201, '2024-04-17 14:00:00', 'Completada'),
+(378, 45, '2024-04-21 13:00:00', 'Completada'),
+(501, 112, '2024-04-24 15:30:00', 'Completada'),
+(723, 78, '2024-04-28 12:00:00', 'Cancelada'),
+(945, 134, '2024-04-04 16:00:00', 'Completada'),
+(67, 23, '2024-04-11 14:30:00', 'Completada'),
+(289, 167, '2024-04-18 15:00:00', 'Completada'),
+(412, 89, '2024-04-22 13:30:00', 'Completada'),
+(634, 156, '2024-04-29 16:30:00', 'Completada'),
+(856, 45, '2024-04-06 12:00:00', 'Completada'),
+
+-- MARZO 2025 - RESERVAS (50 registros)
+(78, 201, '2025-03-03 06:30:00', 'Completada'),
+(201, 123, '2025-03-03 18:00:00', 'Completada'),
+(423, 67, '2025-03-04 07:00:00', 'Completada'),
+(645, 134, '2025-03-04 19:00:00', 'Completada'),
+(867, 12, '2025-03-05 06:30:00', 'Completada'),
+(89, 178, '2025-03-05 18:30:00', 'Completada'),
+(312, 56, '2025-03-06 07:30:00', 'Completada'),
+(534, 189, '2025-03-06 19:30:00', 'Cancelada'),
+(756, 101, '2025-03-07 06:00:00', 'Completada'),
+(178, 145, '2025-03-07 19:00:00', 'Completada'),
+(390, 112, '2025-03-08 07:00:00', 'Completada'),
+(512, 56, '2025-03-08 18:00:00', 'Completada'),
+(734, 189, '2025-03-10 06:30:00', 'Completada'),
+(256, 101, '2025-03-10 18:30:00', 'Completada'),
+(478, 145, '2025-03-11 07:30:00', 'Completada'),
+(601, 12, '2025-03-11 19:30:00', 'Completada'),
+(823, 89, '2025-03-12 06:00:00', 'Activa'),
+(45, 178, '2025-03-12 19:00:00', 'Completada'),
+(267, 34, '2025-03-13 07:00:00', 'Completada'),
+(489, 123, '2025-03-13 18:00:00', 'Completada'),
+(612, 67, '2025-03-14 06:30:00', 'Completada'),
+(834, 156, '2025-03-14 18:30:00', 'Completada'),
+(156, 201, '2025-03-15 07:30:00', 'Completada'),
+(378, 45, '2025-03-15 19:30:00', 'Completada'),
+(501, 112, '2025-03-17 06:00:00', 'Completada'),
+(723, 78, '2025-03-17 19:00:00', 'Cancelada'),
+(945, 134, '2025-03-18 07:00:00', 'Completada'),
+(67, 23, '2025-03-18 18:00:00', 'Completada'),
+(289, 167, '2025-03-19 06:30:00', 'Completada'),
+(412, 89, '2025-03-19 18:30:00', 'Completada'),
+(634, 156, '2025-03-20 07:30:00', 'Completada'),
+(856, 45, '2025-03-20 19:30:00', 'Completada'),
+(78, 201, '2025-03-21 06:00:00', 'Completada'),
+(201, 123, '2025-03-21 19:00:00', 'Completada'),
+(423, 67, '2025-03-22 07:00:00', 'Completada'),
+(645, 134, '2025-03-22 18:00:00', 'Completada'),
+(867, 12, '2025-03-24 06:30:00', 'Completada'),
+(89, 178, '2025-03-24 18:30:00', 'Activa'),
+(312, 56, '2025-03-25 07:30:00', 'Completada'),
+(534, 189, '2025-03-25 19:30:00', 'Completada'),
+(756, 101, '2025-03-26 06:00:00', 'Completada'),
+(178, 145, '2025-03-26 19:00:00', 'Completada'),
+(390, 112, '2025-03-27 07:00:00', 'Completada'),
+(512, 56, '2025-03-27 18:00:00', 'Completada'),
+(734, 189, '2025-03-28 06:30:00', 'Completada'),
+(256, 101, '2025-03-28 18:30:00', 'Cancelada'),
+(478, 145, '2025-03-29 07:30:00', 'Completada'),
+(601, 12, '2025-03-29 19:30:00', 'Completada'),
+(823, 89, '2025-03-31 06:00:00', 'Completada'),
+(45, 178, '2025-03-31 19:00:00', 'Completada');
+
+-- =============================================
+-- RESUMEN: Reservas 201-300 insertadas
+-- ABRIL 2024: 50 reservas (completando)
+-- MARZO 2025: 50 reservas
+-- Estados: Mayoría Completada, algunas Canceladas y Activas
+-- Total: 100 reservas
+-- =============================================
+
+
+
+-- =============================================
+-- RESERVAS ABRIL-MAYO-JUNIO 2025 (Registros 301-400)
+-- Estados: Activa, Completada, Cancelada
+-- ABRIL 2025: 35 reservas
+-- MAYO 2025: 40 reservas
+-- JUNIO 2025: 25 reservas
+-- =============================================
+
+INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva) VALUES
+-- ABRIL 2025 - RESERVAS (35 registros)
+(267, 34, '2025-04-01 07:00:00', 'Completada'),
+(489, 123, '2025-04-01 18:00:00', 'Completada'),
+(612, 67, '2025-04-02 06:30:00', 'Completada'),
+(834, 156, '2025-04-02 18:30:00', 'Completada'),
+(156, 201, '2025-04-03 07:30:00', 'Completada'),
+(378, 45, '2025-04-03 19:30:00', 'Cancelada'),
+(501, 112, '2025-04-04 06:00:00', 'Completada'),
+(723, 78, '2025-04-04 19:00:00', 'Completada'),
+(945, 134, '2025-04-05 07:00:00', 'Completada'),
+(67, 23, '2025-04-05 18:00:00', 'Completada'),
+(289, 167, '2025-04-07 06:30:00', 'Completada'),
+(412, 89, '2025-04-07 18:30:00', 'Completada'),
+(634, 156, '2025-04-08 07:30:00', 'Completada'),
+(856, 45, '2025-04-08 19:30:00', 'Activa'),
+(78, 201, '2025-04-09 06:00:00', 'Completada'),
+(201, 123, '2025-04-09 19:00:00', 'Completada'),
+(423, 67, '2025-04-10 07:00:00', 'Completada'),
+(645, 134, '2025-04-10 18:00:00', 'Completada'),
+(867, 12, '2025-04-11 06:30:00', 'Completada'),
+(89, 178, '2025-04-11 18:30:00', 'Completada'),
+(312, 56, '2025-04-12 07:30:00', 'Completada'),
+(534, 189, '2025-04-12 19:30:00', 'Cancelada'),
+(756, 101, '2025-04-14 06:00:00', 'Completada'),
+(178, 145, '2025-04-14 19:00:00', 'Completada'),
+(390, 112, '2025-04-15 07:00:00', 'Completada'),
+(512, 56, '2025-04-15 18:00:00', 'Completada'),
+(734, 189, '2025-04-16 06:30:00', 'Completada'),
+(256, 101, '2025-04-16 18:30:00', 'Completada'),
+(478, 145, '2025-04-17 07:30:00', 'Completada'),
+(601, 12, '2025-04-17 19:30:00', 'Completada'),
+(823, 89, '2025-04-18 06:00:00', 'Completada'),
+(45, 178, '2025-04-18 19:00:00', 'Activa'),
+(267, 34, '2025-04-19 07:00:00', 'Completada'),
+(489, 123, '2025-04-19 18:00:00', 'Completada'),
+(612, 67, '2025-04-21 06:30:00', 'Completada'),
+
+-- MAYO 2025 - RESERVAS (40 registros)
+(834, 156, '2025-05-01 06:30:00', 'Completada'),
+(156, 201, '2025-05-01 18:00:00', 'Completada'),
+(378, 45, '2025-05-02 07:00:00', 'Completada'),
+(501, 112, '2025-05-02 19:00:00', 'Completada'),
+(723, 78, '2025-05-03 06:30:00', 'Completada'),
+(945, 134, '2025-05-03 18:30:00', 'Cancelada'),
+(67, 23, '2025-05-05 07:30:00', 'Completada'),
+(289, 167, '2025-05-05 19:30:00', 'Completada'),
+(412, 89, '2025-05-06 06:00:00', 'Completada'),
+(634, 156, '2025-05-06 19:00:00', 'Completada'),
+(856, 45, '2025-05-07 07:00:00', 'Completada'),
+(78, 201, '2025-05-07 18:00:00', 'Completada'),
+(201, 123, '2025-05-08 06:30:00', 'Completada'),
+(423, 67, '2025-05-08 18:30:00', 'Completada'),
+(645, 134, '2025-05-09 07:30:00', 'Activa'),
+(867, 12, '2025-05-09 19:30:00', 'Completada'),
+(89, 178, '2025-05-10 06:00:00', 'Completada'),
+(312, 56, '2025-05-10 19:00:00', 'Completada'),
+(534, 189, '2025-05-12 07:00:00', 'Completada'),
+(756, 101, '2025-05-12 18:00:00', 'Completada'),
+(178, 145, '2025-05-13 06:30:00', 'Completada'),
+(390, 112, '2025-05-13 18:30:00', 'Completada'),
+(512, 56, '2025-05-14 07:30:00', 'Cancelada'),
+(734, 189, '2025-05-14 19:30:00', 'Completada'),
+(256, 101, '2025-05-15 06:00:00', 'Completada'),
+(478, 145, '2025-05-15 19:00:00', 'Completada'),
+(601, 12, '2025-05-16 07:00:00', 'Completada'),
+(823, 89, '2025-05-16 18:00:00', 'Completada'),
+(45, 178, '2025-05-17 06:30:00', 'Completada'),
+(267, 34, '2025-05-17 18:30:00', 'Completada'),
+(489, 123, '2025-05-19 07:30:00', 'Completada'),
+(612, 67, '2025-05-19 19:30:00', 'Activa'),
+(834, 156, '2025-05-20 06:00:00', 'Completada'),
+(156, 201, '2025-05-20 19:00:00', 'Completada'),
+(378, 45, '2025-05-21 07:00:00', 'Completada'),
+(501, 112, '2025-05-21 18:00:00', 'Completada'),
+(723, 78, '2025-05-22 06:30:00', 'Completada'),
+(945, 134, '2025-05-22 18:30:00', 'Completada'),
+(67, 23, '2025-05-23 07:30:00', 'Cancelada'),
+(289, 167, '2025-05-23 19:30:00', 'Completada'),
+
+-- JUNIO 2025 - RESERVAS (25 registros)
+(412, 89, '2025-06-02 06:00:00', 'Completada'),
+(634, 156, '2025-06-02 19:00:00', 'Completada'),
+(856, 45, '2025-06-03 07:00:00', 'Completada'),
+(78, 201, '2025-06-03 18:00:00', 'Completada'),
+(201, 123, '2025-06-04 06:30:00', 'Completada'),
+(423, 67, '2025-06-04 18:30:00', 'Activa'),
+(645, 134, '2025-06-05 07:30:00', 'Completada'),
+(867, 12, '2025-06-05 19:30:00', 'Completada'),
+(89, 178, '2025-06-06 06:00:00', 'Completada'),
+(312, 56, '2025-06-06 19:00:00', 'Completada'),
+(534, 189, '2025-06-07 07:00:00', 'Completada'),
+(756, 101, '2025-06-07 18:00:00', 'Cancelada'),
+(178, 145, '2025-06-09 06:30:00', 'Completada'),
+(390, 112, '2025-06-09 18:30:00', 'Completada'),
+(512, 56, '2025-06-10 07:30:00', 'Completada'),
+(734, 189, '2025-06-10 19:30:00', 'Completada'),
+(256, 101, '2025-06-11 06:00:00', 'Completada'),
+(478, 145, '2025-06-11 19:00:00', 'Completada'),
+(601, 12, '2025-06-12 07:00:00', 'Completada'),
+(823, 89, '2025-06-12 18:00:00', 'Completada'),
+(45, 178, '2025-06-13 06:30:00', 'Activa'),
+(267, 34, '2025-06-13 18:30:00', 'Completada'),
+(489, 123, '2025-06-14 07:30:00', 'Completada'),
+(612, 67, '2025-06-14 19:30:00', 'Completada'),
+(834, 156, '2025-06-16 06:00:00', 'Completada');
+
+-- =============================================
+-- RESUMEN: Reservas 301-400 insertadas
+-- ABRIL 2025: 35 reservas
+-- MAYO 2025: 40 reservas
+-- JUNIO 2025: 25 reservas
+-- Estados: Mayoría Completada, algunas Canceladas y Activas
+-- Total: 100 reservas
+-- =============================================
+
+
+-- =============================================
+-- RESERVAS JUNIO-JULIO-AGOSTO 2025 (Registros 401-500)
+-- Estados: Activa, Completada, Cancelada
+-- JUNIO 2025: 20 reservas (completando)
+-- JULIO 2025: 50 reservas
+-- AGOSTO 2025: 30 reservas
+-- =============================================
+
+INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva) VALUES
+-- JUNIO 2025 - RESERVAS (20 registros - completando junio)
+(156, 201, '2025-06-16 19:00:00', 'Completada'),
+(378, 45, '2025-06-17 07:00:00', 'Completada'),
+(501, 112, '2025-06-17 18:00:00', 'Completada'),
+(723, 78, '2025-06-18 06:30:00', 'Completada'),
+(945, 134, '2025-06-18 18:30:00', 'Cancelada'),
+(67, 23, '2025-06-19 07:30:00', 'Completada'),
+(289, 167, '2025-06-19 19:30:00', 'Completada'),
+(412, 89, '2025-06-20 06:00:00', 'Completada'),
+(634, 156, '2025-06-20 19:00:00', 'Completada'),
+(856, 45, '2025-06-21 07:00:00', 'Completada'),
+(78, 201, '2025-06-21 18:00:00', 'Activa'),
+(201, 123, '2025-06-23 06:30:00', 'Completada'),
+(423, 67, '2025-06-23 18:30:00', 'Completada'),
+(645, 134, '2025-06-24 07:30:00', 'Completada'),
+(867, 12, '2025-06-24 19:30:00', 'Completada'),
+(89, 178, '2025-06-25 06:00:00', 'Completada'),
+(312, 56, '2025-06-25 19:00:00', 'Completada'),
+(534, 189, '2025-06-26 07:00:00', 'Completada'),
+(756, 101, '2025-06-26 18:00:00', 'Cancelada'),
+(178, 145, '2025-06-27 06:30:00', 'Completada'),
+
+-- JULIO 2025 - RESERVAS (50 registros)
+(390, 112, '2025-07-01 06:30:00', 'Completada'),
+(512, 56, '2025-07-01 18:00:00', 'Completada'),
+(734, 189, '2025-07-02 07:00:00', 'Completada'),
+(256, 101, '2025-07-02 19:00:00', 'Completada'),
+(478, 145, '2025-07-03 06:30:00', 'Completada'),
+(601, 12, '2025-07-03 18:30:00', 'Completada'),
+(823, 89, '2025-07-04 07:30:00', 'Cancelada'),
+(45, 178, '2025-07-04 19:30:00', 'Completada'),
+(267, 34, '2025-07-05 06:00:00', 'Completada'),
+(489, 123, '2025-07-05 19:00:00', 'Completada'),
+(612, 67, '2025-07-07 07:00:00', 'Completada'),
+(834, 156, '2025-07-07 18:00:00', 'Completada'),
+(156, 201, '2025-07-08 06:30:00', 'Completada'),
+(378, 45, '2025-07-08 18:30:00', 'Activa'),
+(501, 112, '2025-07-09 07:30:00', 'Completada'),
+(723, 78, '2025-07-09 19:30:00', 'Completada'),
+(945, 134, '2025-07-10 06:00:00', 'Completada'),
+(67, 23, '2025-07-10 19:00:00', 'Completada'),
+(289, 167, '2025-07-11 07:00:00', 'Completada'),
+(412, 89, '2025-07-11 18:00:00', 'Completada'),
+(634, 156, '2025-07-12 06:30:00', 'Completada'),
+(856, 45, '2025-07-12 18:30:00', 'Completada'),
+(78, 201, '2025-07-14 07:30:00', 'Cancelada'),
+(201, 123, '2025-07-14 19:30:00', 'Completada'),
+(423, 67, '2025-07-15 06:00:00', 'Completada'),
+(645, 134, '2025-07-15 19:00:00', 'Completada'),
+(867, 12, '2025-07-16 07:00:00', 'Completada'),
+(89, 178, '2025-07-16 18:00:00', 'Completada'),
+(312, 56, '2025-07-17 06:30:00', 'Completada'),
+(534, 189, '2025-07-17 18:30:00', 'Activa'),
+(756, 101, '2025-07-18 07:30:00', 'Completada'),
+(178, 145, '2025-07-18 19:30:00', 'Completada'),
+(390, 112, '2025-07-19 06:00:00', 'Completada'),
+(512, 56, '2025-07-19 19:00:00', 'Completada'),
+(734, 189, '2025-07-21 07:00:00', 'Completada'),
+(256, 101, '2025-07-21 18:00:00', 'Completada'),
+(478, 145, '2025-07-22 06:30:00', 'Completada'),
+(601, 12, '2025-07-22 18:30:00', 'Cancelada'),
+(823, 89, '2025-07-23 07:30:00', 'Completada'),
+(45, 178, '2025-07-23 19:30:00', 'Completada'),
+(267, 34, '2025-07-24 06:00:00', 'Completada'),
+(489, 123, '2025-07-24 19:00:00', 'Completada'),
+(612, 67, '2025-07-25 07:00:00', 'Completada'),
+(834, 156, '2025-07-25 18:00:00', 'Completada'),
+(156, 201, '2025-07-26 06:30:00', 'Completada'),
+(378, 45, '2025-07-26 18:30:00', 'Completada'),
+(501, 112, '2025-07-28 07:30:00', 'Activa'),
+(723, 78, '2025-07-28 19:30:00', 'Completada'),
+(945, 134, '2025-07-29 06:00:00', 'Completada'),
+(67, 23, '2025-07-29 19:00:00', 'Completada'),
+
+-- AGOSTO 2025 - RESERVAS (30 registros)
+(289, 167, '2025-08-01 07:00:00', 'Completada'),
+(412, 89, '2025-08-01 18:00:00', 'Completada'),
+(634, 156, '2025-08-02 06:30:00', 'Completada'),
+(856, 45, '2025-08-02 18:30:00', 'Completada'),
+(78, 201, '2025-08-04 07:30:00', 'Cancelada'),
+(201, 123, '2025-08-04 19:30:00', 'Completada'),
+(423, 67, '2025-08-05 06:00:00', 'Completada'),
+(645, 134, '2025-08-05 19:00:00', 'Completada'),
+(867, 12, '2025-08-06 07:00:00', 'Completada'),
+(89, 178, '2025-08-06 18:00:00', 'Completada'),
+(312, 56, '2025-08-07 06:30:00', 'Activa'),
+(534, 189, '2025-08-07 18:30:00', 'Completada'),
+(756, 101, '2025-08-08 07:30:00', 'Completada'),
+(178, 145, '2025-08-08 19:30:00', 'Completada'),
+(390, 112, '2025-08-09 06:00:00', 'Completada'),
+(512, 56, '2025-08-09 19:00:00', 'Completada'),
+(734, 189, '2025-08-11 07:00:00', 'Completada'),
+(256, 101, '2025-08-11 18:00:00', 'Completada'),
+(478, 145, '2025-08-12 06:30:00', 'Completada'),
+(601, 12, '2025-08-12 18:30:00', 'Cancelada'),
+(823, 89, '2025-08-13 07:30:00', 'Completada'),
+(45, 178, '2025-08-13 19:30:00', 'Completada'),
+(267, 34, '2025-08-14 06:00:00', 'Completada'),
+(489, 123, '2025-08-14 19:00:00', 'Completada'),
+(612, 67, '2025-08-15 07:00:00', 'Completada'),
+(834, 156, '2025-08-15 18:00:00', 'Activa'),
+(156, 201, '2025-08-16 06:30:00', 'Completada'),
+(378, 45, '2025-08-16 18:30:00', 'Completada'),
+(501, 112, '2025-08-18 07:30:00', 'Completada'),
+(723, 78, '2025-08-18 19:30:00', 'Completada');
+
+-- =============================================
+-- RESUMEN: Reservas 401-500 insertadas
+-- JUNIO 2025: 20 reservas (completando)
+-- JULIO 2025: 50 reservas
+-- AGOSTO 2025: 30 reservas
+-- Estados: Mayoría Completada, algunas Canceladas y Activas
+-- Total: 100 reservas
+-- =============================================
+
+
+-- =============================================
+-- RESERVAS AGOSTO-SEPTIEMBRE-OCTUBRE 2025 (Registros 501-600)
+-- Estados: Activa, Completada, Cancelada
+-- AGOSTO 2025: 15 reservas (completando)
+-- SEPTIEMBRE 2025: 50 reservas
+-- OCTUBRE 2025: 35 reservas
+-- =============================================
+
+INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva) VALUES
+-- AGOSTO 2025 - RESERVAS (15 registros - completando agosto)
+(945, 134, '2025-08-19 06:00:00', 'Completada'),
+(67, 23, '2025-08-19 19:00:00', 'Completada'),
+(289, 167, '2025-08-20 07:00:00', 'Completada'),
+(412, 89, '2025-08-20 18:00:00', 'Completada'),
+(634, 156, '2025-08-21 06:30:00', 'Cancelada'),
+(856, 45, '2025-08-21 18:30:00', 'Completada'),
+(78, 201, '2025-08-22 07:30:00', 'Completada'),
+(201, 123, '2025-08-22 19:30:00', 'Completada'),
+(423, 67, '2025-08-23 06:00:00', 'Completada'),
+(645, 134, '2025-08-23 19:00:00', 'Activa'),
+(867, 12, '2025-08-25 07:00:00', 'Completada'),
+(89, 178, '2025-08-25 18:00:00', 'Completada'),
+(312, 56, '2025-08-26 06:30:00', 'Completada'),
+(534, 189, '2025-08-26 18:30:00', 'Completada'),
+(756, 101, '2025-08-27 07:30:00', 'Completada'),
+
+-- SEPTIEMBRE 2025 - RESERVAS (50 registros)
+(178, 145, '2025-09-01 06:30:00', 'Completada'),
+(390, 112, '2025-09-01 18:00:00', 'Completada'),
+(512, 56, '2025-09-02 07:00:00', 'Completada'),
+(734, 189, '2025-09-02 19:00:00', 'Completada'),
+(256, 101, '2025-09-03 06:30:00', 'Completada'),
+(478, 145, '2025-09-03 18:30:00', 'Cancelada'),
+(601, 12, '2025-09-04 07:30:00', 'Completada'),
+(823, 89, '2025-09-04 19:30:00', 'Completada'),
+(45, 178, '2025-09-05 06:00:00', 'Completada'),
+(267, 34, '2025-09-05 19:00:00', 'Completada'),
+(489, 123, '2025-09-06 07:00:00', 'Completada'),
+(612, 67, '2025-09-06 18:00:00', 'Completada'),
+(834, 156, '2025-09-07 06:30:00', 'Activa'),
+(156, 201, '2025-09-07 18:30:00', 'Completada'),
+(378, 45, '2025-09-08 07:30:00', 'Completada'),
+(501, 112, '2025-09-08 19:30:00', 'Completada'),
+(723, 78, '2025-09-09 06:00:00', 'Completada'),
+(945, 134, '2025-09-09 19:00:00', 'Completada'),
+(67, 23, '2025-09-10 07:00:00', 'Completada'),
+(289, 167, '2025-09-10 18:00:00', 'Completada'),
+(412, 89, '2025-09-11 06:30:00', 'Completada'),
+(634, 156, '2025-09-11 18:30:00', 'Cancelada'),
+(856, 45, '2025-09-12 07:30:00', 'Completada'),
+(78, 201, '2025-09-12 19:30:00', 'Completada'),
+(201, 123, '2025-09-13 06:00:00', 'Completada'),
+(423, 67, '2025-09-13 19:00:00', 'Completada'),
+(645, 134, '2025-09-15 07:00:00', 'Completada'),
+(867, 12, '2025-09-15 18:00:00', 'Completada'),
+(89, 178, '2025-09-16 06:30:00', 'Activa'),
+(312, 56, '2025-09-16 18:30:00', 'Completada'),
+(534, 189, '2025-09-17 07:30:00', 'Completada'),
+(756, 101, '2025-09-17 19:30:00', 'Completada'),
+(178, 145, '2025-09-18 06:00:00', 'Completada'),
+(390, 112, '2025-09-18 19:00:00', 'Completada'),
+(512, 56, '2025-09-19 07:00:00', 'Completada'),
+(734, 189, '2025-09-19 18:00:00', 'Cancelada'),
+(256, 101, '2025-09-20 06:30:00', 'Completada'),
+(478, 145, '2025-09-20 18:30:00', 'Completada'),
+(601, 12, '2025-09-22 07:30:00', 'Completada'),
+(823, 89, '2025-09-22 19:30:00', 'Completada'),
+(45, 178, '2025-09-23 06:00:00', 'Completada'),
+(267, 34, '2025-09-23 19:00:00', 'Activa'),
+(489, 123, '2025-09-24 07:00:00', 'Completada'),
+(612, 67, '2025-09-24 18:00:00', 'Completada'),
+(834, 156, '2025-09-25 06:30:00', 'Completada'),
+(156, 201, '2025-09-25 18:30:00', 'Completada'),
+(378, 45, '2025-09-26 07:30:00', 'Completada'),
+(501, 112, '2025-09-26 19:30:00', 'Completada'),
+(723, 78, '2025-09-27 06:00:00', 'Completada'),
+(945, 134, '2025-09-27 19:00:00', 'Completada'),
+
+-- OCTUBRE 2025 - RESERVAS (35 registros)
+(67, 23, '2025-10-01 07:00:00', 'Completada'),
+(289, 167, '2025-10-01 18:00:00', 'Completada'),
+(412, 89, '2025-10-02 06:30:00', 'Completada'),
+(634, 156, '2025-10-02 18:30:00', 'Cancelada'),
+(856, 45, '2025-10-03 07:30:00', 'Completada'),
+(78, 201, '2025-10-03 19:30:00', 'Completada'),
+(201, 123, '2025-10-04 06:00:00', 'Completada'),
+(423, 67, '2025-10-04 19:00:00', 'Completada'),
+(645, 134, '2025-10-05 07:00:00', 'Completada'),
+(867, 12, '2025-10-05 18:00:00', 'Activa'),
+(89, 178, '2025-10-07 06:30:00', 'Completada'),
+(312, 56, '2025-10-07 18:30:00', 'Completada'),
+(534, 189, '2025-10-08 07:30:00', 'Completada'),
+(756, 101, '2025-10-08 19:30:00', 'Completada'),
+(178, 145, '2025-10-09 06:00:00', 'Completada'),
+(390, 112, '2025-10-09 19:00:00', 'Completada'),
+(512, 56, '2025-10-10 07:00:00', 'Cancelada'),
+(734, 189, '2025-10-10 18:00:00', 'Completada'),
+(256, 101, '2025-10-11 06:30:00', 'Completada'),
+(478, 145, '2025-10-11 18:30:00', 'Completada'),
+(601, 12, '2025-10-12 07:30:00', 'Completada'),
+(823, 89, '2025-10-12 19:30:00', 'Activa'),
+(45, 178, '2025-10-14 06:00:00', 'Completada'),
+(267, 34, '2025-10-14 19:00:00', 'Completada'),
+(489, 123, '2025-10-15 07:00:00', 'Completada'),
+(612, 67, '2025-10-15 18:00:00', 'Completada'),
+(834, 156, '2025-10-16 06:30:00', 'Completada'),
+(156, 201, '2025-10-16 18:30:00', 'Completada'),
+(378, 45, '2025-10-17 07:30:00', 'Cancelada'),
+(501, 112, '2025-10-17 19:30:00', 'Completada'),
+(723, 78, '2025-10-18 06:00:00', 'Completada'),
+(945, 134, '2025-10-18 19:00:00', 'Completada'),
+(67, 23, '2025-10-19 07:00:00', 'Completada'),
+(289, 167, '2025-10-19 18:00:00', 'Activa'),
+(412, 89, '2025-10-21 06:30:00', 'Completada');
+
+-- =============================================
+-- RESUMEN: Reservas 501-600 insertadas
+-- AGOSTO 2025: 15 reservas (completando)
+-- SEPTIEMBRE 2025: 50 reservas
+-- OCTUBRE 2025: 35 reservas
+-- Estados: Mayoría Completada, algunas Canceladas y Activas
+-- Total: 100 reservas
+-- =============================================
+
+
+
+-- =============================================
+-- RESERVAS OCTUBRE-NOVIEMBRE 2025 (Registros 601-700)
+-- Estados: Activa, Completada, Cancelada
+-- OCTUBRE 2025: 40 reservas (completando)
+-- NOVIEMBRE 2025: 60 reservas
+-- =============================================
+
+INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva) VALUES
+-- OCTUBRE 2025 - RESERVAS (40 registros - completando octubre)
+(634, 156, '2025-10-21 18:30:00', 'Completada'),
+(856, 45, '2025-10-22 07:30:00', 'Completada'),
+(78, 201, '2025-10-22 19:30:00', 'Completada'),
+(201, 123, '2025-10-23 06:00:00', 'Completada'),
+(423, 67, '2025-10-23 19:00:00', 'Cancelada'),
+(645, 134, '2025-10-24 07:00:00', 'Completada'),
+(867, 12, '2025-10-24 18:00:00', 'Completada'),
+(89, 178, '2025-10-25 06:30:00', 'Completada'),
+(312, 56, '2025-10-25 18:30:00', 'Completada'),
+(534, 189, '2025-10-26 07:30:00', 'Activa'),
+(756, 101, '2025-10-26 19:30:00', 'Completada'),
+(178, 145, '2025-10-28 06:00:00', 'Completada'),
+(390, 112, '2025-10-28 19:00:00', 'Completada'),
+(512, 56, '2025-10-29 07:00:00', 'Completada'),
+(734, 189, '2025-10-29 18:00:00', 'Completada'),
+(256, 101, '2025-10-30 06:30:00', 'Completada'),
+(478, 145, '2025-10-30 18:30:00', 'Cancelada'),
+(601, 12, '2025-10-31 07:30:00', 'Completada'),
+(823, 89, '2025-10-31 19:30:00', 'Completada'),
+(45, 178, '2025-10-02 14:00:00', 'Completada'),
+(267, 34, '2025-10-05 15:30:00', 'Completada'),
+(489, 123, '2025-10-08 13:00:00', 'Completada'),
+(612, 67, '2025-10-11 16:00:00', 'Activa'),
+(834, 156, '2025-10-14 14:30:00', 'Completada'),
+(156, 201, '2025-10-17 15:00:00', 'Completada'),
+(378, 45, '2025-10-20 13:30:00', 'Completada'),
+(501, 112, '2025-10-23 16:30:00', 'Completada'),
+(723, 78, '2025-10-26 14:00:00', 'Cancelada'),
+(945, 134, '2025-10-29 15:30:00', 'Completada'),
+(67, 23, '2025-10-03 12:00:00', 'Completada'),
+(289, 167, '2025-10-06 13:30:00', 'Completada'),
+(412, 89, '2025-10-09 15:00:00', 'Completada'),
+(634, 156, '2025-10-13 12:30:00', 'Completada'),
+(856, 45, '2025-10-16 14:00:00', 'Completada'),
+(78, 201, '2025-10-19 13:00:00', 'Activa'),
+(201, 123, '2025-10-22 15:30:00', 'Completada'),
+(423, 67, '2025-10-25 12:00:00', 'Completada'),
+(645, 134, '2025-10-28 13:30:00', 'Completada'),
+(867, 12, '2025-10-31 15:00:00', 'Completada'),
+(89, 178, '2025-10-07 16:30:00', 'Completada'),
+
+-- NOVIEMBRE 2025 - RESERVAS (60 registros)
+(312, 56, '2025-11-01 06:30:00', 'Completada'),
+(534, 189, '2025-11-01 18:00:00', 'Completada'),
+(756, 101, '2025-11-02 07:00:00', 'Completada'),
+(178, 145, '2025-11-02 19:00:00', 'Completada'),
+(390, 112, '2025-11-03 06:30:00', 'Completada'),
+(512, 56, '2025-11-03 18:30:00', 'Cancelada'),
+(734, 189, '2025-11-04 07:30:00', 'Completada'),
+(256, 101, '2025-11-04 19:30:00', 'Completada'),
+(478, 145, '2025-11-05 06:00:00', 'Completada'),
+(601, 12, '2025-11-05 19:00:00', 'Completada'),
+(823, 89, '2025-11-06 07:00:00', 'Completada'),
+(45, 178, '2025-11-06 18:00:00', 'Activa'),
+(267, 34, '2025-11-07 06:30:00', 'Completada'),
+(489, 123, '2025-11-07 18:30:00', 'Completada'),
+(612, 67, '2025-11-08 07:30:00', 'Completada'),
+(834, 156, '2025-11-08 19:30:00', 'Completada'),
+(156, 201, '2025-11-09 06:00:00', 'Completada'),
+(378, 45, '2025-11-09 19:00:00', 'Completada'),
+(501, 112, '2025-11-11 07:00:00', 'Cancelada'),
+(723, 78, '2025-11-11 18:00:00', 'Completada'),
+(945, 134, '2025-11-12 06:30:00', 'Completada'),
+(67, 23, '2025-11-12 18:30:00', 'Completada'),
+(289, 167, '2025-11-13 07:30:00', 'Completada'),
+(412, 89, '2025-11-13 19:30:00', 'Activa'),
+(634, 156, '2025-11-14 06:00:00', 'Completada'),
+(856, 45, '2025-11-14 19:00:00', 'Completada'),
+(78, 201, '2025-11-15 07:00:00', 'Completada'),
+(201, 123, '2025-11-15 18:00:00', 'Completada'),
+(423, 67, '2025-11-16 06:30:00', 'Completada'),
+(645, 134, '2025-11-16 18:30:00', 'Cancelada'),
+(867, 12, '2025-11-18 07:30:00', 'Completada'),
+(89, 178, '2025-11-18 19:30:00', 'Completada'),
+(312, 56, '2025-11-19 06:00:00', 'Completada'),
+(534, 189, '2025-11-19 19:00:00', 'Activa'),
+(756, 101, '2025-11-20 07:00:00', 'Completada'),
+(178, 145, '2025-11-20 18:00:00', 'Completada'),
+(390, 112, '2025-11-21 06:30:00', 'Completada'),
+(512, 56, '2025-11-21 18:30:00', 'Completada'),
+(734, 189, '2025-11-22 07:30:00', 'Completada'),
+(256, 101, '2025-11-22 19:30:00', 'Completada'),
+(478, 145, '2025-11-23 06:00:00', 'Cancelada'),
+(601, 12, '2025-11-23 19:00:00', 'Completada'),
+(823, 89, '2025-11-24 07:00:00', 'Completada'),
+(45, 178, '2025-11-24 18:00:00', 'Completada'),
+(267, 34, '2025-11-01 14:00:00', 'Completada'),
+(489, 123, '2025-11-03 15:30:00', 'Activa'),
+(612, 67, '2025-11-05 13:00:00', 'Completada'),
+(834, 156, '2025-11-07 16:00:00', 'Completada'),
+(156, 201, '2025-11-09 14:30:00', 'Completada'),
+(378, 45, '2025-11-11 15:00:00', 'Completada'),
+(501, 112, '2025-11-13 13:30:00', 'Completada'),
+(723, 78, '2025-11-15 16:30:00', 'Cancelada'),
+(945, 134, '2025-11-17 14:00:00', 'Completada'),
+(67, 23, '2025-11-19 15:30:00', 'Completada'),
+(289, 167, '2025-11-21 13:00:00', 'Completada'),
+(412, 89, '2025-11-23 16:00:00', 'Activa'),
+(634, 156, '2025-11-02 12:00:00', 'Completada'),
+(856, 45, '2025-11-06 13:30:00', 'Completada'),
+(78, 201, '2025-11-10 15:00:00', 'Completada'),
+(201, 123, '2025-11-14 12:30:00', 'Completada');
+
+-- =============================================
+-- RESUMEN: Reservas 601-700 insertadas
+-- OCTUBRE 2025: 40 reservas (completando)
+-- NOVIEMBRE 2025: 60 reservas
+-- Estados: Mayoría Completada, algunas Canceladas y Activas
+-- Total: 100 reservas
+-- =============================================
+
+-- =============================================
+-- RESERVAS NOVIEMBRE 2025 (Registros 701-800)
+-- Estados: Activa, Completada, Cancelada
+-- NOVIEMBRE 2025: 100 reservas (completando hasta Nov 24)
+-- =============================================
+
+
+INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva) VALUES
+-- NOVIEMBRE 2025 - RESERVAS (100 registros - completando noviembre)
+(423, 67, '2025-11-18 14:00:00', 'Completada'),
+(645, 134, '2025-11-22 15:30:00', 'Completada'),
+(867, 12, '2025-11-24 13:00:00', 'Completada'),
+(89, 178, '2025-11-01 07:30:00', 'Completada'),
+(312, 56, '2025-11-01 19:30:00', 'Completada'),
+(534, 189, '2025-11-02 06:00:00', 'Completada'),
+(756, 101, '2025-11-02 19:00:00', 'Cancelada'),
+(178, 145, '2025-11-03 07:00:00', 'Completada'),
+(390, 112, '2025-11-03 18:00:00', 'Completada'),
+(512, 56, '2025-11-04 06:30:00', 'Completada'),
+(734, 189, '2025-11-04 18:30:00', 'Completada'),
+(256, 101, '2025-11-05 07:30:00', 'Activa'),
+(478, 145, '2025-11-05 19:30:00', 'Completada'),
+(601, 12, '2025-11-06 06:00:00', 'Completada'),
+(823, 89, '2025-11-06 19:00:00', 'Completada'),
+(45, 178, '2025-11-07 07:00:00', 'Completada'),
+(267, 34, '2025-11-07 18:00:00', 'Completada'),
+(489, 123, '2025-11-08 06:30:00', 'Completada'),
+(612, 67, '2025-11-08 18:30:00', 'Cancelada'),
+(834, 156, '2025-11-09 07:30:00', 'Completada'),
+(156, 201, '2025-11-09 19:30:00', 'Completada'),
+(378, 45, '2025-11-10 06:00:00', 'Completada'),
+(501, 112, '2025-11-10 19:00:00', 'Completada'),
+(723, 78, '2025-11-11 07:00:00', 'Activa'),
+(945, 134, '2025-11-11 18:00:00', 'Completada'),
+(67, 23, '2025-11-12 06:30:00', 'Completada'),
+(289, 167, '2025-11-12 18:30:00', 'Completada'),
+(412, 89, '2025-11-13 07:30:00', 'Completada'),
+(634, 156, '2025-11-13 19:30:00', 'Completada'),
+(856, 45, '2025-11-14 06:00:00', 'Completada'),
+(78, 201, '2025-11-14 19:00:00', 'Cancelada'),
+(201, 123, '2025-11-15 07:00:00', 'Completada'),
+(423, 67, '2025-11-15 18:00:00', 'Completada'),
+(645, 134, '2025-11-16 06:30:00', 'Completada'),
+(867, 12, '2025-11-16 18:30:00', 'Completada'),
+(89, 178, '2025-11-17 07:30:00', 'Activa'),
+(312, 56, '2025-11-17 19:30:00', 'Completada'),
+(534, 189, '2025-11-18 06:00:00', 'Completada'),
+(756, 101, '2025-11-18 19:00:00', 'Completada'),
+(178, 145, '2025-11-19 07:00:00', 'Completada'),
+(390, 112, '2025-11-19 18:00:00', 'Completada'),
+(512, 56, '2025-11-20 06:30:00', 'Cancelada'),
+(734, 189, '2025-11-20 18:30:00', 'Completada'),
+(256, 101, '2025-11-21 07:30:00', 'Completada'),
+(478, 145, '2025-11-21 19:30:00', 'Completada'),
+(601, 12, '2025-11-22 06:00:00', 'Completada'),
+(823, 89, '2025-11-22 19:00:00', 'Activa'),
+(45, 178, '2025-11-23 07:00:00', 'Completada'),
+(267, 34, '2025-11-23 18:00:00', 'Completada'),
+(489, 123, '2025-11-24 06:30:00', 'Completada'),
+(612, 67, '2025-11-24 18:30:00', 'Completada'),
+(834, 156, '2025-11-01 12:00:00', 'Completada'),
+(156, 201, '2025-11-02 13:30:00', 'Completada'),
+(378, 45, '2025-11-03 15:00:00', 'Activa'),
+(501, 112, '2025-11-04 12:30:00', 'Completada'),
+(723, 78, '2025-11-05 14:00:00', 'Completada'),
+(945, 134, '2025-11-06 13:00:00', 'Completada'),
+(67, 23, '2025-11-07 15:30:00', 'Cancelada'),
+(289, 167, '2025-11-08 12:00:00', 'Completada'),
+(412, 89, '2025-11-09 13:30:00', 'Completada'),
+(634, 156, '2025-11-10 15:00:00', 'Completada'),
+(856, 45, '2025-11-11 12:30:00', 'Completada'),
+(78, 201, '2025-11-12 14:00:00', 'Activa'),
+(201, 123, '2025-11-13 13:00:00', 'Completada'),
+(423, 67, '2025-11-14 15:30:00', 'Completada'),
+(645, 134, '2025-11-15 12:00:00', 'Completada'),
+(867, 12, '2025-11-16 13:30:00', 'Completada'),
+(89, 178, '2025-11-17 15:00:00', 'Completada'),
+(312, 56, '2025-11-18 12:30:00', 'Cancelada'),
+(534, 189, '2025-11-19 14:00:00', 'Completada'),
+(756, 101, '2025-11-20 13:00:00', 'Completada'),
+(178, 145, '2025-11-21 15:30:00', 'Completada'),
+(390, 112, '2025-11-22 12:00:00', 'Activa'),
+(512, 56, '2025-11-23 13:30:00', 'Completada'),
+(734, 189, '2025-11-24 15:00:00', 'Completada'),
+(256, 101, '2025-11-01 16:30:00', 'Completada'),
+(478, 145, '2025-11-03 17:00:00', 'Completada'),
+(601, 12, '2025-11-05 16:00:00', 'Completada'),
+(823, 89, '2025-11-07 17:30:00', 'Completada'),
+(45, 178, '2025-11-09 16:30:00', 'Cancelada'),
+(267, 34, '2025-11-11 17:00:00', 'Completada'),
+(489, 123, '2025-11-13 16:00:00', 'Completada'),
+(612, 67, '2025-11-15 17:30:00', 'Activa'),
+(834, 156, '2025-11-17 16:30:00', 'Completada'),
+(156, 201, '2025-11-19 17:00:00', 'Completada'),
+(378, 45, '2025-11-21 16:00:00', 'Completada'),
+(501, 112, '2025-11-23 17:30:00', 'Completada'),
+(723, 78, '2025-11-02 10:00:00', 'Completada'),
+(945, 134, '2025-11-04 11:30:00', 'Completada'),
+(67, 23, '2025-11-06 10:00:00', 'Cancelada'),
+(289, 167, '2025-11-08 11:30:00', 'Completada'),
+(412, 89, '2025-11-10 10:00:00', 'Completada'),
+(634, 156, '2025-11-12 11:30:00', 'Activa'),
+(856, 45, '2025-11-14 10:00:00', 'Completada'),
+(78, 201, '2025-11-16 11:30:00', 'Completada'),
+(201, 123, '2025-11-18 10:00:00', 'Completada'),
+(423, 67, '2025-11-20 11:30:00', 'Completada'),
+(645, 134, '2025-11-22 10:00:00', 'Cancelada'),
+(867, 12, '2025-11-24 11:30:00', 'Completada');
+
+-- =============================================
+-- RESUMEN: Reservas 701-800 insertadas
+-- NOVIEMBRE 2025: 100 reservas (completando hasta Nov 24)
+-- Estados: Mayoría Completada, algunas Canceladas y Activas
+-- Total: 100 reservas
+-- =============================================
+
+
+-- =============================================
+-- RESERVAS COMPLEMENTARIAS 2024-2025 (Registros 801-900)
+-- Estados: Activa, Completada, Cancelada
+-- Completando meses con menos registros
+-- FEBRERO 2024: 25 reservas
+-- MARZO 2024: 30 reservas
+-- ABRIL 2025: 25 reservas
+-- MAYO 2025: 20 reservas
+-- =============================================
+
+
+INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva) VALUES
+-- FEBRERO 2024 - RESERVAS (25 registros - completando)
+(204, 45, '2024-02-01 06:30:00', 'Completada'),
+(206, 56, '2024-02-01 18:00:00', 'Completada'),
+(208, 67, '2024-02-02 07:00:00', 'Completada'),
+(210, 78, '2024-02-02 19:00:00', 'Completada'),
+(212, 89, '2024-02-03 06:30:00', 'Completada'),
+(214, 101, '2024-02-03 18:30:00', 'Cancelada'),
+(216, 112, '2024-02-05 07:30:00', 'Completada'),
+(218, 123, '2024-02-05 19:30:00', 'Completada'),
+(220, 134, '2024-02-06 06:00:00', 'Completada'),
+(222, 145, '2024-02-06 19:00:00', 'Completada'),
+(224, 156, '2024-02-07 07:00:00', 'Activa'),
+(226, 167, '2024-02-07 18:00:00', 'Completada'),
+(228, 178, '2024-02-08 06:30:00', 'Completada'),
+(230, 189, '2024-02-08 18:30:00', 'Completada'),
+(232, 201, '2024-02-09 07:30:00', 'Completada'),
+(234, 12, '2024-02-09 19:30:00', 'Cancelada'),
+(236, 23, '2024-02-10 06:00:00', 'Completada'),
+(238, 34, '2024-02-10 19:00:00', 'Completada'),
+(240, 45, '2024-02-12 07:00:00', 'Completada'),
+(242, 56, '2024-02-12 18:00:00', 'Completada'),
+(244, 67, '2024-02-13 06:30:00', 'Activa'),
+(246, 78, '2024-02-13 18:30:00', 'Completada'),
+(248, 89, '2024-02-14 07:30:00', 'Completada'),
+(250, 101, '2024-02-14 19:30:00', 'Completada'),
+(252, 112, '2024-02-15 06:00:00', 'Completada'),
+
+-- MARZO 2024 - RESERVAS (30 registros - completando)
+(254, 123, '2024-03-01 06:30:00', 'Completada'),
+(256, 134, '2024-03-01 18:00:00', 'Completada'),
+(258, 145, '2024-03-02 07:00:00', 'Completada'),
+(260, 156, '2024-03-02 19:00:00', 'Cancelada'),
+(262, 167, '2024-03-04 06:30:00', 'Completada'),
+(264, 178, '2024-03-04 18:30:00', 'Completada'),
+(266, 189, '2024-03-05 07:30:00', 'Completada'),
+(268, 201, '2024-03-05 19:30:00', 'Completada'),
+(270, 12, '2024-03-06 06:00:00', 'Activa'),
+(272, 23, '2024-03-06 19:00:00', 'Completada'),
+(274, 34, '2024-03-07 07:00:00', 'Completada'),
+(276, 45, '2024-03-07 18:00:00', 'Completada'),
+(278, 56, '2024-03-08 06:30:00', 'Completada'),
+(280, 67, '2024-03-08 18:30:00', 'Cancelada'),
+(282, 78, '2024-03-09 07:30:00', 'Completada'),
+(284, 89, '2024-03-09 19:30:00', 'Completada'),
+(286, 101, '2024-03-11 06:00:00', 'Completada'),
+(288, 112, '2024-03-11 19:00:00', 'Activa'),
+(290, 123, '2024-03-12 07:00:00', 'Completada'),
+(292, 134, '2024-03-12 18:00:00', 'Completada'),
+(294, 145, '2024-03-13 06:30:00', 'Completada'),
+(296, 156, '2024-03-13 18:30:00', 'Completada'),
+(298, 167, '2024-03-14 07:30:00', 'Cancelada'),
+(300, 178, '2024-03-14 19:30:00', 'Completada'),
+(302, 189, '2024-03-15 06:00:00', 'Completada'),
+(304, 201, '2024-03-15 19:00:00', 'Completada'),
+(306, 12, '2024-03-16 07:00:00', 'Completada'),
+(308, 23, '2024-03-16 18:00:00', 'Activa'),
+(310, 34, '2024-03-18 06:30:00', 'Completada'),
+(312, 45, '2024-03-18 18:30:00', 'Completada'),
+
+-- ABRIL 2025 - RESERVAS (25 registros - completando)
+(314, 56, '2025-04-01 07:30:00', 'Completada'),
+(316, 67, '2025-04-01 19:30:00', 'Completada'),
+(318, 78, '2025-04-02 06:00:00', 'Completada'),
+(320, 89, '2025-04-02 19:00:00', 'Cancelada'),
+(322, 101, '2025-04-03 07:00:00', 'Completada'),
+(324, 112, '2025-04-03 18:00:00', 'Completada'),
+(326, 123, '2025-04-04 06:30:00', 'Completada'),
+(328, 134, '2025-04-04 18:30:00', 'Activa'),
+(330, 145, '2025-04-05 07:30:00', 'Completada'),
+(332, 156, '2025-04-05 19:30:00', 'Completada'),
+(334, 167, '2025-04-07 06:00:00', 'Completada'),
+(336, 178, '2025-04-07 19:00:00', 'Completada'),
+(338, 189, '2025-04-08 07:00:00', 'Cancelada'),
+(340, 201, '2025-04-08 18:00:00', 'Completada'),
+(342, 12, '2025-04-09 06:30:00', 'Completada'),
+(344, 23, '2025-04-09 18:30:00', 'Activa'),
+(346, 34, '2025-04-10 07:30:00', 'Completada'),
+(348, 45, '2025-04-10 19:30:00', 'Completada'),
+(350, 56, '2025-04-11 06:00:00', 'Completada'),
+(352, 67, '2025-04-11 19:00:00', 'Completada'),
+(354, 78, '2025-04-12 07:00:00', 'Completada'),
+(356, 89, '2025-04-12 18:00:00', 'Cancelada'),
+(358, 101, '2025-04-14 06:30:00', 'Completada'),
+(360, 112, '2025-04-14 18:30:00', 'Completada'),
+(362, 123, '2025-04-15 07:30:00', 'Activa'),
+
+-- MAYO 2025 - RESERVAS (20 registros - completando)
+(364, 134, '2025-05-01 06:00:00', 'Completada'),
+(366, 145, '2025-05-01 19:00:00', 'Completada'),
+(368, 156, '2025-05-02 07:00:00', 'Completada'),
+(370, 167, '2025-05-02 18:00:00', 'Cancelada'),
+(372, 178, '2025-05-03 06:30:00', 'Completada'),
+(374, 189, '2025-05-03 18:30:00', 'Completada'),
+(376, 201, '2025-05-05 07:30:00', 'Completada'),
+(378, 12, '2025-05-05 19:30:00', 'Activa'),
+(380, 23, '2025-05-06 06:00:00', 'Completada'),
+(382, 34, '2025-05-06 19:00:00', 'Completada'),
+(384, 45, '2025-05-07 07:00:00', 'Completada'),
+(386, 56, '2025-05-07 18:00:00', 'Completada'),
+(388, 67, '2025-05-08 06:30:00', 'Cancelada'),
+(390, 78, '2025-05-08 18:30:00', 'Completada'),
+(392, 89, '2025-05-09 07:30:00', 'Completada'),
+(394, 101, '2025-05-09 19:30:00', 'Activa'),
+(396, 112, '2025-05-10 06:00:00', 'Completada'),
+(398, 123, '2025-05-10 19:00:00', 'Completada'),
+(400, 134, '2025-05-12 07:00:00', 'Completada'),
+(402, 145, '2025-05-12 18:00:00', 'Completada');
+
+-- =============================================
+-- RESUMEN: Reservas 801-900 insertadas
+-- FEBRERO 2024: 25 reservas (completando)
+-- MARZO 2024: 30 reservas (completando)
+-- ABRIL 2025: 25 reservas (completando)
+-- MAYO 2025: 20 reservas (completando)
+-- Estados: Mayoría Completada, algunas Canceladas y Activas
+-- Total: 100 reservas
+-- =============================================
+
+
+
+-- =============================================
+-- RESERVAS FINALES 2025 (Registros 901-950)
+-- Estados: Activa, Completada, Cancelada
+-- Completando últimos meses
+-- JUNIO 2025: 20 reservas
+-- JULIO 2025: 15 reservas
+-- AGOSTO 2025: 10 reservas
+-- SEPTIEMBRE 2025: 5 reservas
+-- =============================================
+
+INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva) VALUES
+-- JUNIO 2025 - RESERVAS (20 registros - completando)
+(404, 156, '2025-06-01 06:30:00', 'Completada'),
+(406, 167, '2025-06-01 18:00:00', 'Completada'),
+(408, 178, '2025-06-02 07:00:00', 'Completada'),
+(410, 189, '2025-06-02 19:00:00', 'Cancelada'),
+(412, 201, '2025-06-03 06:30:00', 'Completada'),
+(414, 12, '2025-06-03 18:30:00', 'Completada'),
+(416, 23, '2025-06-04 07:30:00', 'Completada'),
+(418, 34, '2025-06-04 19:30:00', 'Activa'),
+(420, 45, '2025-06-05 06:00:00', 'Completada'),
+(422, 56, '2025-06-05 19:00:00', 'Completada'),
+(424, 67, '2025-06-06 07:00:00', 'Completada'),
+(426, 78, '2025-06-06 18:00:00', 'Completada'),
+(428, 89, '2025-06-07 06:30:00', 'Cancelada'),
+(430, 101, '2025-06-07 18:30:00', 'Completada'),
+(432, 112, '2025-06-09 07:30:00', 'Completada'),
+(434, 123, '2025-06-09 19:30:00', 'Activa'),
+(436, 134, '2025-06-10 06:00:00', 'Completada'),
+(438, 145, '2025-06-10 19:00:00', 'Completada'),
+(440, 156, '2025-06-11 07:00:00', 'Completada'),
+(442, 167, '2025-06-11 18:00:00', 'Completada'),
+
+-- JULIO 2025 - RESERVAS (15 registros - completando)
+(444, 178, '2025-07-01 06:30:00', 'Completada'),
+(446, 189, '2025-07-01 18:30:00', 'Completada'),
+(448, 201, '2025-07-02 07:30:00', 'Cancelada'),
+(450, 12, '2025-07-02 19:30:00', 'Completada'),
+(452, 23, '2025-07-03 06:00:00', 'Completada'),
+(454, 34, '2025-07-03 19:00:00', 'Activa'),
+(456, 45, '2025-07-04 07:00:00', 'Completada'),
+(458, 56, '2025-07-04 18:00:00', 'Completada'),
+(460, 67, '2025-07-05 06:30:00', 'Completada'),
+(462, 78, '2025-07-05 18:30:00', 'Completada'),
+(464, 89, '2025-07-07 07:30:00', 'Cancelada'),
+(466, 101, '2025-07-07 19:30:00', 'Completada'),
+(468, 112, '2025-07-08 06:00:00', 'Completada'),
+(470, 123, '2025-07-08 19:00:00', 'Activa'),
+(472, 134, '2025-07-09 07:00:00', 'Completada'),
+
+-- AGOSTO 2025 - RESERVAS (10 registros - completando)
+(474, 145, '2025-08-01 06:30:00', 'Completada'),
+(476, 156, '2025-08-01 18:00:00', 'Completada'),
+(478, 167, '2025-08-02 07:00:00', 'Cancelada'),
+(480, 178, '2025-08-02 19:00:00', 'Completada'),
+(482, 189, '2025-08-04 06:30:00', 'Completada'),
+(484, 201, '2025-08-04 18:30:00', 'Activa'),
+(486, 12, '2025-08-05 07:30:00', 'Completada'),
+(488, 23, '2025-08-05 19:30:00', 'Completada'),
+(490, 34, '2025-08-06 06:00:00', 'Completada'),
+(492, 45, '2025-08-06 19:00:00', 'Completada'),
+
+-- SEPTIEMBRE 2025 - RESERVAS (5 registros - completando)
+(494, 56, '2025-09-01 07:00:00', 'Completada'),
+(496, 67, '2025-09-01 18:00:00', 'Cancelada'),
+(498, 78, '2025-09-02 06:30:00', 'Completada'),
+(500, 89, '2025-09-02 18:30:00', 'Activa'),
+(502, 101, '2025-09-03 07:30:00', 'Completada');
+
+-- =============================================
+-- RESUMEN: Reservas 901-950 insertadas
+-- JUNIO 2025: 20 reservas (completando)
+-- JULIO 2025: 15 reservas (completando)
+-- AGOSTO 2025: 10 reservas (completando)
+-- SEPTIEMBRE 2025: 5 reservas (completando)
+-- Estados: Mayoría Completada, algunas Canceladas y Activas
+-- Total: 50 reservas
+-- =============================================
+
+
+
 
 
 
