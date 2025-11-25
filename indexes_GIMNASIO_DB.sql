@@ -6,6 +6,7 @@ USE GIMNASIO_DB;
 
 /*===========SOCIO======== */ 
 /*1 Buscar socios activos VISTA VW_Dashboard_Gimnasio, VW_Socios_Morosos */
+SELECT * FROM VW_Dashboard_Gimnasio;
 SELECT * FROM VW_Socios_Morosos;
 SELECT * FROM Socio WHERE Estado = 'Activo';
 
@@ -31,7 +32,9 @@ SELECT * FROM VW_Dashboard_Gimnasio;
 SELECT * FROM Pago 
 WHERE Fecha_pago BETWEEN '2025-01-01' AND '2025-12-31';
 
-CREATE NONCLUSTERED INDEX idx_pago_fechapago ON Pago(Fecha_Pago);
+CREATE NONCLUSTERED INDEX idx_pago_fechapago 
+ON Pago(Fecha_Pago)
+INCLUDE (Monto);
 
 /*2. VISTA VW_Socios_Morosos FK */
 SELECT * FROM VW_Socios_Morosos;
@@ -39,11 +42,6 @@ SELECT * FROM VW_Socios_Morosos;
 CREATE NONCLUSTERED INDEX idx_pago_socio_fecha
 ON Pago(id_socio, Fecha_Pago);
 
-/*3. pago e id socio*/
-SELECT * FROM Pago 
-WHERE id_socio = 10;
-
-CREATE NONCLUSTERED INDEX idx_pago_socio ON Pago(id_socio);
 
 /*===========RESERVA=========*/
 /* 1 Buscar reserva por fecha*/
@@ -68,10 +66,12 @@ CREATE NONCLUSTERED INDEX idx_reserva_socio_fecha
 ON Reserva(id_socio, Fecha_Reserva);
 
 /*4. VW_Clases_Disponibilidad. */
-SELECT * FROM VW_Clases_Disponibilidad;
+SELECT * FROM VW_Clases_Disponibilidad 
+WHERE Estado = 'DISPONIBLE';
 
 CREATE NONCLUSTERED INDEX idx_reserva_estado_grupo
-ON Reserva(Estado_Reserva, id_grupo_de_clase);
+ON Reserva(Estado_Reserva, id_grupo_de_clase)
+INCLUDE (Id);
 
 
 /*=============CLASE==================*/
@@ -130,7 +130,7 @@ LEFT JOIN Entrenador ON Entrenador.Id = Pago.id_entrenador
 WHERE Pago.id_socio = 10;
 
 /*3. Reservas con datos del socio y clase*/
-SELECT Reserva.Id, Socio.Nombre, Socio.Apellido, Grupo_de_Clase.horario, Clase.Nombre AS Clase
+SELECT Reserva.Id, Reserva.Fecha_Reserva , Socio.Nombre, Socio.Apellido, Grupo_de_Clase.horario, Clase.Nombre AS Clase
 FROM Reserva 
 JOIN Socio  ON Socio.Id = Reserva.id_socio
 JOIN Grupo_de_Clase  ON Grupo_de_Clase.Id = Reserva.id_grupo_de_clase
