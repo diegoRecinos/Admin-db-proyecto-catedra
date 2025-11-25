@@ -5,9 +5,6 @@
 -- ========================================
 --Se recomienda agregar de 100 en 100
 
-USE GIMNASIO_DB
-GO
-
 INSERT INTO Socio (Nombre, Apellido, Fecha_nacimiento, Telefono, Email, Fecha_registro, Estado) VALUES
 ('Juan', 'Pérez', '1990-05-15', '555-0001', 'juan.perez001@email.com', '2022-01-15 10:30:00', 'Activo'),
 ('María', 'Gómez', '1985-08-22', '555-0002', 'maria.gomez002@email.com', '2022-01-18 14:20:00', 'Activo'),
@@ -5788,6 +5785,85 @@ INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva)
 -- Estados: Mayoría Completada, algunas Canceladas y Activas
 -- Total: 50 reservas
 -- =============================================
+
+--Agregando ultimos datos para no tener socios fantasmas (se llenaran pagos entre el 2022 y el 2023)
+
+
+
+SET NOCOUNT ON;
+DECLARE @i INT = 0;
+DECLARE @TotalInserts INT = 1000; -- Generaremos 1000 registros
+-- Variables para guardar los IDs válidos que encontraremos
+DECLARE @RandSocioID INT;
+DECLARE @RandGrupoID INT;
+DECLARE @RandEntrenadorID INT;
+DECLARE @RandFecha DATETIME;
+DECLARE @RandMetodo NVARCHAR(20);
+-- Configuración de fechas: Entre Feb 2022 y Dic 2023
+DECLARE @FechaInicio DATE = '2022-02-01'; 
+DECLARE @DiasRango INT = 690; -- Aprox 2 años
+WHILE @i < @TotalInserts
+BEGIN
+-- Seleccionar un Socio antiguo al azar (ID <= 400)
+SELECT TOP 1 @RandSocioID = Id 
+FROM Socio 
+WHERE Id <= 400 
+ORDER BY NEWID();
+-- Seleccionar un Grupo de Clase real
+SELECT TOP 1 @RandGrupoID = Id 
+FROM Grupo_de_Clase 
+ORDER BY NEWID();
+-- Seleccionar un Entrenador real
+SELECT TOP 1 @RandEntrenadorID = Id 
+FROM Entrenador 
+ORDER BY NEWID();
+-- Validación de seguridad: si las tablas están vacías, parar.
+IF @RandSocioID IS NULL OR @RandGrupoID IS NULL OR @RandEntrenadorID IS NULL
+BEGIN
+PRINT 'Error: Faltan datos en las tablas maestras (Socio, Grupo o Entrenador).';
+BREAK;
+END
+-- Fecha aleatoria
+SET @RandFecha = DATEADD(DAY, FLOOR(RAND() * @DiasRango), @FechaInicio);
+-- Hora aleatoria entre 6 AM y 8 PM
+SET @RandFecha = DATEADD(HOUR, FLOOR(RAND() * 14) + 6, @RandFecha); 
+-- Método de pago aleatorio
+SET @RandMetodo = CASE FLOOR(RAND() * 3)
+WHEN 0 THEN 'Efectivo'
+WHEN 1 THEN 'Tarjeta'
+ELSE 'Transferencia'
+END;
+-------------------------------------------------------------------------
+-- 3. INSERTAR (Ahora es seguro porque usamos IDs validados)
+-------------------------------------------------------------------------
+-- Insertar Pago (70% Mensual / 30% Clase)
+IF (RAND() > 0.3)
+BEGIN
+INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto)
+VALUES (@RandSocioID, @RandGrupoID, @RandEntrenadorID, @RandFecha, 'Mensual', @RandMetodo, 45.00);
+END
+ELSE
+BEGIN
+INSERT INTO Pago (id_socio, id_grupo_de_clase, id_entrenador, Fecha_Pago, Tipo_Pago, Metodo_Pago, Monto)
+VALUES (@RandSocioID, @RandGrupoID, @RandEntrenadorID, @RandFecha, 'Clase', @RandMetodo, 15.00);
+END
+-- Insertar Reserva relacionada (fecha cercana al pago)
+DECLARE @FechaReserva DATETIME;
+SET @FechaReserva = DATEADD(DAY, FLOOR(RAND() * 5) - 2, @RandFecha); -- +/- 2 días
+ INSERT INTO Reserva (id_socio, id_grupo_de_clase, Fecha_Reserva, Estado_Reserva)
+VALUES (
+@RandSocioID, 
+@RandGrupoID, 
+@FechaReserva, 
+CASE WHEN RAND() > 0.1 THEN 'Completada' ELSE 'Cancelada' END
+);
+SET @i = @i + 1;
+END
+GO
+
+
+
+
 
 
 
