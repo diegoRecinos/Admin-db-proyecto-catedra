@@ -52,6 +52,20 @@ ALTER ROLE db_datareader ADD MEMBER U_LectorBI;
 
 --Permisos y denegaciones de cada rol:
 
+--Denegaciones generales:
+USE master;
+DENY ALTER ANY DATABASE TO Rol_Auditor;
+
+USE GIMNASIO_DB;
+DENY BACKUP DATABASE TO Rol_ClassManager, Rol_PagosManager, Rol_Recepcionista, 
+    Rol_Entrenador, Rol_Gerente, Rol_Auditor;
+
+DENY CREATE TABLE TO Rol_ClassManager, Rol_PagosManager, Rol_Recepcionista, 
+    Rol_Entrenador, Rol_Gerente, Rol_Auditor, Rol_BackupOperator;
+
+DENY CREATE VIEW TO Rol_ClassManager, Rol_PagosManager, Rol_Recepcionista, 
+    Rol_Entrenador, Rol_Gerente, Rol_Auditor, Rol_BackupOperator;
+
 --Rol operador:
 GRANT BACKUP DATABASE TO Rol_BackupOperator;
 GRANT BACKUP LOG TO Rol_BackupOperator;
