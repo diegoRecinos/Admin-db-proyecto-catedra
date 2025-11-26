@@ -163,6 +163,15 @@ GRANT VIEW SERVER SECURITY AUDIT TO L_Auditor;
 GRANT SELECT ON sys.fn_get_audit_file TO U_Auditor;
 GO
 
+--Lector BI
+GRANT SELECT ON dbo.VW_Dashboard_Gimnasio TO U_LectorBI;
+GRANT SELECT ON dbo.VW_Clases_Disponibilidad TO U_LectorBI;
+GRANT SELECT ON dbo.VW_Socios_Morosos TO U_LectorBI;
+GRANT SELECT ON dbo.VW_Horario_Semanal TO U_LectorBI;
+
+DENY INSERT, UPDATE, DELETE ON SCHEMA::dbo TO U_LectorBI;
+DENY CREATE TABLE, ALTER, EXECUTE TO U_LectorBI;
+
 -- Visualizar usuarios y roles en la base​
 USE GIMNASIO_DB;
 SELECT 
