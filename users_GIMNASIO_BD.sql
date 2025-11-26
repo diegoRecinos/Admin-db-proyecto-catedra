@@ -57,6 +57,9 @@ GRANT BACKUP DATABASE TO Rol_BackupOperator;
 GRANT BACKUP LOG TO Rol_BackupOperator;
 
 DENY SELECT, INSERT, UPDATE, DELETE ON SCHEMA::dbo TO Rol_BackupOperator;
+DENY CREATE TABLE TO Rol_BackupOperator;
+DENY ALTER ON SCHEMA::dbo TO Rol_BackupOperator;
+DENY EXECUTE TO Rol_BackupOperator;
 
 --Rol manager de clases
 GRANT UPDATE, SELECT ON dbo.Clase TO Rol_ClassManager;
@@ -67,6 +70,8 @@ DENY SELECT, INSERT, UPDATE, DELETE ON dbo.Pago TO Rol_ClassManager;
 DENY SELECT, INSERT, UPDATE, DELETE ON dbo.Socio TO Rol_ClassManager;
 DENY SELECT, INSERT, UPDATE, DELETE ON dbo.Reserva TO Rol_ClassManager;
 DENY INSERT, UPDATE, DELETE ON dbo.Entrenador TO Rol_ClassManager;
+DENY CREATE TABLE TO Rol_ClassManager;
+DENY DELETE ON SCHEMA::dbo TO Rol_ClassManager;
 
 --Rol manager de pagos
 GRANT SELECT, INSERT, UPDATE ON dbo.Pago TO Rol_PagosManager;
@@ -80,6 +85,8 @@ DENY UPDATE, INSERT, DELETE ON dbo.Entrenador TO Rol_PagosManager;
 DENY UPDATE, INSERT, DELETE ON dbo.Socio TO Rol_PagosManager;
 DENY UPDATE, INSERT, DELETE ON dbo.Clase TO Rol_PagosManager;
 DENY UPDATE, INSERT, DELETE ON dbo.Grupo_de_Clase TO Rol_PagosManager;
+DENY DELETE ON dbo.Pago TO Rol_PagosManager;
+DENY CREATE TABLE TO Rol_PagosManager;
 
 --Rol Recepcionista
 GRANT INSERT, SELECT ON dbo.Socio TO Rol_Recepcionista;
@@ -89,6 +96,10 @@ GRANT SELECT ON dbo.Grupo_de_Clase TO Rol_Recepcionista;
 DENY DELETE, UPDATE ON dbo.Socio TO Rol_Recepcionista;
 DENY DELETE, UPDATE ON dbo.Reserva TO Rol_Recepcionista;
 DENY INSERT, DELETE, UPDATE ON dbo.Grupo_de_Clase TO Rol_Recepcionista;
+DENY ALTER ON OBJECT::dbo.Socio TO Rol_Recepcionista;
+DENY ALTER ON OBJECT::dbo.Reserva TO Rol_Recepcionista;
+DENY CREATE TABLE TO Rol_Recepcionista;
+DENY EXECUTE TO Rol_Recepcionista;
 
 --Rol Entrenador
 GRANT SELECT ON dbo.Clase TO Rol_Entrenador;
@@ -102,6 +113,9 @@ DENY INSERT, UPDATE, DELETE ON dbo.Socio TO Rol_Entrenador;
 DENY INSERT, UPDATE, DELETE ON dbo.Reserva TO Rol_Entrenador;
 DENY SELECT, INSERT, UPDATE, DELETE ON dbo.Entrenador TO Rol_Entrenador;
 DENY SELECT, INSERT, UPDATE, DELETE ON dbo.Pago TO Rol_Entrenador;
+DENY ALTER ANY DATABASE TO Rol_Entrenador;
+DENY CREATE TABLE TO Rol_Entrenador;
+DENY EXECUTE TO Rol_Entrenador;
 
 --Rol gerente
 GRANT SELECT, INSERT, UPDATE ON dbo.Socio TO Rol_Gerente;
@@ -117,9 +131,16 @@ DENY DELETE ON dbo.Socio TO Rol_Gerente;
 DENY DELETE ON dbo.Entrenador TO Rol_Gerente;
 DENY DELETE ON dbo.Clase TO Rol_Gerente;
 DENY DELETE ON dbo.Grupo_de_Clase TO Rol_Gerente;
-
+DENY ALTER DATABASE TO Rol_Gerente;
+DENY CREATE TABLE TO Rol_Gerente;
+DENY BACKUP DATABASE TO Rol_Gerente;
+DENY ALTER ANY USER TO Rol_Gerente;
 --rol de auditor
 ALTER ROLE db_datareader ADD MEMBER U_Auditor;
+DENY INSERT, UPDATE, DELETE ON SCHEMA::dbo TO Rol_Auditor;
+DENY ALTER ANY DATABASE TO Rol_Auditor;
+DENY CREATE TABLE TO Rol_Auditor;
+DENY EXECUTE TO Rol_Auditor;
 
 USE [master]
 -- Permisos para auditoría del servidor
