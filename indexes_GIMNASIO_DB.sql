@@ -140,7 +140,7 @@ WHERE Socio.Id = 12;
 -- En SQL Server: índices que el optimizador sugiere
 SELECT * FROM sys.dm_db_missing_index_details
 
--- Consultar la fragmentación
+-- Consultar la fragmentación y consulta para SQL server job agent 
 SELECT 
 OBJECT_NAME(ips.object_id) AS Tabla,
 i.name AS Indice,
